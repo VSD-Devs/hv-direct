@@ -164,33 +164,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Our Values */}
-      <section className="py-20 bg-[#f5f5f5]">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold mb-4 text-brand-dark-blue">
-              Our Core Values
-            </h2>
-            <div className="h-1 w-20 bg-[#137DC5] mx-auto mb-6"></div>
-            <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto">
-              These principles guide our approach to every project and client relationship, ensuring we deliver the highest quality service.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {values.map((value, index) => (
-              <div key={index} className="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow h-full">
-                <div className="inline-flex items-center justify-center h-16 w-16 rounded-full bg-[#137DC5]/10 text-[#137DC5] mb-6">
-                  {value.icon}
-                </div>
-                <h3 className="text-xl font-semibold mb-4">{value.title}</h3>
-                <p className="text-base md:text-lg text-gray-600">{value.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
+     
       {/* Experience Section */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">

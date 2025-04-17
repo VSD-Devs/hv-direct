@@ -72,7 +72,8 @@ export default function ResidentialPage() {
     <main className="min-h-screen">
       {/* Hero Section */}
       <section className="relative py-20 md:py-28 bg-cover bg-center text-white" style={{ 
-        backgroundImage: "linear-gradient(rgba(23, 63, 90, 0.85), rgba(16, 59, 88, 0.75)), url('/images/residential-hero.jpg')"
+        backgroundImage: "linear-gradient(rgba(23, 63, 90, 0.85), rgba(16, 59, 88, 0.75)), url('/images/residential-new-connection.png')",
+        backgroundPosition: "center top"
       }}>
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-3xl">
@@ -113,65 +114,115 @@ export default function ResidentialPage() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="bg-[#f9f9f9] p-8 rounded-xl hover:shadow-md transition-shadow">
-              <div className="inline-flex items-center justify-center h-16 w-16 rounded-full bg-[#137DC5]/10 text-[#137DC5] mb-6">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="relative group overflow-hidden rounded-xl shadow-md">
+              <img 
+                src="/images/residential-benefit-1.jpg" 
+                alt="Timely Delivery" 
+                className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0f5f96]/90 to-[#0f5f96]/30"></div>
+              <div className="absolute inset-0 p-6 flex flex-col justify-end text-white">
+                <div className="inline-flex items-center justify-center h-16 w-16 rounded-full bg-white/20 backdrop-blur-sm mb-4">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+                <h3 className="text-xl font-semibold mb-2">Timely Delivery</h3>
+                <p className="text-white/90">We understand that delays cost money. Our efficient processes ensure your electrical connections are completed on schedule.</p>
               </div>
-              <h3 className="text-xl font-semibold mb-4">Timely Delivery</h3>
-              <p className="text-base md:text-lg text-gray-600">We understand that delays cost money. Our efficient processes ensure your electrical connections are completed on schedule.</p>
             </div>
 
-            <div className="bg-[#f9f9f9] p-8 rounded-xl hover:shadow-md transition-shadow">
-              <div className="inline-flex items-center justify-center h-16 w-16 rounded-full bg-[#137DC5]/10 text-[#137DC5] mb-6">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
+            <div className="relative group overflow-hidden rounded-xl shadow-md">
+              <img 
+                src="/images/residential-benefit-2.jpg" 
+                alt="Quality Assurance" 
+                className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0f5f96]/90 to-[#0f5f96]/30"></div>
+              <div className="absolute inset-0 p-6 flex flex-col justify-end text-white">
+                <div className="inline-flex items-center justify-center h-16 w-16 rounded-full bg-white/20 backdrop-blur-sm mb-4">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+                <h3 className="text-xl font-semibold mb-2">Quality Assurance</h3>
+                <p className="text-white/90">All our installations exceed industry standards, ensuring long-term reliability and minimal maintenance requirements.</p>
               </div>
-              <h3 className="text-xl font-semibold mb-4">Quality Assurance</h3>
-              <p className="text-base md:text-lg text-gray-600">All our installations exceed industry standards, ensuring long-term reliability and minimal maintenance requirements.</p>
             </div>
 
-            <div className="bg-[#f9f9f9] p-8 rounded-xl hover:shadow-md transition-shadow">
-              <div className="inline-flex items-center justify-center h-16 w-16 rounded-full bg-[#137DC5]/10 text-[#137DC5] mb-6">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
+            <div className="relative group overflow-hidden rounded-xl shadow-md">
+              <img 
+                src="/images/residential-benefit-3.jpg" 
+                alt="Cost Effective" 
+                className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0f5f96]/90 to-[#0f5f96]/30"></div>
+              <div className="absolute inset-0 p-6 flex flex-col justify-end text-white">
+                <div className="inline-flex items-center justify-center h-16 w-16 rounded-full bg-white/20 backdrop-blur-sm mb-4">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+                <h3 className="text-xl font-semibold mb-2">Cost Effective</h3>
+                <p className="text-white/90">Our efficient designs and streamlined processes help reduce costs without compromising on quality or reliability.</p>
               </div>
-              <h3 className="text-xl font-semibold mb-4">Cost Effective</h3>
-              <p className="text-base md:text-lg text-gray-600">Our efficient designs and streamlined processes help reduce costs without compromising on quality or reliability.</p>
+            </div>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8 mt-8">
+            <div className="relative group overflow-hidden rounded-xl shadow-md">
+              <img 
+                src="/images/residential-benefit-4.jpg" 
+                alt="Future-Proof Design" 
+                className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0f5f96]/90 to-[#0f5f96]/30"></div>
+              <div className="absolute inset-0 p-6 flex flex-col justify-end text-white">
+                <div className="inline-flex items-center justify-center h-16 w-16 rounded-full bg-white/20 backdrop-blur-sm mb-4">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                  </svg>
+                </div>
+                <h3 className="text-xl font-semibold mb-2">Future-Proof Design</h3>
+                <p className="text-white/90">We design with future demands in mind, accounting for EV charging requirements and increased household electrical consumption.</p>
+              </div>
             </div>
 
-            <div className="bg-[#f9f9f9] p-8 rounded-xl hover:shadow-md transition-shadow">
-              <div className="inline-flex items-center justify-center h-16 w-16 rounded-full bg-[#137DC5]/10 text-[#137DC5] mb-6">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                </svg>
+            <div className="relative group overflow-hidden rounded-xl shadow-md">
+              <img 
+                src="/images/residential-benefit-5.jpg" 
+                alt="End-to-End Service" 
+                className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0f5f96]/90 to-[#0f5f96]/30"></div>
+              <div className="absolute inset-0 p-6 flex flex-col justify-end text-white">
+                <div className="inline-flex items-center justify-center h-16 w-16 rounded-full bg-white/20 backdrop-blur-sm mb-4">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                  </svg>
+                </div>
+                <h3 className="text-xl font-semibold mb-2">End-to-End Service</h3>
+                <p className="text-white/90">From initial design to final connection, we manage the entire process, providing a single point of contact throughout the project.</p>
               </div>
-              <h3 className="text-xl font-semibold mb-4">Future-Proof Design</h3>
-              <p className="text-base md:text-lg text-gray-600">We design with future demands in mind, accounting for EV charging requirements and increased household electrical consumption.</p>
             </div>
 
-            <div className="bg-[#f9f9f9] p-8 rounded-xl hover:shadow-md transition-shadow">
-              <div className="inline-flex items-center justify-center h-16 w-16 rounded-full bg-[#137DC5]/10 text-[#137DC5] mb-6">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                </svg>
+            <div className="relative group overflow-hidden rounded-xl shadow-md">
+              <img 
+                src="/images/residential-benefit-6.jpg" 
+                alt="Regulatory Compliance" 
+                className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0f5f96]/90 to-[#0f5f96]/30"></div>
+              <div className="absolute inset-0 p-6 flex flex-col justify-end text-white">
+                <div className="inline-flex items-center justify-center h-16 w-16 rounded-full bg-white/20 backdrop-blur-sm mb-4">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                  </svg>
+                </div>
+                <h3 className="text-xl font-semibold mb-2">Regulatory Compliance</h3>
+                <p className="text-white/90">We handle all necessary permissions, approvals and compliance requirements, ensuring your project meets all regulatory standards.</p>
               </div>
-              <h3 className="text-xl font-semibold mb-4">End-to-End Service</h3>
-              <p className="text-base md:text-lg text-gray-600">From initial design to final connection, we manage the entire process, providing a single point of contact throughout the project.</p>
-            </div>
-
-            <div className="bg-[#f9f9f9] p-8 rounded-xl hover:shadow-md transition-shadow">
-              <div className="inline-flex items-center justify-center h-16 w-16 rounded-full bg-[#137DC5]/10 text-[#137DC5] mb-6">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-semibold mb-4">Regulatory Compliance</h3>
-              <p className="text-base md:text-lg text-gray-600">We handle all necessary permissions, approvals and compliance requirements, ensuring your project meets all regulatory standards.</p>
             </div>
           </div>
         </div>
@@ -190,29 +241,39 @@ export default function ResidentialPage() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8">
-            {services.map((service, index) => (
-              <Link 
-                href={service.link}
-                key={index}
-                className="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow flex flex-col h-full"
-              >
-                <div className="inline-flex items-center justify-center h-16 w-16 rounded-full bg-[#137DC5]/10 text-[#137DC5] mb-6">
+          {services.map((service, index) => (
+            <div 
+              key={index}
+              className={`flex flex-col md:flex-row items-center gap-12 py-12 ${index !== 0 ? 'border-t border-gray-200' : ''}`}
+            >
+              <div className={`md:w-1/2 ${index % 2 !== 0 ? 'md:order-last' : ''}`}>
+                <div className="relative h-64 md:h-80 rounded-xl overflow-hidden shadow-md">
+                  <img
+                    src={`/images/residential-service-${index + 1}.jpg`}
+                    alt={service.title}
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0f5f96]/30 to-transparent"></div>
+                </div>
+              </div>
+              <div className="md:w-1/2 text-center md:text-left mt-8 md:mt-0">
+                <div className="inline-flex items-center justify-center h-16 w-16 rounded-full bg-[#137DC5]/10 text-[#137DC5] mb-4">
                   {service.icon}
                 </div>
-                <h3 className="text-xl font-semibold mb-4">{service.title}</h3>
+                <h3 className="text-2xl font-semibold mb-4">{service.title}</h3>
                 <p className="text-base md:text-lg text-gray-600 mb-6">{service.description}</p>
-                <div className="mt-auto">
-                  <span className="text-[#137DC5] font-medium flex items-center">
-                    Learn more
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-1" viewBox="0 0 20 20" fill="currentColor">
-                      <path fillRule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
-                    </svg>
-                  </span>
-                </div>
-              </Link>
-            ))}
-          </div>
+                <Link 
+                  href={service.link}
+                  className="inline-flex items-center px-5 py-2.5 rounded-md bg-[#137DC5] text-white font-medium hover:bg-[#0f5f96] transition-colors"
+                >
+                  Learn more
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </Link>
+              </div>
+            </div>
+          ))}
         </div>
       </section>
 
@@ -229,101 +290,39 @@ export default function ResidentialPage() {
             </p>
           </div>
 
-          <div className="max-w-4xl mx-auto">
-            <div className="relative">
-              {/* Process timeline */}
-              <div className="absolute left-[15px] md:left-1/2 top-0 bottom-0 w-1 bg-[#137DC5]/20 transform md:-translate-x-1/2"></div>
+          <div className="grid md:grid-cols-5 gap-6 max-w-6xl mx-auto">
+            <div className="col-span-full md:col-span-3">
+              <div className="rounded-xl overflow-hidden h-80 shadow-md">
+                <img 
+                  src="/images/residential-process.jpg" 
+                  alt="Residential connection process" 
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </div>
+            
+            <div className="col-span-full md:col-span-2 space-y-6">
+              <div className="bg-[#f5f5f5] p-6 rounded-xl shadow-sm relative">
+                <div className="absolute -left-3 top-1/2 transform -translate-y-1/2 h-10 w-10 bg-[#137DC5] rounded-full border-4 border-white shadow flex items-center justify-center text-white font-bold">1</div>
+                <div className="ml-6">
+                  <h3 className="text-xl font-semibold mb-2">Initial Consultation</h3>
+                  <p className="text-base text-gray-600">We discuss your requirements, timelines and budget to understand the full scope of your residential project.</p>
+                </div>
+              </div>
               
-              {/* Steps */}
-              <div className="relative z-10">
-                {/* Step 1 */}
-                <div className="flex flex-col md:flex-row items-start mb-12">
-                  <div className="flex items-center md:w-1/2 md:pr-12 md:text-right order-2 md:order-1 pl-10 md:pl-0">
-                    <div>
-                      <h3 className="text-xl font-semibold mb-2 text-[#1a1a1a]">Initial Consultation</h3>
-                      <p className="text-base md:text-lg text-gray-600">We discuss your requirements, timelines and budget to understand the full scope of your residential project.</p>
-                    </div>
-                  </div>
-                  
-                  <div className="absolute left-0 md:left-1/2 top-0 w-10 h-10 bg-[#137DC5] rounded-full border-4 border-white shadow transform md:-translate-x-1/2 flex items-center justify-center text-white font-bold">
-                    1
-                  </div>
-                  
-                  <div className="md:w-1/2 md:pl-12 order-1 md:order-2 invisible md:visible">
-                    {/* Right side empty for the first step in desktop view */}
-                  </div>
+              <div className="bg-[#f5f5f5] p-6 rounded-xl shadow-sm relative">
+                <div className="absolute -left-3 top-1/2 transform -translate-y-1/2 h-10 w-10 bg-[#137DC5] rounded-full border-4 border-white shadow flex items-center justify-center text-white font-bold">2</div>
+                <div className="ml-6">
+                  <h3 className="text-xl font-semibold mb-2">Design & Quotation</h3>
+                  <p className="text-base text-gray-600">Our engineers create a detailed design and provide a comprehensive, transparent quotation for your approval.</p>
                 </div>
-                
-                {/* Step 2 */}
-                <div className="flex flex-col md:flex-row items-start mb-12">
-                  <div className="md:w-1/2 md:pr-12 invisible md:visible order-2 md:order-1">
-                    {/* Left side empty for the second step in desktop view */}
-                  </div>
-                  
-                  <div className="absolute left-0 md:left-1/2 top-[110px] w-10 h-10 bg-[#137DC5] rounded-full border-4 border-white shadow transform md:-translate-x-1/2 flex items-center justify-center text-white font-bold">
-                    2
-                  </div>
-                  
-                  <div className="flex items-center md:w-1/2 md:pl-12 order-1 md:order-2 pl-10 md:pl-12">
-                    <div>
-                      <h3 className="text-xl font-semibold mb-2 text-[#1a1a1a]">Design & Quotation</h3>
-                      <p className="text-base md:text-lg text-gray-600">Our engineers create a detailed design and provide a comprehensive, transparent quotation for your approval.</p>
-                    </div>
-                  </div>
-                </div>
-                
-                {/* Step 3 */}
-                <div className="flex flex-col md:flex-row items-start mb-12">
-                  <div className="flex items-center md:w-1/2 md:pr-12 md:text-right order-2 md:order-1 pl-10 md:pl-0">
-                    <div>
-                      <h3 className="text-xl font-semibold mb-2 text-[#1a1a1a]">Permissions & Approvals</h3>
-                      <p className="text-base md:text-lg text-gray-600">We handle all necessary applications, DNO liaison, and regulatory requirements on your behalf.</p>
-                    </div>
-                  </div>
-                  
-                  <div className="absolute left-0 md:left-1/2 top-[220px] w-10 h-10 bg-[#137DC5] rounded-full border-4 border-white shadow transform md:-translate-x-1/2 flex items-center justify-center text-white font-bold">
-                    3
-                  </div>
-                  
-                  <div className="md:w-1/2 md:pl-12 order-1 md:order-2 invisible md:visible">
-                    {/* Right side empty for the third step in desktop view */}
-                  </div>
-                </div>
-                
-                {/* Step 4 */}
-                <div className="flex flex-col md:flex-row items-start mb-12">
-                  <div className="md:w-1/2 md:pr-12 invisible md:visible order-2 md:order-1">
-                    {/* Left side empty for the fourth step in desktop view */}
-                  </div>
-                  
-                  <div className="absolute left-0 md:left-1/2 top-[330px] w-10 h-10 bg-[#137DC5] rounded-full border-4 border-white shadow transform md:-translate-x-1/2 flex items-center justify-center text-white font-bold">
-                    4
-                  </div>
-                  
-                  <div className="flex items-center md:w-1/2 md:pl-12 order-1 md:order-2 pl-10 md:pl-12">
-                    <div>
-                      <h3 className="text-xl font-semibold mb-2 text-[#1a1a1a]">Installation</h3>
-                      <p className="text-base md:text-lg text-gray-600">Our skilled engineers complete the installation in line with your construction schedule, minimising disruption.</p>
-                    </div>
-                  </div>
-                </div>
-                
-                {/* Step 5 */}
-                <div className="flex flex-col md:flex-row items-start">
-                  <div className="flex items-center md:w-1/2 md:pr-12 md:text-right order-2 md:order-1 pl-10 md:pl-0">
-                    <div>
-                      <h3 className="text-xl font-semibold mb-2 text-[#1a1a1a]">Energisation & Handover</h3>
-                      <p className="text-base md:text-lg text-gray-600">We coordinate with the DNO for final connection, complete testing, and provide full handover documentation.</p>
-                    </div>
-                  </div>
-                  
-                  <div className="absolute left-0 md:left-1/2 top-[440px] w-10 h-10 bg-[#137DC5] rounded-full border-4 border-white shadow transform md:-translate-x-1/2 flex items-center justify-center text-white font-bold">
-                    5
-                  </div>
-                  
-                  <div className="md:w-1/2 md:pl-12 order-1 md:order-2 invisible md:visible">
-                    {/* Right side empty for the fifth step in desktop view */}
-                  </div>
+              </div>
+              
+              <div className="bg-[#f5f5f5] p-6 rounded-xl shadow-sm relative">
+                <div className="absolute -left-3 top-1/2 transform -translate-y-1/2 h-10 w-10 bg-[#137DC5] rounded-full border-4 border-white shadow flex items-center justify-center text-white font-bold">3</div>
+                <div className="ml-6">
+                  <h3 className="text-xl font-semibold mb-2">Implementation & Energisation</h3>
+                  <p className="text-base text-gray-600">Our skilled engineers complete the installation in line with your construction schedule, and coordinate final connection.</p>
                 </div>
               </div>
             </div>

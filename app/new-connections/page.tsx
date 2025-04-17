@@ -405,8 +405,8 @@ export default function NewConnections() {
               </div>
               
               {/* Right Content with improved styling */}
-              <div className="md:w-3/5 p-8 md:p-12 text-white">
-                <h2 className="text-3xl font-bold mb-6">Ready to Start Your Project?</h2>
+            <div className="md:w-3/5 p-8 md:p-12 text-white">
+                <h2 className="text-3xl font-bold mb-6 text-white">Ready to Start Your Project?</h2>
                 <p className="text-white/90 mb-8 max-w-md text-base md:text-lg">
                   Contact our specialists today to discuss your electrical connection requirements and get a customised quote for your project.
                 </p>

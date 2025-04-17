@@ -778,12 +778,12 @@ export default function Home() {
       </section>
 
       {/* Sectors Section */}
-      <section className="py-20 bg-[#f5f5f5]">
+      <section className="py-12 sm:py-16 bg-[#f5f5f5]">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-16 text-brand-dark-blue">
+          <h2 className="text-2xl sm:text-3xl font-bold text-center mb-8 sm:mb-12 text-brand-dark-blue">
             Sectors We Serve
           </h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-6">
             {[
               { 
                 title: "Residential",
@@ -802,12 +802,12 @@ export default function Home() {
                 description: "Public and private charging networks for electric vehicles."
               }
             ].map((sector, index) => (
-              <div key={index} className="bg-white p-6 rounded-lg text-center hover:shadow-lg transition-shadow h-full">
-                <div className="inline-block p-3 rounded-full bg-[#137DC5]/10 mb-4">
-                  <div className="h-6 w-6 bg-[#137DC5] rounded-full"></div>
+              <div key={index} className="bg-white p-3 sm:p-5 rounded-lg text-center hover:shadow-md transition-shadow h-full flex flex-col items-center justify-start">
+                <div className="inline-block p-2 sm:p-3 rounded-full bg-[#137DC5]/10 mb-2 sm:mb-4">
+                  <div className="h-4 w-4 sm:h-5 sm:w-5 bg-[#137DC5] rounded-full"></div>
                 </div>
-                <h3 className="text-lg font-semibold mb-2">{sector.title}</h3>
-                <p className="text-base md:text-lg text-gray-600">{sector.description}</p>
+                <h3 className="text-base sm:text-lg font-semibold mb-1 sm:mb-2">{sector.title}</h3>
+                <p className="text-xs sm:text-sm text-gray-600">{sector.description}</p>
               </div>
             ))}
           </div>
@@ -815,20 +815,18 @@ export default function Home() {
       </section>
 
       {/* Accreditations */}
-      <section className="py-12 bg-white">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12 text-brand-dark-blue">
-            Our Accreditations
-          </h2>
-          <div className="flex flex-wrap justify-center items-center gap-10">
-            <div className="w-[200px] h-[100px] bg-[#f5f5f5] rounded-lg flex items-center justify-center p-4">
-              <span className="text-lg font-semibold text-[#137DC5]">NERS</span>
-            </div>
-            <div className="w-[200px] h-[100px] bg-[#f5f5f5] rounded-lg flex items-center justify-center p-4">
-              <span className="text-lg font-semibold text-[#137DC5]">ICP</span>
-            </div>
-            <div className="w-[200px] h-[100px] bg-[#f5f5f5] rounded-lg flex items-center justify-center p-4">
-              <span className="text-lg font-semibold text-[#137DC5]">ISO 9001</span>
+      <section className="bg-white border-t border-b border-gray-100 py-6 sm:py-10">
+        <div className="container mx-auto">
+          <div className="flex flex-col sm:flex-row items-center justify-center px-4 gap-5 sm:gap-10">
+            <h2 className="text-lg sm:text-xl md:text-2xl font-semibold text-gray-700 uppercase tracking-wider">
+              Accredited by
+            </h2>
+            <div className="h-24 sm:h-36 md:h-48 flex items-center">
+              <img 
+                src="/images/LRQA.png" 
+                alt="LRQA NERS Accreditation - National Electricity Registration Scheme" 
+                className="h-full w-auto"
+              />
             </div>
           </div>
         </div>

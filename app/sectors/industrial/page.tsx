@@ -192,20 +192,48 @@ export default function IndustrialPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {solutions.map((solution, index) => (
-              <div 
-                key={index}
-                className="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow h-full"
-              >
-                <div className="inline-flex items-center justify-center h-16 w-16 rounded-full bg-[#137DC5]/10 text-[#137DC5] mb-6">
+          {solutions.map((solution, index) => (
+            <div 
+              key={index}
+              className={`flex flex-col md:flex-row items-center gap-12 py-12 ${index !== 0 ? 'border-t border-gray-200' : ''}`}
+            >
+              <div className={`md:w-1/2 ${index % 2 !== 0 ? 'md:order-last' : ''}`}>
+                <div className="relative h-64 md:h-80 rounded-xl overflow-hidden shadow-md">
+                  <img
+                    src={`/images/industrial-solution-${index + 1}.jpg`}
+                    alt={solution.title}
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0f5f96]/30 to-transparent"></div>
+                </div>
+              </div>
+              <div className="md:w-1/2 text-center md:text-left mt-8 md:mt-0">
+                <div className="inline-flex items-center justify-center h-16 w-16 rounded-full bg-[#137DC5]/10 text-[#137DC5] mb-4">
                   {solution.icon}
                 </div>
-                <h3 className="text-xl font-semibold mb-4">{solution.title}</h3>
-                <p className="text-base md:text-lg text-gray-600">{solution.description}</p>
+                <h3 className="text-2xl font-semibold mb-4">{solution.title}</h3>
+                <p className="text-base md:text-lg text-gray-600 mb-6">{solution.description}</p>
+                <ul className="space-y-3">
+                  <li className="flex items-start">
+                    <div className="flex-shrink-0 h-6 w-6 text-[#137DC5]">
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                      </svg>
+                    </div>
+                    <span className="ml-3 text-base md:text-lg text-gray-700">Design and installation</span>
+                  </li>
+                  <li className="flex items-start">
+                    <div className="flex-shrink-0 h-6 w-6 text-[#137DC5]">
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                      </svg>
+                    </div>
+                    <span className="ml-3 text-base md:text-lg text-gray-700">Industry-compliant systems</span>
+                  </li>
+                </ul>
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
       </section>
 
@@ -224,16 +252,27 @@ export default function IndustrialPage() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {sectors.map((sector, index) => (
-              <div key={index} className="bg-[#f9f9f9] p-8 rounded-xl hover:shadow-md transition-shadow h-full">
-                <div className="flex items-center mb-6">
-                  <div className="w-12 h-12 mr-4 flex items-center justify-center rounded-full bg-[#137DC5]/10">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-[#137DC5]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <div 
+                key={index} 
+                className="group relative overflow-hidden rounded-xl shadow-md h-[350px] cursor-pointer"
+              >
+                <div className="absolute inset-0">
+                  <img
+                    src={`/images/industrial-sector-${index + 1}.jpg`}
+                    alt={sector.name}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0f5f96]/90 via-[#0f5f96]/60 to-transparent"></div>
+                </div>
+                <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
+                  <div className="w-12 h-12 mb-4 flex items-center justify-center rounded-full bg-white/20 backdrop-blur-sm">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
                     </svg>
                   </div>
-                  <h3 className="text-xl font-semibold">{sector.name}</h3>
+                  <h3 className="text-2xl font-semibold mb-3">{sector.name}</h3>
+                  <p className="text-base md:text-lg text-white/80">{sector.description}</p>
                 </div>
-                <p className="text-base md:text-lg text-gray-600">{sector.description}</p>
               </div>
             ))}
           </div>
@@ -253,26 +292,68 @@ export default function IndustrialPage() {
             </p>
           </div>
 
-          <div className="max-w-4xl mx-auto">
-            <div className="relative">
-              {/* Process steps */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div className="bg-white rounded-xl shadow-sm p-8 h-full relative">
-                  <div className="absolute -top-4 -left-4 h-10 w-10 bg-[#137DC5] rounded-full flex items-center justify-center text-white font-bold">1</div>
-                  <h3 className="text-xl font-semibold mb-4 pt-2">Assessment & Planning</h3>
-                  <p className="text-base md:text-lg text-gray-600">We evaluate your industrial facility's power requirements and develop a detailed implementation plan.</p>
+          <div className="max-w-5xl mx-auto">
+            <div className="md:flex md:space-x-8 relative">
+              <div className="hidden md:block absolute left-1/2 top-[60px] h-[70%] w-1 bg-[#137DC5]/20 transform -translate-x-1/2"></div>
+
+              <div className="md:w-1/2 mb-12 md:mb-0 relative">
+                <div className="bg-white rounded-xl shadow-md p-6 md:p-8 h-full relative z-10">
+                  <div className="absolute -top-4 -right-4 h-12 w-12 bg-[#137DC5] rounded-full flex items-center justify-center text-white font-bold">1</div>
+                  <div className="flex items-center mb-6">
+                    <img src="/images/process-1.jpg" alt="Assessment & Planning" className="w-full h-48 object-cover rounded-lg mb-4" />
+                  </div>
+                  <h3 className="text-xl font-semibold mb-3">Assessment & Planning</h3>
+                  <p className="text-base text-gray-600">We evaluate your industrial facility's power requirements and develop a detailed implementation plan.</p>
                 </div>
-                
-                <div className="bg-white rounded-xl shadow-sm p-8 h-full relative">
-                  <div className="absolute -top-4 -left-4 h-10 w-10 bg-[#137DC5] rounded-full flex items-center justify-center text-white font-bold">2</div>
-                  <h3 className="text-xl font-semibold mb-4 pt-2">Design & Engineering</h3>
-                  <p className="text-base md:text-lg text-gray-600">Our engineers create a comprehensive electrical infrastructure design tailored to your specific requirements.</p>
+              </div>
+              
+              <div className="md:w-1/2 relative">
+                <div className="md:mt-32 bg-white rounded-xl shadow-md p-6 md:p-8 h-full relative z-10">
+                  <div className="absolute -top-4 -left-4 h-12 w-12 bg-[#137DC5] rounded-full flex items-center justify-center text-white font-bold">2</div>
+                  <div className="flex items-center mb-6">
+                    <img src="/images/process-2.jpg" alt="Design & Engineering" className="w-full h-48 object-cover rounded-lg mb-4" />
+                  </div>
+                  <h3 className="text-xl font-semibold mb-3">Design & Engineering</h3>
+                  <p className="text-base text-gray-600">Our engineers create a comprehensive electrical infrastructure design tailored to your specific requirements.</p>
                 </div>
-                
-                <div className="bg-white rounded-xl shadow-sm p-8 h-full relative">
-                  <div className="absolute -top-4 -left-4 h-10 w-10 bg-[#137DC5] rounded-full flex items-center justify-center text-white font-bold">3</div>
-                  <h3 className="text-xl font-semibold mb-4 pt-2">Implementation</h3>
-                  <p className="text-base md:text-lg text-gray-600">Our skilled team implements the electrical infrastructure with minimal disruption to ongoing operations.</p>
+              </div>
+            </div>
+
+            <div className="mt-16 bg-white rounded-xl shadow-md p-6 md:p-8 relative z-10">
+              <div className="absolute -top-4 -left-4 h-12 w-12 bg-[#137DC5] rounded-full flex items-center justify-center text-white font-bold">3</div>
+              <div className="md:flex md:space-x-8 items-center">
+                <div className="md:w-1/2 mb-6 md:mb-0">
+                  <img src="/images/process-3.jpg" alt="Implementation" className="w-full h-64 object-cover rounded-lg" />
+                </div>
+                <div className="md:w-1/2">
+                  <h3 className="text-xl font-semibold mb-3">Implementation</h3>
+                  <p className="text-base text-gray-600 mb-4">Our skilled team implements the electrical infrastructure with minimal disruption to ongoing operations.</p>
+                  <ul className="space-y-3">
+                    <li className="flex items-start">
+                      <div className="flex-shrink-0 h-6 w-6 text-[#137DC5]">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                        </svg>
+                      </div>
+                      <span className="ml-3 text-base text-gray-700">Expert installation teams</span>
+                    </li>
+                    <li className="flex items-start">
+                      <div className="flex-shrink-0 h-6 w-6 text-[#137DC5]">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                        </svg>
+                      </div>
+                      <span className="ml-3 text-base text-gray-700">Scheduled around your operations</span>
+                    </li>
+                    <li className="flex items-start">
+                      <div className="flex-shrink-0 h-6 w-6 text-[#137DC5]">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                        </svg>
+                      </div>
+                      <span className="ml-3 text-base text-gray-700">Quality-assured installation</span>
+                    </li>
+                  </ul>
                 </div>
               </div>
             </div>
