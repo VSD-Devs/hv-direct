@@ -44,7 +44,7 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-lg font-semibold mb-6">Quick Links</h3>
+            <h3 className="text-lg font-semibold mb-6 text-white">Quick Links</h3>
             <ul className="space-y-3">
               <li>
                 <Link href="/" className="text-gray-400 hover:text-white transition-colors">Home</Link>
@@ -66,7 +66,7 @@ export default function Footer() {
 
           {/* Services */}
           <div>
-            <h3 className="text-lg font-semibold mb-6">Our Services</h3>
+            <h3 className="text-lg font-semibold mb-6 text-white">Our Services</h3>
             <ul className="space-y-3">
               <li>
                 <Link href="/new-connections/high-rise-residential" className="text-gray-400 hover:text-white transition-colors">High-Rise Residential</Link>
@@ -88,7 +88,7 @@ export default function Footer() {
 
           {/* Contact Information */}
           <div>
-            <h3 className="text-lg font-semibold mb-6">Contact Information</h3>
+            <h3 className="text-lg font-semibold mb-6 text-white">Contact Information</h3>
             <ul className="space-y-4">
               <li className="flex items-start">
                 <div className="h-6 w-6 rounded-full bg-[#137DC5]/20 flex items-center justify-center mt-0.5 flex-shrink-0">
