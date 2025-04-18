@@ -11,16 +11,42 @@ export default function Home() {
     requirements: "",
     name: "",
     email: "",
-    phone: ""
+    phone: "",
+    privacyConsent: false,
+    website: ""
   });
   const [activeServiceFilter, setActiveServiceFilter] = useState("all");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<{
+    success: boolean;
+    message: string;
+  } | null>(null);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
+    const { name, value, type } = e.target as HTMLInputElement;
+    
+    if (type === 'checkbox') {
+      const checked = (e.target as HTMLInputElement).checked;
+      setFormData(prev => ({ ...prev, [name]: checked }));
+    } else {
+      setFormData(prev => ({ ...prev, [name]: value }));
+    }
   };
 
   const nextStep = () => {
+    // Validate current step before proceeding
+    if (formStep === 1 && !formData.customerType) {
+      return; // Don't proceed if customer type is not selected
+    }
+    
+    if (formStep === 2 && !formData.connectionsRequired) {
+      return; // Don't proceed if connections required is not selected
+    }
+    
+    if (formStep === 3 && !formData.requirements) {
+      return; // Don't proceed if requirements are not filled
+    }
+    
     setFormStep(prev => prev + 1);
   };
 
@@ -28,22 +54,54 @@ export default function Home() {
     setFormStep(prev => prev - 1);
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // Would handle form submission here
-    console.log(formData);
-    // Reset form after submission
-    setFormStep(1);
-    setFormData({
-      customerType: "",
-      connectionsRequired: "",
-      location: "",
-      requirements: "",
-      name: "",
-      email: "",
-      phone: ""
-    });
-    // Show success message or redirect
+    setIsSubmitting(true);
+    setSubmitStatus(null);
+    
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+      
+      const data = await response.json();
+      
+      if (response.ok) {
+        setSubmitStatus({
+          success: true,
+          message: 'Your enquiry has been submitted successfully. We will contact you soon.'
+        });
+        // Reset form after successful submission
+        setFormStep(1);
+        setFormData({
+          customerType: "",
+          connectionsRequired: "",
+          location: "",
+          requirements: "",
+          name: "",
+          email: "",
+          phone: "",
+          privacyConsent: false,
+          website: ""
+        });
+      } else {
+        setSubmitStatus({
+          success: false,
+          message: data.message || 'Failed to submit the enquiry. Please try again later.'
+        });
+      }
+    } catch (error) {
+      setSubmitStatus({
+        success: false,
+        message: 'An unexpected error occurred. Please try again later.'
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -120,6 +178,20 @@ export default function Home() {
                   Get a Free Quote
                 </div>
                 <form onSubmit={handleSubmit}>
+                  {/* Honeypot field for spam protection */}
+                  <div style={{ display: 'none' }}>
+                    <label htmlFor="website">Website (Leave this empty)</label>
+                    <input
+                      type="text"
+                      id="website"
+                      name="website"
+                      value={formData.website}
+                      onChange={handleInputChange}
+                      tabIndex={-1}
+                      autoComplete="off"
+                    />
+                  </div>
+                  
                   {/* Progress Indicator */}
                   <div className="flex justify-between mb-6 pt-3">
                     {[1, 2, 3, 4].map((step) => (
@@ -348,20 +420,59 @@ export default function Home() {
                             className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-[#137DC5] focus:border-[#137DC5] outline-none transition"
                           />
                         </div>
+                        
+                        <div>
+                          <label className="flex items-start text-sm mb-1">
+                            <input
+                              type="checkbox"
+                              name="privacyConsent"
+                              checked={formData.privacyConsent}
+                              onChange={handleInputChange}
+                              required
+                              className="mt-1 mr-2"
+                            />
+                            <span className="text-gray-700">
+                              I consent to HV Direct processing my data in accordance with the <a href="/privacy-policy" target="_blank" className="text-[#137DC5] hover:underline">Privacy Policy</a>.*
+                            </span>
+                          </label>
+                        </div>
+                        
+                        {/* Form Status Message */}
+                        {submitStatus && (
+                          <div className={`p-3 rounded-md ${submitStatus.success ? 'bg-green-50 text-green-800 border border-green-200' : 'bg-red-50 text-red-800 border border-red-200'}`}>
+                            {submitStatus.message}
+                          </div>
+                        )}
                       </div>
                       <div className="mt-6 flex justify-between">
                         <button
                           type="button"
                           onClick={prevStep}
                           className="inline-flex items-center justify-center px-6 py-2 rounded-md border border-gray-300 text-[#1a1a1a] font-medium hover:bg-gray-50"
+                          disabled={isSubmitting}
                         >
                           Back
                         </button>
                         <button
                           type="submit"
-                          className="inline-flex items-center justify-center px-6 py-2 rounded-md bg-[#137DC5] text-white font-medium hover:bg-[#0f5f96]"
+                          disabled={isSubmitting || !formData.name || !formData.email || !formData.phone || !formData.privacyConsent}
+                          className={`inline-flex items-center justify-center px-6 py-2 rounded-md ${
+                            isSubmitting || !formData.name || !formData.email || !formData.phone || !formData.privacyConsent
+                              ? 'bg-gray-200 text-gray-400 cursor-not-allowed'
+                              : 'bg-[#137DC5] text-white hover:bg-[#0f5f96]'
+                          }`}
                         >
-                          Submit Enquiry
+                          {isSubmitting ? (
+                            <>
+                              <svg className="animate-spin -ml-1 mr-2 h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                                <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                              </svg>
+                              Submitting...
+                            </>
+                          ) : (
+                            'Submit Enquiry'
+                          )}
                         </button>
                       </div>
                     </div>

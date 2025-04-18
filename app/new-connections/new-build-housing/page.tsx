@@ -9,7 +9,7 @@ export default function NewBuildHousing() {
       {/* Hero Banner */}
       <section className="relative py-20 bg-cover bg-center" 
         style={{
-          backgroundImage: `url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&q=80&w=1600')`,
+          backgroundImage: `url('/images/new-builds.jpg')`,
         }}
       >
         <div className="absolute inset-0 bg-gradient-to-r from-[#0f5f96]/80 to-[#137DC5]/60"></div>
@@ -17,7 +17,7 @@ export default function NewBuildHousing() {
           <div className="max-w-4xl mx-auto text-center">
             <Link 
               href="/new-connections" 
-              className="inline-flex items-center text-white font-medium hover:text-white/80 mb-4"
+              className="inline-flex items-center text-white font-medium hover:text-white/80 mb-4 no-underline"
             >
               <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -41,7 +41,7 @@ export default function NewBuildHousing() {
           <div className="flex flex-col md:flex-row gap-12">
             <div className="md:w-1/2">
               <img 
-                src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&q=80&w=1600" 
+                src="/images/new-home--electrical-services.jpg" 
                 alt="New Build Housing Development" 
                 className="w-full h-auto rounded-lg shadow-lg"
               />
@@ -247,16 +247,73 @@ export default function NewBuildHousing() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center h-12 px-8 rounded-md text-sm font-medium bg-white text-[#137DC5] hover:bg-gray-100"
+                className="inline-flex items-center justify-center h-12 px-8 rounded-md text-sm font-medium bg-white text-[#137DC5] hover:bg-gray-100 no-underline"
               >
                 Request a Quote
               </Link>
-              <Link
-                href="#"
-                className="inline-flex items-center justify-center h-12 px-8 rounded-md text-sm font-medium border border-white text-white hover:bg-white/10"
-              >
-                Download Brochure
-              </Link>
+
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-16 bg-[#0f5f96]/5">
+        <div className="container mx-auto px-4">
+          <div className="max-w-3xl mx-auto mb-12 text-center">
+            <h2 className="text-3xl font-bold mb-4 text-[#1a1a1a]">
+              Frequently Asked Questions
+            </h2>
+            <div className="h-1 w-16 bg-[#137DC5] mx-auto mb-6"></div>
+            <p className="text-gray-600 mb-8">
+              Everything you need to know about our new build housing connection services
+            </p>
+          </div>
+          
+          <div className="max-w-3xl mx-auto space-y-6">
+            <div className="bg-gradient-to-r from-[#137DC5] to-[#0f5f96] rounded-t-lg overflow-hidden">
+              <div className="p-6">
+                <h3 className="text-xl font-semibold mb-3 text-white">How long does a typical new build housing connection take?</h3>
+                <p className="text-white/90">
+                  The timeline varies based on the size and complexity of your development. Single property connections typically take 4-6 weeks, while larger housing estates may take 8-12 weeks or more. We'll provide a detailed timeline during our initial consultation.
+                </p>
+              </div>
+            </div>
+            
+            <div className="bg-white rounded-lg shadow-md overflow-hidden border-l-4 border-[#137DC5]">
+              <div className="p-6">
+                <h3 className="text-xl font-semibold mb-3 text-[#137DC5]">What is the process for connecting a new housing development?</h3>
+                <p className="text-gray-700">
+                  Our process follows four key stages: Initial consultation to understand your requirements, design and quotation, installation of electrical infrastructure, and finally connection and handover. Throughout each stage, we maintain clear communication and coordinate with all relevant parties.
+                </p>
+              </div>
+            </div>
+            
+            <div className="bg-white rounded-lg shadow-md overflow-hidden border-l-4 border-[#137DC5]">
+              <div className="p-6">
+                <h3 className="text-xl font-semibold mb-3 text-[#137DC5]">Can you install both temporary and permanent connections?</h3>
+                <p className="text-gray-700">
+                  Yes, we provide both temporary builder's supplies to power your construction activities and permanent electrical connections for the completed properties. This ensures you have reliable power at every stage of your development.
+                </p>
+              </div>
+            </div>
+            
+            <div className="bg-white rounded-lg shadow-md overflow-hidden border-l-4 border-[#137DC5]">
+              <div className="p-6">
+                <h3 className="text-xl font-semibold mb-3 text-[#137DC5]">Do you coordinate with other utility providers?</h3>
+                <p className="text-gray-700">
+                  Absolutely. We work closely with other utility providers (water, gas, telecommunications) to minimise disruption and avoid costly conflicts. Our experienced project managers handle this coordination to ensure efficient installation of all services.
+                </p>
+              </div>
+            </div>
+            
+            <div className="bg-white rounded-lg shadow-md overflow-hidden border-l-4 border-[#137DC5]">
+              <div className="p-6">
+                <h3 className="text-xl font-semibold mb-3 text-[#137DC5]">Are your electrical installations future-proofed for EV charging?</h3>
+                <p className="text-gray-700">
+                  Yes, all our new housing electrical infrastructure designs account for the growing demand for EV charging points. We ensure sufficient capacity and appropriate infrastructure is in place to accommodate future installation of domestic EV charging points.
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -288,7 +345,7 @@ export default function NewBuildHousing() {
                 </p>
                 <Link
                   href="/new-connections/high-rise-residential"
-                  className="inline-flex items-center text-[#137DC5] font-medium hover:text-[#0f5f96] transition-colors"
+                  className="inline-flex items-center text-[#137DC5] font-medium hover:text-[#0f5f96] transition-colors no-underline"
                 >
                   Learn More
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -313,7 +370,7 @@ export default function NewBuildHousing() {
                 </p>
                 <Link
                   href="/new-connections/substation-installation"
-                  className="inline-flex items-center text-[#137DC5] font-medium hover:text-[#0f5f96] transition-colors"
+                  className="inline-flex items-center text-[#137DC5] font-medium hover:text-[#0f5f96] transition-colors no-underline"
                 >
                   Learn More
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -338,7 +395,7 @@ export default function NewBuildHousing() {
                 </p>
                 <Link
                   href="/new-connections/ev-charging-networks"
-                  className="inline-flex items-center text-[#137DC5] font-medium hover:text-[#0f5f96] transition-colors"
+                  className="inline-flex items-center text-[#137DC5] font-medium hover:text-[#0f5f96] transition-colors no-underline"
                 >
                   Learn More
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">

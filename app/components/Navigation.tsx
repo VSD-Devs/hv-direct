@@ -115,15 +115,9 @@ export default function Navigation() {
             <button
               onClick={() => setOpen(true)}
               className="inline-flex items-center gap-1 justify-center h-10 rounded-md px-3 text-gray-600 hover:text-[#137DC5] hover:bg-[#137DC5]/10 transition-colors"
-              aria-label="Search the site (press Ctrl+K)"
+              aria-label="Search the site"
             >
               <Search className="h-4 w-4" />
-              <span className="text-xs text-gray-500 hidden sm:inline-flex items-center">
-                <kbd className="rounded px-1 py-0.5 bg-gray-100 text-xs mr-1">
-                  {navigator.userAgent.indexOf('Mac') > -1 ? '⌘' : 'Ctrl'}
-                </kbd>
-                <kbd className="rounded px-1 py-0.5 bg-gray-100 text-xs">K</kbd>
-              </span>
             </button>
             <Link 
               href="/contact" 

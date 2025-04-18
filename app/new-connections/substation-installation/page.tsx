@@ -357,12 +357,6 @@ export default function SubstationInstallation() {
               >
                 Contact Us
               </Link>
-              <Link
-                href="#"
-                className="inline-flex items-center justify-center h-12 px-8 rounded-md text-sm font-medium border border-white text-white hover:bg-white/10"
-              >
-                Download Brochure
-              </Link>
             </div>
           </div>
         </div>

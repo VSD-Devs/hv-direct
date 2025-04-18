@@ -44,32 +44,32 @@ export default function AboutPage() {
     }
   ];
 
-  // History timeline
-  const timeline = [
+  // History timeline - replacing this with process steps
+  const approachSteps = [
     {
-      year: "2019",
-      title: "Company Foundation",
-      description: "HV Direct was established to provide a superior alternative to traditional DNOs, with a focus on customer service and technical excellence."
+      number: "01",
+      title: "Consultation",
+      description: "We begin by understanding your specific requirements, site conditions, and objectives through thorough consultation."
     },
     {
-      year: "2020",
-      title: "NERS Accreditation",
-      description: "Achieved full National Electricity Registration Scheme accreditation, allowing us to provide end-to-end electrical connection services."
+      number: "02",
+      title: "Technical Assessment",
+      description: "Our engineers conduct detailed technical assessments to determine the optimal electrical solution for your project."
     },
     {
-      year: "2021",
-      title: "Team Expansion",
-      description: "Expanded our technical team and capabilities to serve a wider range of commercial and residential projects throughout the UK."
+      number: "03",
+      title: "Bespoke Design",
+      description: "We create customised designs that balance technical excellence, cost-efficiency, and future expansion potential."
     },
     {
-      year: "2022",
-      title: "ISO 9001 Certification",
-      description: "Received ISO 9001 certification, demonstrating our commitment to quality management and continuous improvement."
+      number: "04",
+      title: "Implementation",
+      description: "Our skilled teams deliver the installation with precision, adhering to all regulatory standards and safety protocols."
     },
     {
-      year: "2023",
-      title: "EV Charging Specialisation",
-      description: "Developed specialised expertise in EV charging infrastructure to support the growing demand for electric vehicle solutions."
+      number: "05",
+      title: "Ongoing Support",
+      description: "We provide continuous support and maintenance options to ensure your electrical infrastructure performs reliably."
     }
   ];
 
@@ -117,7 +117,7 @@ export default function AboutPage() {
     <main className="min-h-screen">
       {/* Hero Section */}
       <section className="relative py-20 md:py-28 bg-cover bg-center text-white" style={{ 
-        backgroundImage: "linear-gradient(rgba(23, 63, 90, 0.85), rgba(16, 59, 88, 0.75)), url('/images/about-us-bg.png')"
+        backgroundImage: "linear-gradient(to right, rgba(15, 95, 150, 0.8), rgba(15, 95, 150, 0.8)), url('/images/about-us-bg.png')"
       }}>
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-3xl mx-auto text-center">
@@ -170,11 +170,11 @@ export default function AboutPage() {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold mb-4 text-brand-dark-blue">
-              Our Experience
+              Our Expertise
             </h2>
             <div className="h-1 w-20 bg-[#137DC5] mx-auto mb-6"></div>
             <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto">
-              With over 10 years of collective industry experience, our team brings extensive expertise to every electrical connection project.
+              Our team combines diverse industry knowledge with fresh perspectives to deliver innovative electrical connection solutions.
             </p>
           </div>
 
@@ -192,39 +192,34 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* History Timeline */}
+      {/* Replace History Timeline with Our Approach */}
       <section className="py-20 bg-[#f5f5f5]">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold mb-4 text-brand-dark-blue">
-              Our Journey
+              Our Approach
             </h2>
             <div className="h-1 w-20 bg-[#137DC5] mx-auto mb-6"></div>
             <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto">
-              The story of HV Direct's growth and development as a leading Independent Connection Provider.
+              How we deliver exceptional electrical infrastructure solutions through our client-focused methodology.
             </p>
           </div>
 
-          <div className="relative max-w-4xl mx-auto">
-            {/* Timeline line */}
-            <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-[#137DC5]/20 z-0"></div>
-            
-            {/* Timeline items */}
-            {timeline.map((item, index) => (
-              <div key={index} className={`relative z-10 flex items-center mb-12 ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'}`}>
-                <div className="w-1/2 pr-8 md:pr-16 flex justify-end">
-                  <div className={`text-right ${index % 2 !== 0 ? 'order-2 pl-8 md:pl-16 pr-0 text-left' : ''}`}>
-                    <div className="inline-block px-4 py-2 bg-[#137DC5] text-white text-xl font-semibold rounded-md mb-3">
-                      {item.year}
-                    </div>
-                    <h3 className="text-xl font-semibold mb-2 text-[#1a1a1a]">{item.title}</h3>
-                    <p className="text-base md:text-lg text-gray-600">{item.description}</p>
+          <div className="max-w-4xl mx-auto">
+            {approachSteps.map((step, index) => (
+              <div key={index} className="flex mb-12 relative">
+                <div className="mr-8 flex-shrink-0">
+                  <div className="flex items-center justify-center w-16 h-16 rounded-full bg-[#137DC5] text-white text-xl font-bold">
+                    {step.number}
                   </div>
+                  {index < approachSteps.length - 1 && (
+                    <div className="absolute left-8 top-16 w-0.5 h-12 bg-[#137DC5]/20"></div>
+                  )}
                 </div>
-                
-                <div className="absolute left-1/2 transform -translate-x-1/2 w-5 h-5 bg-[#137DC5] rounded-full border-4 border-white shadow-sm"></div>
-                
-                <div className={`w-1/2 pl-8 md:pl-16 ${index % 2 !== 0 ? 'order-1 pr-8 md:pr-16 pl-0 text-right' : ''}`}></div>
+                <div className="pt-3">
+                  <h3 className="text-2xl font-semibold mb-3 text-[#1a1a1a]">{step.title}</h3>
+                  <p className="text-base md:text-lg text-gray-600">{step.description}</p>
+                </div>
               </div>
             ))}
           </div>
@@ -244,24 +239,13 @@ export default function AboutPage() {
             </p>
           </div>
 
-          <div className="flex flex-wrap justify-center items-center gap-12">
-            <div className="w-[220px] h-[120px] bg-[#f5f5f5] rounded-xl flex items-center justify-center p-6 hover:shadow-md transition-shadow">
-              <div className="text-center">
-                <div className="text-2xl font-bold text-[#137DC5] mb-1">NERS</div>
-                <div className="text-sm text-gray-600">National Electricity Registration Scheme</div>
-              </div>
-            </div>
-            <div className="w-[220px] h-[120px] bg-[#f5f5f5] rounded-xl flex items-center justify-center p-6 hover:shadow-md transition-shadow">
-              <div className="text-center">
-                <div className="text-2xl font-bold text-[#137DC5] mb-1">ICP</div>
-                <div className="text-sm text-gray-600">Independent Connection Provider</div>
-              </div>
-            </div>
-            <div className="w-[220px] h-[120px] bg-[#f5f5f5] rounded-xl flex items-center justify-center p-6 hover:shadow-md transition-shadow">
-              <div className="text-center">
-                <div className="text-2xl font-bold text-[#137DC5] mb-1">ISO 9001</div>
-                <div className="text-sm text-gray-600">Quality Management System</div>
-              </div>
+          <div className="flex justify-center items-center">
+            <div className="h-48 flex items-center">
+              <img 
+                src="/images/LRQA.png" 
+                alt="LRQA NERS Accreditation - National Electricity Registration Scheme" 
+                className="h-full w-auto"
+              />
             </div>
           </div>
         </div>

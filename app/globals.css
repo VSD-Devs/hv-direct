@@ -88,6 +88,9 @@
   h2 + div.h-1 {
     @apply hidden;
   }
+  input, textarea, select {
+    @apply text-[#1a1a1a];
+  }
 }
 
 /* Custom animations */
