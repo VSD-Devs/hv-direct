@@ -9,7 +9,7 @@ export default function SectorsPage() {
     {
       title: "Residential",
       description: "Complete electrical infrastructure solutions for residential developments, from single homes to large housing estates.",
-      image: "/images/residential-sector.jpg",
+      image: "/images/housing-development.webp",
       link: "/sectors/residential",
       icon: (
         <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -20,7 +20,7 @@ export default function SectorsPage() {
     {
       title: "Commercial",
       description: "Reliable electrical infrastructure for retail, office, and mixed-use commercial developments.",
-      image: "/images/commercial-sector.jpg",
+      image: "/images/commercial-hotel.jpg",
       link: "/sectors/commercial",
       icon: (
         <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -31,7 +31,7 @@ export default function SectorsPage() {
     {
       title: "Industrial",
       description: "High-capacity electrical connections designed for manufacturing, warehousing, and industrial facilities.",
-      image: "/images/industrial-sector.jpg",
+      image: "/images/industrial-electric.webp",
       link: "/sectors/industrial",
       icon: (
         <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -45,7 +45,7 @@ export default function SectorsPage() {
   return (
     <main className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative py-20 md:py-28 bg-cover bg-center text-white" style={{ 
+      <section className="relative py-14 md:py-20 bg-cover bg-center text-white" style={{ 
         backgroundImage: "linear-gradient(rgba(23, 63, 90, 0.85), rgba(16, 59, 88, 0.75)), url('/images/sectors-hero.jpg')"
       }}>
         <div className="container mx-auto px-4 relative z-10">
@@ -61,11 +61,10 @@ export default function SectorsPage() {
       </section>
 
       {/* Introduction Section */}
-      <section className="py-20 bg-white">
+      <section className="py-14 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-3xl font-bold mb-6 text-brand-dark-blue">Sector-Specific Solutions</h2>
-            <div className="h-1 w-20 bg-[#137DC5] mx-auto mb-8"></div>
             <p className="text-base md:text-lg text-gray-700 mb-4">
               Every electrical project has unique requirements based on its sector and purpose. At HV Direct, we understand these nuances and provide specialised solutions tailored to each sector's specific needs.
             </p>
@@ -77,7 +76,7 @@ export default function SectorsPage() {
       </section>
 
       {/* Sectors Grid Section */}
-      <section className="py-20 bg-[#f5f5f5]">
+      <section className="py-14 bg-[#f5f5f5]">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {sectors.map((sector, index) => (
@@ -115,13 +114,12 @@ export default function SectorsPage() {
       </section>
 
       {/* Why Choose HV Direct Section */}
-      <section className="py-20 bg-white">
+      <section className="py-14 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold mb-4 text-brand-dark-blue">
               Why Choose HV Direct for Your Sector
             </h2>
-            <div className="h-1 w-20 bg-[#137DC5] mx-auto mb-6"></div>
             <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto">
               Our sector-specific approach ensures your electrical infrastructure perfectly matches your requirements.
             </p>
@@ -172,7 +170,7 @@ export default function SectorsPage() {
       </section>
 
       {/* Call to Action */}
-      <section className="py-20 bg-gradient-to-r from-[#0f5f96] to-[#2199ea] text-white">
+      <section className="py-14 bg-gradient-to-r from-[#0f5f96] to-[#2199ea] text-white">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold mb-6 text-white">Ready to Discuss Your Project?</h2>
           <p className="text-base md:text-xl mb-8 max-w-2xl mx-auto text-white">

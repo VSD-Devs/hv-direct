@@ -27,7 +27,6 @@ export default function HVDiversions() {
             <h1 className="text-4xl md:text-5xl font-bold mb-6 text-white">
               HV Diversions & Reinforcements
             </h1>
-            <div className="h-1 w-24 bg-white mx-auto mb-6"></div>
             <p className="text-xl text-white/90 mb-8">
               Professional management of high voltage electrical infrastructure modifications and upgrades
             </p>
@@ -50,7 +49,6 @@ export default function HVDiversions() {
               <h2 className="text-3xl font-bold mb-4 text-[#1a1a1a]">
                 Expert High Voltage Modifications
               </h2>
-              <div className="h-1 w-16 bg-[#137DC5] mb-6"></div>
               <p className="text-gray-600 mb-6">
                 HV Direct provides comprehensive high voltage diversion and reinforcement services for projects that require modifications to existing electrical infrastructure. Our solutions ensure minimal disruption whilst maintaining safety and compliance with all relevant standards.
               </p>
@@ -95,7 +93,6 @@ export default function HVDiversions() {
             <h2 className="text-3xl font-bold mb-4 text-[#1a1a1a]">
               Our HV Diversion & Reinforcement Services
             </h2>
-            <div className="h-1 w-16 bg-[#137DC5] mx-auto mb-6"></div>
             <p className="text-gray-600">
               We provide a comprehensive range of high voltage modification services for various sectors.
             </p>
@@ -184,7 +181,6 @@ export default function HVDiversions() {
             <h2 className="text-3xl font-bold mb-4 text-[#1a1a1a]">
               Our Process
             </h2>
-            <div className="h-1 w-16 bg-[#137DC5] mx-auto mb-6"></div>
             <p className="text-gray-600">
               We follow a structured approach to ensure your high voltage diversion or reinforcement project is delivered safely and efficiently.
             </p>
@@ -251,7 +247,6 @@ export default function HVDiversions() {
             <h2 className="text-3xl font-bold mb-4 text-[#1a1a1a]">
               Benefits of Our HV Diversion Services
             </h2>
-            <div className="h-1 w-16 bg-[#137DC5] mx-auto mb-6"></div>
           </div>
           
           <div className="grid md:grid-cols-3 gap-8">

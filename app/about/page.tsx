@@ -54,7 +54,7 @@ export default function AboutPage() {
     {
       number: "02",
       title: "Technical Assessment",
-      description: "Our engineers conduct detailed technical assessments to determine the optimal electrical solution for your project."
+      description: "Our engineers conduct detailed technical assessments to determine the optimal solution for your project."
     },
     {
       number: "03",
@@ -69,7 +69,7 @@ export default function AboutPage() {
     {
       number: "05",
       title: "Ongoing Support",
-      description: "We provide continuous support and maintenance options to ensure your electrical infrastructure performs reliably."
+      description: "The project will be handed over as the network is assessed and adopted by the network operator."
     }
   ];
 
@@ -104,7 +104,7 @@ export default function AboutPage() {
     },
     {
       title: "Regulatory Compliance",
-      description: "We ensure all installations meet relevant regulations and standards, handling necessary approvals and documentation on your behalf.",
+      description: "We ensure all installations meet all DNO & IDNO standards, handling necessary approvals and documentation on your behalf.",
       icon: (
         <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
@@ -116,7 +116,7 @@ export default function AboutPage() {
   return (
     <main className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative py-20 md:py-28 bg-cover bg-center text-white" style={{ 
+      <section className="relative py-14 md:py-20 bg-cover bg-center text-white" style={{ 
         backgroundImage: "linear-gradient(to right, rgba(15, 95, 150, 0.8), rgba(15, 95, 150, 0.8)), url('/images/about-us-bg.png')"
       }}>
         <div className="container mx-auto px-4 relative z-10">
@@ -132,18 +132,17 @@ export default function AboutPage() {
       </section>
 
       {/* Our Mission Section */}
-      <section className="py-20 bg-white">
+      <section className="py-14 bg-white">
         <div className="container mx-auto px-4">
           <div className="flex flex-col lg:flex-row gap-12 items-center">
             <div className="lg:w-1/2">
               <div className="max-w-xl">
                 <h2 className="text-3xl font-bold mb-6 text-brand-dark-blue">Our Mission</h2>
-                <div className="h-1 w-16 bg-[#137DC5] mb-8"></div>
                 <p className="text-base md:text-lg text-gray-700 mb-4">
                   At HV Direct, our mission is to transform the electrical connections industry by combining exceptional technical expertise with outstanding customer service.
                 </p>
                 <p className="text-base md:text-lg text-gray-700 mb-4">
-                  We aim to be the UK's leading Independent Connection Provider, offering superior service, innovative designs, and cost-effective solutions that exceed our clients' expectations while promoting sustainable energy practices.
+                  We aim to be the UK's leading Independent Connection Provider, offering superior service, innovative designs, and cost-effective solutions that exceed our clients' expectations while delivering to the highest safety and industry standards.
                 </p>
                 <p className="text-base md:text-lg text-gray-700 mb-6">
                   Our team is dedicated to delivering every project on time, within budget, and to the highest technical standards, ensuring that our clients receive efficient, reliable, and future-proof electrical infrastructure.
@@ -166,13 +165,12 @@ export default function AboutPage() {
 
      
       {/* Experience Section */}
-      <section className="py-20 bg-white">
+      <section className="py-14 bg-white">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
+          <div className="text-center mb-10">
             <h2 className="text-3xl font-bold mb-4 text-brand-dark-blue">
               Our Expertise
             </h2>
-            <div className="h-1 w-20 bg-[#137DC5] mx-auto mb-6"></div>
             <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto">
               Our team combines diverse industry knowledge with fresh perspectives to deliver innovative electrical connection solutions.
             </p>
@@ -192,14 +190,13 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Replace History Timeline with Our Approach */}
-      <section className="py-20 bg-[#f5f5f5]">
+      {/* Process Section */}
+      <section className="py-14 bg-[#f5f5f5]">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold mb-4 text-brand-dark-blue">
               Our Approach
             </h2>
-            <div className="h-1 w-20 bg-[#137DC5] mx-auto mb-6"></div>
             <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto">
               How we deliver exceptional electrical infrastructure solutions through our client-focused methodology.
             </p>
@@ -226,33 +223,8 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Accreditations Section */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold mb-4 text-brand-dark-blue">
-              Our Accreditations
-            </h2>
-            <div className="h-1 w-20 bg-[#137DC5] mx-auto mb-6"></div>
-            <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto">
-              We maintain the highest industry standards through these recognised accreditations and certifications.
-            </p>
-          </div>
-
-          <div className="flex justify-center items-center">
-            <div className="h-48 flex items-center">
-              <img 
-                src="/images/LRQA.png" 
-                alt="LRQA NERS Accreditation - National Electricity Registration Scheme" 
-                className="h-full w-auto"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-[#0f5f96] to-[#2199ea] text-white">
+      <section className="py-14 bg-gradient-to-r from-[#0f5f96] to-[#2199ea] text-white">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold mb-6 text-white">Ready to Work With Us?</h2>
           <p className="text-base md:text-xl mb-8 max-w-2xl mx-auto text-white">

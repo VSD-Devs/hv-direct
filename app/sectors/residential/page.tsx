@@ -108,121 +108,72 @@ export default function ResidentialPage() {
             <h2 className="text-3xl font-bold mb-4 text-brand-dark-blue">
               Why Choose HV Direct for Residential Projects
             </h2>
-            <div className="h-1 w-20 bg-[#137DC5] mx-auto mb-6"></div>
             <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto">
               We understand the unique challenges of residential developments and provide tailored solutions that ensure reliable power delivery on time and within budget.
             </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="relative group overflow-hidden rounded-xl shadow-md">
-              <img 
-                src="/images/residential-benefit-1.jpg" 
-                alt="Timely Delivery" 
-                className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0f5f96]/90 to-[#0f5f96]/30"></div>
-              <div className="absolute inset-0 p-6 flex flex-col justify-end text-white">
-                <div className="inline-flex items-center justify-center h-16 w-16 rounded-full bg-white/20 backdrop-blur-sm mb-4">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                </div>
-                <h3 className="text-xl font-semibold mb-2">Timely Delivery</h3>
-                <p className="text-white/90">We understand that delays cost money. Our efficient processes ensure your electrical connections are completed on schedule.</p>
+            <div className="bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition-shadow border border-gray-100">
+              <div className="inline-flex items-center justify-center h-16 w-16 rounded-full bg-[#137DC5]/10 text-[#137DC5] mb-6">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
               </div>
+              <h3 className="text-xl font-semibold mb-3 text-[#1a1a1a]">Timely Delivery</h3>
+              <p className="text-gray-600">We understand that delays cost money. Our efficient processes ensure your electrical connections are completed on schedule.</p>
             </div>
 
-            <div className="relative group overflow-hidden rounded-xl shadow-md">
-              <img 
-                src="/images/residential-benefit-2.jpg" 
-                alt="Quality Assurance" 
-                className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0f5f96]/90 to-[#0f5f96]/30"></div>
-              <div className="absolute inset-0 p-6 flex flex-col justify-end text-white">
-                <div className="inline-flex items-center justify-center h-16 w-16 rounded-full bg-white/20 backdrop-blur-sm mb-4">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                </div>
-                <h3 className="text-xl font-semibold mb-2">Quality Assurance</h3>
-                <p className="text-white/90">All our installations exceed industry standards, ensuring long-term reliability and minimal maintenance requirements.</p>
+            <div className="bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition-shadow border border-gray-100">
+              <div className="inline-flex items-center justify-center h-16 w-16 rounded-full bg-[#137DC5]/10 text-[#137DC5] mb-6">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
               </div>
+              <h3 className="text-xl font-semibold mb-3 text-[#1a1a1a]">Quality Assurance</h3>
+              <p className="text-gray-600">All our installations exceed industry standards, ensuring long-term reliability and minimal maintenance requirements.</p>
             </div>
 
-            <div className="relative group overflow-hidden rounded-xl shadow-md">
-              <img 
-                src="/images/residential-benefit-3.jpg" 
-                alt="Cost Effective" 
-                className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0f5f96]/90 to-[#0f5f96]/30"></div>
-              <div className="absolute inset-0 p-6 flex flex-col justify-end text-white">
-                <div className="inline-flex items-center justify-center h-16 w-16 rounded-full bg-white/20 backdrop-blur-sm mb-4">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                </div>
-                <h3 className="text-xl font-semibold mb-2">Cost Effective</h3>
-                <p className="text-white/90">Our efficient designs and streamlined processes help reduce costs without compromising on quality or reliability.</p>
+            <div className="bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition-shadow border border-gray-100">
+              <div className="inline-flex items-center justify-center h-16 w-16 rounded-full bg-[#137DC5]/10 text-[#137DC5] mb-6">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
               </div>
+              <h3 className="text-xl font-semibold mb-3 text-[#1a1a1a]">Cost Effective</h3>
+              <p className="text-gray-600">Our efficient designs and streamlined processes help reduce costs without compromising on quality or reliability.</p>
             </div>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8 mt-8">
-            <div className="relative group overflow-hidden rounded-xl shadow-md">
-              <img 
-                src="/images/residential-benefit-4.jpg" 
-                alt="Future-Proof Design" 
-                className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0f5f96]/90 to-[#0f5f96]/30"></div>
-              <div className="absolute inset-0 p-6 flex flex-col justify-end text-white">
-                <div className="inline-flex items-center justify-center h-16 w-16 rounded-full bg-white/20 backdrop-blur-sm mb-4">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                  </svg>
-                </div>
-                <h3 className="text-xl font-semibold mb-2">Future-Proof Design</h3>
-                <p className="text-white/90">We design with future demands in mind, accounting for EV charging requirements and increased household electrical consumption.</p>
+            <div className="bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition-shadow border border-gray-100">
+              <div className="inline-flex items-center justify-center h-16 w-16 rounded-full bg-[#137DC5]/10 text-[#137DC5] mb-6">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
               </div>
+              <h3 className="text-xl font-semibold mb-3 text-[#1a1a1a]">Future-Proof Design</h3>
+              <p className="text-gray-600">We design with future demands in mind, accounting for EV charging requirements and increased household electrical consumption.</p>
             </div>
 
-            <div className="relative group overflow-hidden rounded-xl shadow-md">
-              <img 
-                src="/images/residential-benefit-5.jpg" 
-                alt="End-to-End Service" 
-                className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0f5f96]/90 to-[#0f5f96]/30"></div>
-              <div className="absolute inset-0 p-6 flex flex-col justify-end text-white">
-                <div className="inline-flex items-center justify-center h-16 w-16 rounded-full bg-white/20 backdrop-blur-sm mb-4">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                  </svg>
-                </div>
-                <h3 className="text-xl font-semibold mb-2">End-to-End Service</h3>
-                <p className="text-white/90">From initial design to final connection, we manage the entire process, providing a single point of contact throughout the project.</p>
+            <div className="bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition-shadow border border-gray-100">
+              <div className="inline-flex items-center justify-center h-16 w-16 rounded-full bg-[#137DC5]/10 text-[#137DC5] mb-6">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                </svg>
               </div>
+              <h3 className="text-xl font-semibold mb-3 text-[#1a1a1a]">End-to-End Service</h3>
+              <p className="text-gray-600">From initial design to final connection, we manage the entire process, providing a single point of contact throughout the project.</p>
             </div>
 
-            <div className="relative group overflow-hidden rounded-xl shadow-md">
-              <img 
-                src="/images/residential-benefit-6.jpg" 
-                alt="Regulatory Compliance" 
-                className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0f5f96]/90 to-[#0f5f96]/30"></div>
-              <div className="absolute inset-0 p-6 flex flex-col justify-end text-white">
-                <div className="inline-flex items-center justify-center h-16 w-16 rounded-full bg-white/20 backdrop-blur-sm mb-4">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                  </svg>
-                </div>
-                <h3 className="text-xl font-semibold mb-2">Regulatory Compliance</h3>
-                <p className="text-white/90">We handle all necessary permissions, approvals and compliance requirements, ensuring your project meets all regulatory standards.</p>
+            <div className="bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition-shadow border border-gray-100">
+              <div className="inline-flex items-center justify-center h-16 w-16 rounded-full bg-[#137DC5]/10 text-[#137DC5] mb-6">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                </svg>
               </div>
+              <h3 className="text-xl font-semibold mb-3 text-[#1a1a1a]">Regulatory Compliance</h3>
+              <p className="text-gray-600">We handle all necessary permissions, approvals and compliance requirements, ensuring your project meets all regulatory standards.</p>
             </div>
           </div>
         </div>
@@ -235,7 +186,6 @@ export default function ResidentialPage() {
             <h2 className="text-3xl font-bold mb-4 text-brand-dark-blue">
               Our Residential Services
             </h2>
-            <div className="h-1 w-20 bg-[#137DC5] mx-auto mb-6"></div>
             <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto">
               Comprehensive electrical infrastructure solutions tailored to residential developments of all sizes.
             </p>
@@ -284,7 +234,6 @@ export default function ResidentialPage() {
             <h2 className="text-3xl font-bold mb-4 text-brand-dark-blue">
               Our Residential Connection Process
             </h2>
-            <div className="h-1 w-20 bg-[#137DC5] mx-auto mb-6"></div>
             <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto">
               A streamlined approach to ensure your project is delivered efficiently and to the highest standards.
             </p>
@@ -337,7 +286,6 @@ export default function ResidentialPage() {
             <h2 className="text-3xl font-bold mb-4 text-brand-dark-blue">
               Frequently Asked Questions
             </h2>
-            <div className="h-1 w-20 bg-[#137DC5] mx-auto mb-6"></div>
             <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto">
               Answers to common questions about residential electrical connections.
             </p>

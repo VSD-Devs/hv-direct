@@ -27,7 +27,6 @@ export default function SubstationInstallation() {
             <h1 className="text-4xl md:text-5xl font-bold mb-6 text-white">
               Substation Installation
             </h1>
-            <div className="h-1 w-24 bg-white mx-auto mb-6"></div>
             <p className="text-xl text-white/90 mb-8">
               Comprehensive design and installation of electrical substations up to 11kV
             </p>
@@ -50,7 +49,6 @@ export default function SubstationInstallation() {
               <h2 className="text-3xl font-bold mb-4 text-[#1a1a1a]">
                 Powering Your Infrastructure
               </h2>
-              <div className="h-1 w-16 bg-[#137DC5] mb-6"></div>
               <p className="text-gray-600 mb-6">
                 HV Direct specialises in the design and installation of electrical substations for a wide range of applications. Our team of qualified engineers and technicians has extensive experience in delivering substation projects up to 11kV, ensuring reliable and efficient power distribution for your development.
               </p>
@@ -95,7 +93,6 @@ export default function SubstationInstallation() {
             <h2 className="text-3xl font-bold mb-4 text-[#1a1a1a]">
               Our Substation Services
             </h2>
-            <div className="h-1 w-16 bg-[#137DC5] mx-auto mb-6"></div>
             <p className="text-gray-600">
               We provide a comprehensive range of substation services for residential, commercial and industrial applications.
             </p>
@@ -184,7 +181,6 @@ export default function SubstationInstallation() {
             <h2 className="text-3xl font-bold mb-4 text-[#1a1a1a]">
               Our Process
             </h2>
-            <div className="h-1 w-16 bg-[#137DC5] mx-auto mb-6"></div>
             <p className="text-gray-600">
               We follow a structured approach to ensure your substation installation is delivered safely, efficiently and to the highest standards.
             </p>
@@ -261,7 +257,6 @@ export default function SubstationInstallation() {
             <h2 className="text-3xl font-bold mb-4 text-[#1a1a1a]">
               Benefits of Our Substation Solutions
             </h2>
-            <div className="h-1 w-16 bg-[#137DC5] mx-auto mb-6"></div>
           </div>
           
           <div className="grid md:grid-cols-3 gap-8">

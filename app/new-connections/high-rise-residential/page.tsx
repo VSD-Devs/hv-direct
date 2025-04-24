@@ -1,9 +1,12 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
+import QuoteModal from "@/app/components/QuoteModal";
 
 export default function HighRiseResidential() {
+  const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false);
+
   return (
     <main className="min-h-screen">
       {/* Hero Banner */}
@@ -22,7 +25,6 @@ export default function HighRiseResidential() {
             <h1 className="text-4xl md:text-5xl font-bold mb-6 text-[#1a1a1a]">
               High-Rise Residential Connections
             </h1>
-            <div className="h-1 w-24 bg-[#137DC5] mx-auto mb-6"></div>
             <p className="text-xl text-gray-600 mb-8">
               Reliable and efficient electrical infrastructure for residential tower blocks and apartment complexes
             </p>
@@ -45,7 +47,6 @@ export default function HighRiseResidential() {
               <h2 className="text-3xl font-bold mb-4 text-[#1a1a1a]">
                 Powering Modern Vertical Communities
               </h2>
-              <div className="h-1 w-16 bg-[#137DC5] mb-6"></div>
               <p className="text-gray-600 mb-6">
                 HV Direct specialises in designing, installing and maintaining high-quality electrical connections for high-rise residential buildings across the UK. 
               </p>
@@ -90,7 +91,6 @@ export default function HighRiseResidential() {
             <h2 className="text-3xl font-bold mb-4 text-[#1a1a1a]">
               Our Process
             </h2>
-            <div className="h-1 w-16 bg-[#137DC5] mx-auto mb-6"></div>
             <p className="text-gray-600">
               We manage your electrical connection project from initial planning to final commissioning, ensuring a smooth process throughout.
             </p>
@@ -147,7 +147,6 @@ export default function HighRiseResidential() {
             <h2 className="text-3xl font-bold mb-4 text-[#1a1a1a]">
               Benefits of Our High-Rise Solutions
             </h2>
-            <div className="h-1 w-16 bg-[#137DC5] mx-auto mb-6"></div>
           </div>
           
           <div className="grid md:grid-cols-3 gap-8">
@@ -237,9 +236,15 @@ export default function HighRiseResidential() {
               Our team has extensive experience with residential tower blocks throughout the UK. Contact us today for a consultation.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <button
+                onClick={() => setIsQuoteModalOpen(true)}
+                className="inline-flex items-center justify-center h-12 px-8 rounded-md text-sm font-medium bg-white text-[#137DC5] hover:bg-gray-100"
+              >
+                Request a Quote
+              </button>
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center h-12 px-8 rounded-md text-sm font-medium bg-white text-[#137DC5] hover:bg-gray-100"
+                className="inline-flex items-center justify-center h-12 px-8 rounded-md text-sm font-medium bg-transparent border border-white text-white hover:bg-white/10 transition-colors"
               >
                 Contact Us
               </Link>
@@ -255,7 +260,6 @@ export default function HighRiseResidential() {
             <h2 className="text-3xl font-bold mb-4 text-[#1a1a1a]">
               Frequently Asked Questions
             </h2>
-            <div className="h-1 w-16 bg-[#137DC5] mx-auto mb-6"></div>
           </div>
           
           <div className="max-w-3xl mx-auto">
@@ -299,7 +303,6 @@ export default function HighRiseResidential() {
             <h2 className="text-3xl font-bold mb-4 text-[#1a1a1a]">
               Related Services
             </h2>
-            <div className="h-1 w-16 bg-[#137DC5] mx-auto mb-6"></div>
           </div>
           
           <div className="grid md:grid-cols-3 gap-8">
@@ -380,6 +383,13 @@ export default function HighRiseResidential() {
           </div>
         </div>
       </section>
+
+      {/* Quote Request Modal */}
+      <QuoteModal 
+        isOpen={isQuoteModalOpen}
+        onClose={() => setIsQuoteModalOpen(false)}
+        serviceName="High-Rise Residential Connections"
+      />
     </main>
   );
 } 

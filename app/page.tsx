@@ -1,6 +1,8 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect, useCallback, useRef } from "react";
+import useEmblaCarousel from 'embla-carousel-react';
+import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "@/components/ui/carousel";
 
 export default function Home() {
   const [formStep, setFormStep] = useState(1);
@@ -21,6 +23,58 @@ export default function Home() {
     success: boolean;
     message: string;
   } | null>(null);
+  
+  // Add API state for the carousel
+  const [carouselApi, setCarouselApi] = useState<any>(null);
+  const autoplayRef = useRef<NodeJS.Timeout | null>(null);
+
+  // Set up autoplay functionality
+  const startAutoplay = useCallback(() => {
+    if (autoplayRef.current) {
+      clearInterval(autoplayRef.current);
+    }
+    
+    autoplayRef.current = setInterval(() => {
+      if (carouselApi) {
+        if (carouselApi.canScrollNext()) {
+          carouselApi.scrollNext();
+        } else {
+          // Reset to first slide for continuous looping
+          carouselApi.scrollTo(0);
+        }
+      }
+    }, 3000); // Scroll every 2 seconds
+  }, [carouselApi]);
+  
+  // Pause autoplay on hover
+  const pauseAutoplay = useCallback(() => {
+    if (autoplayRef.current) {
+      clearInterval(autoplayRef.current);
+      autoplayRef.current = null;
+    }
+  }, []);
+  
+  // Start autoplay when component mounts and when carouselApi changes
+  useEffect(() => {
+    if (carouselApi) {
+      startAutoplay();
+    }
+    
+    // Clean up interval when component unmounts
+    return () => {
+      if (autoplayRef.current) {
+        clearInterval(autoplayRef.current);
+      }
+    };
+  }, [carouselApi, startAutoplay]);
+  
+  // Filter changes should reset the carousel position
+  useEffect(() => {
+    if (carouselApi) {
+      // Reset to first slide when filter changes
+      carouselApi.scrollTo(0);
+    }
+  }, [activeServiceFilter, carouselApi]);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value, type } = e.target as HTMLInputElement;
@@ -130,7 +184,7 @@ export default function Home() {
       
       {/* Hero Section with Form */}
       <div 
-        className="relative md:h-[650px] py-16 md:py-0 flex items-center justify-center text-white"
+        className="relative md:h-[600px] py-12 md:py-0 flex items-center justify-center text-white"
       >
         {/* Video Background */}
         <div className="absolute inset-0 overflow-hidden">
@@ -153,7 +207,7 @@ export default function Home() {
                 Powering our future with high-quality, reliable electrical connections
             </h1>
               <p className="text-lg md:text-xl mb-8 text-shadow-md text-white">
-                HV Direct is an Independent Connection Provider (ICP) specialising in delivering electrical connections to residential, commercial and industrial markets.
+                HV Direct is an Independent Connection Provider (ICP) specialising in delivering electrical connections to residential, commercial and industrial and EV Charging networks.
             </p>
             <div className="flex gap-4">
                 <a 
@@ -485,14 +539,13 @@ export default function Home() {
       </div>
 
       {/* Key Benefits Section - Clean Redesign */}
-      <section className="py-20 relative">
+      <section className="py-14 relative">
         <div className="absolute inset-x-0 bottom-0 bg-gradient-to-r from-[#0f5f96]/90 to-[#2199ea]/80 h-[48.3%] w-full"></div>
         <div className="container mx-auto px-4 relative z-10">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold text-brand-dark-blue">
               Why Choose HV Direct?
             </h2>
-            <div className="h-1 w-20 bg-[#137DC5] mx-auto mt-4"></div>
             <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto mt-6">
               Our approach combines technical expertise with outstanding customer service, delivering electrical connections that exceed expectations.
             </p>
@@ -504,7 +557,7 @@ export default function Home() {
             <div className="bg-white rounded-lg shadow-sm overflow-hidden group hover:shadow-md transition-shadow">
               <div className="h-48 bg-[#137DC5]/10 relative overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#0f5f96]/40 group-hover:opacity-0 transition-opacity"></div>
-                <div className="absolute top-4 left-4 bg-[#0f5f96] text-white text-xs font-medium px-3 py-1 rounded-full">
+                <div className="absolute top-4 left-4 bg-[#0f5f96] text-white text-xs font-medium px-3 py-1 rounded-full z-10">
                   Residential
                 </div>
                 <img 
@@ -534,7 +587,7 @@ export default function Home() {
             <div className="bg-white rounded-lg shadow-sm overflow-hidden group hover:shadow-md transition-shadow">
               <div className="h-48 bg-[#137DC5]/10 relative overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#0f5f96]/40 group-hover:opacity-0 transition-opacity"></div>
-                <div className="absolute top-4 left-4 bg-[#0f5f96] text-white text-xs font-medium px-3 py-1 rounded-full">
+                <div className="absolute top-4 left-4 bg-[#0f5f96] text-white text-xs font-medium px-3 py-1 rounded-full z-10">
                   Commercial
                 </div>
                 <img 
@@ -564,7 +617,7 @@ export default function Home() {
             <div className="bg-white rounded-lg shadow-sm overflow-hidden group hover:shadow-md transition-shadow">
               <div className="h-48 bg-[#137DC5]/10 relative overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#0f5f96]/40 group-hover:opacity-0 transition-opacity"></div>
-                <div className="absolute top-4 left-4 bg-[#0f5f96] text-white text-xs font-medium px-3 py-1 rounded-full">
+                <div className="absolute top-4 left-4 bg-[#0f5f96] text-white text-xs font-medium px-3 py-1 rounded-full z-10">
                   Industrial
                 </div>
                 <img 
@@ -591,7 +644,7 @@ export default function Home() {
             </div>
           </div>
           
-          <div className="mt-16 text-center">
+          <div className="mt-10 text-center">
             <a 
               href="/about" 
               className="inline-flex items-center justify-center px-6 py-3 bg-[#0f5f96] text-white font-medium rounded-md hover:bg-[#094879] transition-colors"
@@ -606,12 +659,12 @@ export default function Home() {
       </section>
 
       {/* Services Section */}
-      <section className="py-20 bg-[#f5f5f5]">
+      <section className="py-14 bg-[#f5f5f5]">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-6 text-brand-dark-blue">
             Our Services
           </h2>
-          <p className="text-base md:text-lg text-center text-gray-600 max-w-3xl mx-auto mb-16">
+          <p className="text-base md:text-lg text-center text-gray-600 max-w-3xl mx-auto mb-10">
             HV Direct offers comprehensive electrical connection services designed to meet the unique needs of various sectors.
           </p>
           
@@ -651,201 +704,206 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Services Carousel/Slider */}
-          <div className="relative">
-            {/* Service Cards Container */}
-            <div className="overflow-x-auto pb-8 hide-scrollbar">
-              <div className="flex gap-6 w-max px-4">
-                
+          {/* Services Carousel with Embla */}
+          <div className="relative px-8 md:px-12">
+            <Carousel
+              opts={{
+                align: "start",
+                loop: true,
+              }}
+              setApi={setCarouselApi}
+              className="w-full"
+              onMouseEnter={pauseAutoplay}
+              onMouseLeave={startAutoplay}
+              onTouchStart={pauseAutoplay}
+              onTouchEnd={startAutoplay}
+            >
+              <CarouselContent>
                 {/* High Rise Residential */}
-                <div className={`w-[350px] flex-shrink-0 bg-white rounded-lg shadow-sm overflow-hidden group hover:shadow-md transition-shadow ${
+                <CarouselItem className={`md:basis-1/3 lg:basis-1/4 ${
                   activeServiceFilter !== "all" && activeServiceFilter !== "low-voltage" ? "hidden" : ""
                 }`}>
-                  <div className="h-48 bg-[#137DC5]/10 relative overflow-hidden">
-                    <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#137DC5]/20 group-hover:opacity-0 transition-opacity"></div>
-                    <div className="absolute top-4 left-4 bg-[#137DC5] text-white text-xs font-medium px-3 py-1 rounded-full">
-                      Low Voltage
+                  <div className="bg-white rounded-lg shadow-sm overflow-hidden group hover:shadow-md transition-shadow h-full">
+                    <div className="h-48 bg-[#137DC5]/10 relative overflow-hidden">
+                      <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#137DC5]/20 group-hover:opacity-0 transition-opacity"></div>
+                      <div className="absolute top-4 left-4 bg-[#137DC5] text-white text-xs font-medium px-3 py-1 rounded-full z-10">
+                        Low Voltage
+                      </div>
+                      <img 
+                        src="/images/high-rise-residential.jpg" 
+                        alt="High Rise Residential" 
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      />
                     </div>
-                    <img 
-                      src="/images/high-rise-residential.jpg" 
-                      alt="High Rise Residential" 
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
+                    <div className="p-6">
+                      <h3 className="text-xl font-semibold mb-3 text-[#1a1a1a]">High Rise Residential</h3>
+                      <p className="text-base md:text-lg text-gray-600 mb-4 line-clamp-3">
+                        HV Direct designs and constructs electrical infrastructure for high-rise residential buildings, ensuring reliable power distribution throughout the development.
+                      </p>
+                      <a 
+                        href="/new-connections/high-rise-residential" 
+                        className="inline-flex items-center text-[#137DC5] font-medium hover:text-[#0f5f96] transition-colors"
+                      >
+                        Learn More
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                        </svg>
+                      </a>
+                    </div>
                   </div>
-                  <div className="p-6">
-                    <h3 className="text-xl font-semibold mb-3 text-[#1a1a1a]">High Rise Residential</h3>
-                    <p className="text-base md:text-lg text-gray-600 mb-4 line-clamp-3">
-                      HV Direct designs and constructs electrical infrastructure for high-rise residential buildings, ensuring reliable power distribution throughout the development.
-                    </p>
-                    <a 
-                      href="/new-connections/high-rise-residential" 
-                      className="inline-flex items-center text-[#137DC5] font-medium hover:text-[#0f5f96] transition-colors"
-                    >
-                      Learn More
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                      </svg>
-                    </a>
-                  </div>
-                </div>
+                </CarouselItem>
 
                 {/* New Build Housing */}
-                <div className={`w-[350px] flex-shrink-0 bg-white rounded-lg shadow-sm overflow-hidden group hover:shadow-md transition-shadow ${
+                <CarouselItem className={`md:basis-1/3 lg:basis-1/4 ${
                   activeServiceFilter !== "all" && activeServiceFilter !== "low-voltage" ? "hidden" : ""
                 }`}>
-                  <div className="h-48 bg-[#137DC5]/10 relative overflow-hidden">
-                    <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#137DC5]/20 group-hover:opacity-0 transition-opacity"></div>
-                    <div className="absolute top-4 left-4 bg-[#137DC5] text-white text-xs font-medium px-3 py-1 rounded-full">
-                      Low Voltage
-                    </div>
-                    <img 
-                      src="/images/new-builds.jpg" 
-                      alt="New Build Housing" 
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
-                  </div>
-                  <div className="p-6">
-                    <h3 className="text-xl font-semibold mb-3 text-[#1a1a1a]">New Build Housing</h3>
-                    <p className="text-base md:text-lg text-gray-600 mb-4 line-clamp-3">
-                      The company provides electrical connections for new housing developments, from design to construction, ensuring efficient and cost-effective solutions.
-                    </p>
-                    <a 
-                      href="/new-connections/new-build-housing" 
-                      className="inline-flex items-center text-[#137DC5] font-medium hover:text-[#0f5f96] transition-colors"
-                    >
-                      Learn More
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                      </svg>
-                    </a>
-                  </div>
-                </div>
-
-                {/* EV Charging Networks - Combined Card - Always show because it has both LV and HV */}
-                <div className="w-[350px] flex-shrink-0 bg-white rounded-lg shadow-sm overflow-hidden group hover:shadow-md transition-shadow">
-                  <div className="h-48 bg-[#137DC5]/10 relative overflow-hidden">
-                    <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#137DC5]/20 group-hover:opacity-0 transition-opacity"></div>
-                    <div className="absolute top-4 left-4 flex space-x-2">
-                      <div className="bg-[#137DC5] text-white text-xs font-medium px-3 py-1 rounded-full">
+                  <div className="bg-white rounded-lg shadow-sm overflow-hidden group hover:shadow-md transition-shadow h-full">
+                    <div className="h-48 bg-[#137DC5]/10 relative overflow-hidden">
+                      <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#137DC5]/20 group-hover:opacity-0 transition-opacity"></div>
+                      <div className="absolute top-4 left-4 bg-[#137DC5] text-white text-xs font-medium px-3 py-1 rounded-full z-10">
                         Low Voltage
                       </div>
-                      <div className="bg-[#0f5f96] text-white text-xs font-medium px-3 py-1 rounded-full">
-                        High Voltage
-                      </div>
+                      <img 
+                        src="/images/new-builds.jpg" 
+                        alt="New Build Housing" 
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      />
                     </div>
-                    <img 
-                      src="/images/ev-charging.jpeg" 
-                      alt="EV Charging Networks" 
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
+                    <div className="p-6">
+                      <h3 className="text-xl font-semibold mb-3 text-[#1a1a1a]">New Build Housing</h3>
+                      <p className="text-base md:text-lg text-gray-600 mb-4 line-clamp-3">
+                        The company provides electrical connections for new housing developments, from design to construction, ensuring efficient and cost-effective solutions.
+                      </p>
+                      <a 
+                        href="/new-connections/new-build-housing" 
+                        className="inline-flex items-center text-[#137DC5] font-medium hover:text-[#0f5f96] transition-colors"
+                      >
+                        Learn More
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                        </svg>
+                      </a>
+                    </div>
                   </div>
-                  <div className="p-6">
-                    <h3 className="text-xl font-semibold mb-3 text-[#1a1a1a]">EV Charging Networks</h3>
-                    <p className="text-base md:text-lg text-gray-600 mb-4 line-clamp-3">
-                      HV Direct designs and installs EV charging infrastructure for residential settings to large-scale commercial fleets and transport hubs.
-                    </p>
-                    <a 
-                      href="/new-connections/ev-charging-networks" 
-                      className="inline-flex items-center text-[#137DC5] font-medium hover:text-[#0f5f96] transition-colors"
-                    >
-                      Learn More
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                      </svg>
-                    </a>
-                  </div>
-                </div>
+                </CarouselItem>
 
-                {/* Diversions and Reinforcements - Combined Card - Always show because it has both LV and HV */}
-                <div className="w-[350px] flex-shrink-0 bg-white rounded-lg shadow-sm overflow-hidden group hover:shadow-md transition-shadow">
-                  <div className="h-48 bg-[#137DC5]/10 relative overflow-hidden">
-                    <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#137DC5]/20 group-hover:opacity-0 transition-opacity"></div>
-                    <div className="absolute top-4 left-4 flex space-x-2">
-                      <div className="bg-[#137DC5] text-white text-xs font-medium px-3 py-1 rounded-full">
-                        Low Voltage
+                {/* EV Charging Networks */}
+                <CarouselItem className="md:basis-1/3 lg:basis-1/4">
+                  <div className="bg-white rounded-lg shadow-sm overflow-hidden group hover:shadow-md transition-shadow h-full">
+                    <div className="h-48 bg-[#137DC5]/10 relative overflow-hidden">
+                      <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#137DC5]/20 group-hover:opacity-0 transition-opacity"></div>
+                      <div className="absolute top-4 left-4 flex space-x-2 z-10">
+                        <div className="bg-[#137DC5] text-white text-xs font-medium px-3 py-1 rounded-full">
+                          Low Voltage
+                        </div>
+                        <div className="bg-[#0f5f96] text-white text-xs font-medium px-3 py-1 rounded-full">
+                          High Voltage
+                        </div>
                       </div>
-                      <div className="bg-[#0f5f96] text-white text-xs font-medium px-3 py-1 rounded-full">
-                        High Voltage
-                      </div>
+                      <img 
+                        src="/images/ev-charging.jpeg" 
+                        alt="EV Charging Networks" 
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      />
                     </div>
-                    <img 
-                      src="/images/diversions-reinforcement.webp" 
-                      alt="Diversions and Reinforcements" 
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
+                    <div className="p-6">
+                      <h3 className="text-xl font-semibold mb-3 text-[#1a1a1a]">EV Charging Networks</h3>
+                      <p className="text-base md:text-lg text-gray-600 mb-4 line-clamp-3">
+                        HV Direct designs and installs EV charging infrastructure for residential settings to large-scale commercial fleets and transport hubs.
+                      </p>
+                      <a 
+                        href="/new-connections/ev-charging-networks" 
+                        className="inline-flex items-center text-[#137DC5] font-medium hover:text-[#0f5f96] transition-colors"
+                      >
+                        Learn More
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                        </svg>
+                      </a>
+                    </div>
                   </div>
-                  <div className="p-6">
-                    <h3 className="text-xl font-semibold mb-3 text-[#1a1a1a]">Diversions and Reinforcements</h3>
-                    <p className="text-base md:text-lg text-gray-600 mb-4 line-clamp-3">
-                      The company handles diversions and reinforcements at both low and high voltage, ensuring electrical infrastructure can accommodate new developments.
-                    </p>
-                    <a 
-                      href="/new-connections/diversions" 
-                      className="inline-flex items-center text-[#137DC5] font-medium hover:text-[#0f5f96] transition-colors"
-                    >
-                      Learn More
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                      </svg>
-                    </a>
+                </CarouselItem>
+
+                {/* Diversions and Reinforcements */}
+                <CarouselItem className="md:basis-1/3 lg:basis-1/4">
+                  <div className="bg-white rounded-lg shadow-sm overflow-hidden group hover:shadow-md transition-shadow h-full">
+                    <div className="h-48 bg-[#137DC5]/10 relative overflow-hidden">
+                      <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#137DC5]/20 group-hover:opacity-0 transition-opacity"></div>
+                      <div className="absolute top-4 left-4 flex space-x-2 z-10">
+                        <div className="bg-[#137DC5] text-white text-xs font-medium px-3 py-1 rounded-full">
+                          Low Voltage
+                        </div>
+                        <div className="bg-[#0f5f96] text-white text-xs font-medium px-3 py-1 rounded-full">
+                          High Voltage
+                        </div>
+                      </div>
+                      <img 
+                        src="/images/diversions-reinforcement.webp" 
+                        alt="Diversions and Reinforcements" 
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      />
+                    </div>
+                    <div className="p-6">
+                      <h3 className="text-xl font-semibold mb-3 text-[#1a1a1a]">Diversions and Reinforcements</h3>
+                      <p className="text-base md:text-lg text-gray-600 mb-4 line-clamp-3">
+                        The company handles diversions and reinforcements at both low and high voltage, ensuring electrical infrastructure can accommodate new developments.
+                      </p>
+                      <a 
+                        href="/new-connections/diversions" 
+                        className="inline-flex items-center text-[#137DC5] font-medium hover:text-[#0f5f96] transition-colors"
+                      >
+                        Learn More
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                        </svg>
+                      </a>
+                    </div>
                   </div>
-                </div>
+                </CarouselItem>
 
                 {/* Substation Installation */}
-                <div className={`w-[350px] flex-shrink-0 bg-white rounded-lg shadow-sm overflow-hidden group hover:shadow-md transition-shadow ${
+                <CarouselItem className={`md:basis-1/3 lg:basis-1/4 ${
                   activeServiceFilter !== "all" && activeServiceFilter !== "high-voltage" ? "hidden" : ""
                 }`}>
-                  <div className="h-48 bg-[#137DC5]/10 relative overflow-hidden">
-                    <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#137DC5]/20 group-hover:opacity-0 transition-opacity"></div>
-                    <div className="absolute top-4 left-4 bg-[#0f5f96] text-white text-xs font-medium px-3 py-1 rounded-full">
-                      High Voltage
+                  <div className="bg-white rounded-lg shadow-sm overflow-hidden group hover:shadow-md transition-shadow h-full">
+                    <div className="h-48 bg-[#137DC5]/10 relative overflow-hidden">
+                      <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#137DC5]/20 group-hover:opacity-0 transition-opacity"></div>
+                      <div className="absolute top-4 left-4 bg-[#0f5f96] text-white text-xs font-medium px-3 py-1 rounded-full z-10">
+                        High Voltage
+                      </div>
+                      <img 
+                        src="/images/substation.jpg" 
+                        alt="Substation Installation" 
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      />
                     </div>
-                    <img 
-                      src="/images/substation.jpg" 
-                      alt="Substation Installation" 
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
+                    <div className="p-6">
+                      <h3 className="text-xl font-semibold mb-3 text-[#1a1a1a]">Substation Installation</h3>
+                      <p className="text-base md:text-lg text-gray-600 mb-4 line-clamp-3">
+                        HV Direct designs and constructs high-voltage substations (up to 11kV), ensuring they meet all regulatory and safety standards for optimal performance.
+                      </p>
+                      <a 
+                        href="/new-connections/substation-installation" 
+                        className="inline-flex items-center text-[#137DC5] font-medium hover:text-[#0f5f96] transition-colors"
+                      >
+                        Learn More
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                        </svg>
+                      </a>
+                    </div>
                   </div>
-                  <div className="p-6">
-                    <h3 className="text-xl font-semibold mb-3 text-[#1a1a1a]">Substation Installation</h3>
-                    <p className="text-base md:text-lg text-gray-600 mb-4 line-clamp-3">
-                      HV Direct designs and constructs high-voltage substations (up to 11kV), ensuring they meet all regulatory and safety standards for optimal performance.
-                    </p>
-                    <a 
-                      href="/new-connections/substation-installation" 
-                      className="inline-flex items-center text-[#137DC5] font-medium hover:text-[#0f5f96] transition-colors"
-                    >
-                      Learn More
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                      </svg>
-                    </a>
-                  </div>
-                </div>
+                </CarouselItem>
+              </CarouselContent>
+              
+              <div className="hidden sm:block">
+                <CarouselPrevious className="lg:-left-5 -left-2" />
+                <CarouselNext className="lg:-right-5 -right-2" />
               </div>
-            </div>
-
-            {/* Scroll Indicators */}
-            <div className="flex justify-center mt-8 gap-2">
-              <button className="w-2.5 h-2.5 rounded-full bg-[#137DC5]"></button>
-              <button className="w-2.5 h-2.5 rounded-full bg-gray-300 hover:bg-gray-400 transition-colors"></button>
-              <button className="w-2.5 h-2.5 rounded-full bg-gray-300 hover:bg-gray-400 transition-colors"></button>
-            </div>
-
-            {/* Scroll Arrows */}
-            <button className="absolute top-1/2 left-0 transform -translate-y-1/2 w-10 h-10 bg-white rounded-full shadow-md flex items-center justify-center text-gray-700 hover:bg-gray-100 transition-colors">
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                <path fillRule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clipRule="evenodd" />
-              </svg>
-            </button>
-            <button className="absolute top-1/2 right-0 transform -translate-y-1/2 w-10 h-10 bg-white rounded-full shadow-md flex items-center justify-center text-gray-700 hover:bg-gray-100 transition-colors">
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
-              </svg>
-            </button>
+            </Carousel>
           </div>
 
-          <div className="text-center mt-12">
+          <div className="text-center mt-8">
             <a 
               href="/new-connections"
               className="inline-flex items-center justify-center px-6 py-3 bg-[#137DC5] text-white font-medium rounded-md hover:bg-[#0f5f96] transition-colors"
@@ -857,7 +915,7 @@ export default function Home() {
       </section>
 
       {/* About Section */}
-      <section className="py-20 bg-white">
+      <section className="py-14 bg-white">
         <div className="container mx-auto px-4">
           <div className="flex flex-col lg:flex-row gap-12 items-center">
             <div className="lg:w-1/2">
@@ -888,63 +946,30 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Sectors Section */}
-      <section className="py-12 sm:py-16 bg-[#f5f5f5]">
-        <div className="container mx-auto px-4">
-          <h2 className="text-2xl sm:text-3xl font-bold text-center mb-8 sm:mb-12 text-brand-dark-blue">
-            Sectors We Serve
-          </h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-6">
-            {[
-              { 
-                title: "Residential",
-                description: "New builds, high-rise developments, and housing estates."
-              },
-              { 
-                title: "Commercial",
-                description: "Office buildings, retail parks, and business premises."
-              },
-              { 
-                title: "Industrial",
-                description: "Manufacturing facilities, warehouses, and industrial parks."
-              },
-              { 
-                title: "EV Charging",
-                description: "Public and private charging networks for electric vehicles."
-              }
-            ].map((sector, index) => (
-              <div key={index} className="bg-white p-3 sm:p-5 rounded-lg text-center hover:shadow-md transition-shadow h-full flex flex-col items-center justify-start">
-                <div className="inline-block p-2 sm:p-3 rounded-full bg-[#137DC5]/10 mb-2 sm:mb-4">
-                  <div className="h-4 w-4 sm:h-5 sm:w-5 bg-[#137DC5] rounded-full"></div>
-                </div>
-                <h3 className="text-base sm:text-lg font-semibold mb-1 sm:mb-2">{sector.title}</h3>
-                <p className="text-xs sm:text-sm text-gray-600">{sector.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Accreditations */}
-      <section className="bg-white border-t border-b border-gray-100 py-6 sm:py-10">
-        <div className="container mx-auto">
-          <div className="flex flex-col sm:flex-row items-center justify-center px-4 gap-5 sm:gap-10">
-            <h2 className="text-lg sm:text-xl md:text-2xl font-semibold text-gray-700 uppercase tracking-wider">
+      <section className="py-12 bg-gray-100">
+        <div className="container mx-auto px-4">
+          <div className="text-center">
+            <h2 className="text-xl md:text-2xl font-semibold text-gray-800 uppercase tracking-wider mb-6">
               Accredited by
             </h2>
-            <div className="h-24 sm:h-36 md:h-48 flex items-center">
-              <img 
-                src="/images/LRQA.png" 
-                alt="LRQA NERS Accreditation - National Electricity Registration Scheme" 
-                className="h-full w-auto"
-              />
+            <div className="flex justify-center">
+              <div className="inline-block p-1 bg-gray-200 rounded shadow-md">
+                <div className="bg-white p-2 rounded">
+                  <img 
+                    src="/images/LRQA.jpg" 
+                    alt="LRQA NERS Accreditation - National Electricity Registration Scheme" 
+                    className="h-auto w-72"
+                  />
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-[#0f5f96] to-[#2199ea] text-white">
+      <section className="py-14 bg-gradient-to-r from-[#0f5f96] to-[#2199ea] text-white">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold mb-6 text-white">Ready to Get Connected?</h2>
           <p className="text-base md:text-xl mb-8 max-w-2xl mx-auto text-white">

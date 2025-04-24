@@ -1,9 +1,12 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
+import QuoteModal from "@/app/components/QuoteModal";
 
 export default function NewBuildHousing() {
+  const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false);
+
   return (
     <main className="min-h-screen">
       {/* Hero Banner */}
@@ -27,7 +30,6 @@ export default function NewBuildHousing() {
             <h1 className="text-4xl md:text-5xl font-bold mb-6 text-white">
               New Build Housing Connections
             </h1>
-            <div className="h-1 w-24 bg-white mx-auto mb-6"></div>
             <p className="text-xl text-white/90 mb-8">
               Comprehensive electrical infrastructure for residential developers and housebuilders
             </p>
@@ -50,7 +52,6 @@ export default function NewBuildHousing() {
               <h2 className="text-3xl font-bold mb-4 text-[#1a1a1a]">
                 Powering New Communities
               </h2>
-              <div className="h-1 w-16 bg-[#137DC5] mb-6"></div>
               <p className="text-gray-600 mb-6">
                 HV Direct specialises in designing, installing and connecting electrical infrastructure for new housing developments throughout the UK. From small plots to major residential schemes, we deliver reliable power solutions that meet the needs of modern homes.
               </p>
@@ -95,7 +96,6 @@ export default function NewBuildHousing() {
             <h2 className="text-3xl font-bold mb-4 text-[#1a1a1a]">
               Our New Build Services
             </h2>
-            <div className="h-1 w-16 bg-[#137DC5] mx-auto mb-6"></div>
             <p className="text-gray-600">
               We offer a full range of electrical connection services for new housing developments.
             </p>
@@ -184,7 +184,6 @@ export default function NewBuildHousing() {
             <h2 className="text-3xl font-bold mb-4 text-[#1a1a1a]">
               Our Process
             </h2>
-            <div className="h-1 w-16 bg-[#137DC5] mx-auto mb-6"></div>
             <p className="text-gray-600">
               We follow a structured approach to ensure your new build electrical connections are delivered efficiently.
             </p>
@@ -245,13 +244,18 @@ export default function NewBuildHousing() {
               Contact our team today to discuss your project needs and receive a competitive quotation.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                href="/contact"
-                className="inline-flex items-center justify-center h-12 px-8 rounded-md text-sm font-medium bg-white text-[#137DC5] hover:bg-gray-100 no-underline"
+              <button
+                onClick={() => setIsQuoteModalOpen(true)}
+                className="inline-flex items-center justify-center h-12 px-8 rounded-md text-sm font-medium bg-white text-[#137DC5] hover:bg-gray-100"
               >
                 Request a Quote
+              </button>
+              <Link
+                href="/contact"
+                className="inline-flex items-center justify-center h-12 px-8 rounded-md text-sm font-medium bg-transparent border border-white text-white hover:bg-white/10 transition-colors no-underline"
+              >
+                Contact Us
               </Link>
-
             </div>
           </div>
         </div>
@@ -264,7 +268,6 @@ export default function NewBuildHousing() {
             <h2 className="text-3xl font-bold mb-4 text-[#1a1a1a]">
               Frequently Asked Questions
             </h2>
-            <div className="h-1 w-16 bg-[#137DC5] mx-auto mb-6"></div>
             <p className="text-gray-600 mb-8">
               Everything you need to know about our new build housing connection services
             </p>
@@ -326,7 +329,6 @@ export default function NewBuildHousing() {
             <h2 className="text-3xl font-bold mb-4 text-[#1a1a1a]">
               Related Services
             </h2>
-            <div className="h-1 w-16 bg-[#137DC5] mx-auto mb-6"></div>
           </div>
           
           <div className="grid md:grid-cols-3 gap-8">
@@ -407,6 +409,13 @@ export default function NewBuildHousing() {
           </div>
         </div>
       </section>
+
+      {/* Quote Request Modal */}
+      <QuoteModal 
+        isOpen={isQuoteModalOpen}
+        onClose={() => setIsQuoteModalOpen(false)}
+        serviceName="New Build Housing"
+      />
     </main>
   );
 } 

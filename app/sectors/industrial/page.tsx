@@ -83,7 +83,7 @@ export default function IndustrialPage() {
   return (
     <main className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative py-20 md:py-28 bg-cover bg-center text-white" style={{ 
+      <section className="relative py-14 md:py-20 bg-cover bg-center text-white" style={{ 
         backgroundImage: "linear-gradient(rgba(23, 63, 90, 0.85), rgba(16, 59, 88, 0.75)), url('/images/industrial-hero.jpg')"
       }}>
         <div className="container mx-auto px-4 relative z-10">
@@ -113,7 +113,7 @@ export default function IndustrialPage() {
       </section>
 
       {/* Introduction Section */}
-      <section className="py-20 bg-white">
+      <section className="py-14 bg-white">
         <div className="container mx-auto px-4">
           <div className="flex flex-col lg:flex-row gap-12 items-center">
             <div className="lg:w-1/2">
@@ -129,7 +129,6 @@ export default function IndustrialPage() {
             <div className="lg:w-1/2">
               <div className="max-w-xl">
                 <h2 className="text-3xl font-bold mb-6 text-brand-dark-blue">Powering Industrial Excellence</h2>
-                <div className="h-1 w-16 bg-[#137DC5] mb-8"></div>
                 <p className="text-base md:text-lg text-gray-700 mb-4">
                   Industrial facilities demand robust, reliable electrical infrastructure that can handle high power loads and ensure continuous operations. 
                 </p>
@@ -180,13 +179,12 @@ export default function IndustrialPage() {
       </section>
 
       {/* Solutions Section */}
-      <section id="solutions" className="py-20 bg-[#f5f5f5]">
+      <section id="solutions" className="py-14 bg-[#f5f5f5]">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold mb-4 text-brand-dark-blue">
               Our Industrial Solutions
             </h2>
-            <div className="h-1 w-20 bg-[#137DC5] mx-auto mb-6"></div>
             <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto">
               Comprehensive electrical infrastructure solutions tailored to industrial requirements.
             </p>
@@ -238,13 +236,12 @@ export default function IndustrialPage() {
       </section>
 
       {/* Industries Served Section */}
-      <section className="py-20 bg-white">
+      <section className="py-14 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold mb-4 text-brand-dark-blue">
               Industries We Serve
             </h2>
-            <div className="h-1 w-20 bg-[#137DC5] mx-auto mb-6"></div>
             <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto">
               Our expertise spans across multiple industrial sectors, providing tailored electrical solutions for each unique requirement.
             </p>
@@ -280,13 +277,12 @@ export default function IndustrialPage() {
       </section>
 
       {/* Process Section */}
-      <section className="py-20 bg-[#f5f5f5]">
+      <section className="py-14 bg-[#f5f5f5]">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold mb-4 text-brand-dark-blue">
               Our Industrial Connection Process
             </h2>
-            <div className="h-1 w-20 bg-[#137DC5] mx-auto mb-6"></div>
             <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto">
               A streamlined approach to ensure your industrial electrical project is delivered efficiently and to the highest standards.
             </p>
@@ -362,13 +358,12 @@ export default function IndustrialPage() {
       </section>
 
       {/* Benefits Section */}
-      <section className="py-20 bg-white">
+      <section className="py-14 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold mb-4 text-brand-dark-blue">
               Benefits of Working With HV Direct
             </h2>
-            <div className="h-1 w-20 bg-[#137DC5] mx-auto mb-6"></div>
             <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto">
               Why leading industrial businesses choose us for their electrical connection needs.
             </p>
@@ -419,7 +414,7 @@ export default function IndustrialPage() {
       </section>
 
       {/* Call to Action */}
-      <section className="py-20 bg-gradient-to-r from-[#0f5f96] to-[#2199ea] text-white">
+      <section className="py-14 bg-gradient-to-r from-[#0f5f96] to-[#2199ea] text-white">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold mb-6 text-white">Ready to Discuss Your Industrial Power Needs?</h2>
           <p className="text-base md:text-xl mb-8 max-w-2xl mx-auto text-white">

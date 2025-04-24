@@ -81,8 +81,8 @@ export default function Navigation() {
               <img 
                 src="/images/hv-direct-logo.png" 
                 alt="HV Direct Logo" 
-                width={180} 
-                height={60} 
+                width={200} 
+                height={80} 
                 className="h-auto" 
               />
             </Link>

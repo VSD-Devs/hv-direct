@@ -113,7 +113,7 @@ export default function ContactPage() {
   return (
     <main className="min-h-screen">
       {/* Hero Section with Breadcrumb */}
-      <section className="relative py-20 md:py-28 bg-cover bg-center text-white" style={{ 
+      <section className="relative py-14 md:py-20 bg-cover bg-center text-white" style={{ 
         backgroundImage: "linear-gradient(rgba(15, 95, 150, 0.9), rgba(33, 153, 234, 0.8)), url('https://images.unsplash.com/photo-1588345921523-c2dcdb7f1dcd?auto=format&fit=crop&q=80')"
       }}>
         <div className="container mx-auto px-4 relative z-10">
@@ -127,7 +127,6 @@ export default function ContactPage() {
             <h1 className="text-4xl md:text-5xl font-bold mb-6 text-white">
               Let's Connect and Power Your Project
             </h1>
-            <div className="h-1 w-24 bg-white mb-8"></div>
             <p className="text-base md:text-xl mb-8 leading-relaxed">
               Whether you need a consultation, a quote, or simply have a question, our friendly team is ready to assist you with all your electrical connection requirements.
             </p>
@@ -144,13 +143,12 @@ export default function ContactPage() {
       </section>
 
       {/* Contact Information Section */}
-      <section id="locations" className="py-16 bg-white">
+      <section id="locations" className="py-14 bg-white">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
+          <div className="text-center mb-10">
             <h2 className="text-3xl font-bold mb-4 text-[#0f5f96]">
               Our Offices Across the UK
             </h2>
-            <div className="h-1 w-20 bg-[#137DC5] mx-auto mb-6"></div>
             <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto">
               Visit us at one of our regional offices or connect with us remotely. Our technical specialists are available to provide support nationwide.
             </p>
@@ -480,7 +478,7 @@ export default function ContactPage() {
       </section>
 
       {/* Call to Action */}
-      <section className="bg-gradient-to-r from-[#0f5f96] to-[#2199ea] py-16 md:py-20 text-white">
+      <section className="bg-gradient-to-r from-[#0f5f96] to-[#2199ea] py-14 text-white">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-5 gap-8 items-center">
             <div className="md:col-span-3">
@@ -545,13 +543,12 @@ export default function ContactPage() {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-20 bg-[#f5f5f5]">
+      <section className="py-14 bg-[#f5f5f5]">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
+          <div className="text-center mb-10">
             <h2 className="text-3xl font-bold mb-4 text-[#0f5f96]">
               Frequently Asked Questions
             </h2>
-            <div className="h-1 w-20 bg-[#137DC5] mx-auto mb-6"></div>
             <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto">
               Find answers to common questions about our electrical connection services.
             </p>

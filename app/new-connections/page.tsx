@@ -2,10 +2,21 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
+import QuoteModal from "@/app/components/QuoteModal";
 
 export default function NewConnections() {
   // State for filtering services
   const [activeFilter, setActiveFilter] = useState("all");
+  
+  // State for quote modal
+  const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false);
+  const [quoteService, setQuoteService] = useState("Electrical Connection");
+  
+  // Function to open modal with specific service
+  const openQuoteModal = (serviceName: string) => {
+    setQuoteService(serviceName);
+    setIsQuoteModalOpen(true);
+  };
   
   // Services data
   const services = [
@@ -102,7 +113,7 @@ export default function NewConnections() {
       `}</style>
       
       {/* Interactive Hero Banner */}
-      <section className="relative min-h-[50vh] md:min-h-[60vh] flex items-center bg-cover bg-center overflow-hidden">
+      <section className="relative py-14 md:py-20 bg-cover bg-center text-white">
         {/* Background video/image with overlay */}
         <div className="absolute inset-0 w-full h-full">
           <div 
@@ -111,70 +122,54 @@ export default function NewConnections() {
               backgroundImage: `url('/images/new-connections-main.jpg')`,
             }}
           ></div>
-          <div className="absolute inset-0 bg-gradient-to-r from-[#0f5f96]/70 to-[#137DC5]/50"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0f5f96]/80 to-[#137DC5]/80"></div>
         </div>
         
         {/* Hero content */}
         <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-4xl mx-auto">
-            <div className="bg-black/30 backdrop-blur-sm p-8 md:p-12 rounded-xl border border-white/20">
-              <h1 className="text-3xl md:text-5xl font-bold mb-6 text-white">
-                Electrical Connection Services
-              </h1>
-              <p className="text-lg md:text-xl text-white mb-8 max-w-2xl">
-                From design to installation, we provide reliable and efficient electrical connections for projects of all sizes, built to the highest standards.
-              </p>
-              
-              {/* Service quick links */}
-              <div className="flex flex-wrap gap-3 mt-8">
-                <Link
-                  href="#low-voltage"
-                  className="px-4 py-2 bg-white text-[#0f5f96] rounded-full text-sm font-medium hover:bg-[#f5f5f5] transition-colors"
-                >
-                  Low Voltage Services
-                </Link>
-                <Link
-                  href="#high-voltage"
-                  className="px-4 py-2 bg-white/20 text-white rounded-full text-sm font-medium hover:bg-white/30 transition-colors"
-                >
-                  High Voltage Services
-                </Link>
-                <Link
-                  href="#contact"
-                  className="px-4 py-2 bg-[#137DC5] text-white rounded-full text-sm font-medium hover:bg-[#0f5f96] transition-colors"
-                >
-                  Get a Quote
-                </Link>
-              </div>
+          <div className="max-w-3xl mx-auto text-center">
+            <h1 className="text-4xl md:text-5xl font-bold mb-6 text-white">
+              Electrical Connection Services
+            </h1>
+            <p className="text-base md:text-xl mb-8">
+              From design to installation, we provide reliable and efficient electrical connections for projects of all sizes, built to the highest standards.
+            </p>
+            
+            {/* Service quick links */}
+            <div className="flex flex-wrap gap-3 justify-center">
+              <Link
+                href="#low-voltage"
+                className="px-4 py-2 bg-white text-[#0f5f96] rounded-full text-sm font-medium hover:bg-[#f5f5f5] transition-colors"
+              >
+                Low Voltage Services
+              </Link>
+              <Link
+                href="#high-voltage"
+                className="px-4 py-2 bg-white/20 text-white rounded-full text-sm font-medium hover:bg-white/30 transition-colors"
+              >
+                High Voltage Services
+              </Link>
+              <Link
+                href="#contact"
+                className="px-4 py-2 bg-[#137DC5] text-white rounded-full text-sm font-medium hover:bg-[#0f5f96] transition-colors"
+              >
+                Get a Quote
+              </Link>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Connecting Services Visual Element - Fixed arrow position */}
-      <div className="relative h-24 overflow-hidden bg-gradient-to-r from-[#f5f5f5] via-white to-[#f5f5f5]">
-        <div className="absolute left-1/2 top-6 transform -translate-x-1/2 w-12 h-12 rounded-full bg-white shadow-lg flex items-center justify-center">
-          <div className="w-6 h-6 text-[#137DC5]">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-            </svg>
-          </div>
-        </div>
-        
-        <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-[#137DC5]/30 to-transparent"></div>
-      </div>
-
       {/* Services Section with Interactive Filtering - Redesigned to be less blocky */}
-      <section id="services" className="py-16 bg-white">
+      <section id="services" className="py-14 bg-white">
         <div className="container mx-auto px-4">
           {/* Service intro section with smoother layout */}
-          <div className="max-w-4xl mx-auto mb-16 text-center">
+          <div className="max-w-4xl mx-auto mb-10 text-center">
             <h2 className="text-3xl font-bold mb-4 text-[#1a1a1a]">
               Our Connection Services
             </h2>
-            <div className="h-1 w-16 bg-[#137DC5] mx-auto mb-6"></div>
             <p className="text-base md:text-lg text-gray-600 mb-6">
-              We offer a comprehensive range of electrical connection solutions to meet the diverse needs of residential, commercial and industrial projects.
+              We offer a comprehensive range of electrical connection solutions to meet the diverse needs of your residential, commercial, industrial, and EV developments.
             </p>
           </div>
 
@@ -262,9 +257,8 @@ export default function NewConnections() {
             {/* Services List - Redesigned with fluid cards */}
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
               {filteredServices.map((service) => (
-                <Link
+                <div
                   key={service.id}
-                  href={service.link}
                   className="group service-card rounded-xl overflow-hidden flex flex-col"
                 >
                   {/* Image container with smoother design */}
@@ -301,14 +295,25 @@ export default function NewConnections() {
                   {/* Content preview on hover */}
                   <div className="bg-white border border-gray-100 p-5 flex-grow flex flex-col">
                     <p className="text-gray-600 mb-4 text-base md:text-lg">{service.description}</p>
-                    <div className="mt-auto inline-flex items-center text-[#137DC5] font-medium group-hover:text-[#0f5f96] transition-colors">
-                      Learn more
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                      </svg>
+                    <div className="mt-auto flex flex-wrap gap-3 items-center justify-between">
+                      <Link
+                        href={service.link}
+                        className="inline-flex items-center text-[#137DC5] font-medium hover:text-[#0f5f96] transition-colors"
+                      >
+                        Learn more
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                        </svg>
+                      </Link>
+                      <button
+                        onClick={() => openQuoteModal(service.title)}
+                        className="text-sm px-3 py-1 bg-[#137DC5]/10 text-[#137DC5] rounded-md hover:bg-[#137DC5]/20 transition-colors"
+                      >
+                        Request Quote
+                      </button>
                     </div>
                   </div>
-                </Link>
+                </div>
               ))}
             </div>
           </div>
@@ -316,13 +321,12 @@ export default function NewConnections() {
       </section>
 
       {/* Why Choose Us Section - Enhanced with lighter design */}
-      <section className="py-16 bg-[#f5f5f5]">
+      <section className="py-14 bg-[#f5f5f5]">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center mb-12">
             <h2 className="text-3xl font-bold mb-4 text-[#1a1a1a]">
               Why Choose HV Direct?
             </h2>
-            <div className="h-1 w-16 bg-[#137DC5] mx-auto mb-6"></div>
             <p className="text-gray-600 text-base md:text-lg">
               We deliver high-quality electrical connections with a focus on quality, safety and reliability.
             </p>
@@ -380,7 +384,7 @@ export default function NewConnections() {
       </section>
 
       {/* Enhanced Contact Section with more flowing design */}
-      <section id="contact" className="py-16 bg-white scroll-mt-24">
+      <section id="contact" className="py-14 bg-white scroll-mt-24">
         <div className="container mx-auto px-4">
           <div className="bg-gradient-to-br from-[#0f5f96] to-[#137DC5] rounded-3xl overflow-hidden">
             <div className="md:flex">
@@ -440,17 +444,17 @@ export default function NewConnections() {
                 
                 {/* Action buttons with improved styling */}
                 <div className="flex flex-wrap gap-4">
-                  <Link
-                    href="/contact"
+                  <button
+                    onClick={() => openQuoteModal("Electrical Connection")}
                     className="inline-flex items-center justify-center px-6 py-3 bg-white text-[#0f5f96] font-medium rounded-lg hover:bg-white/90 transition-all shadow-lg shadow-[#0f5f96]/20"
                   >
-                    Get in Touch
-                  </Link>
+                    Get a Quote
+                  </button>
                   <Link
-                    href="#services"
+                    href="/contact"
                     className="inline-flex items-center justify-center px-6 py-3 border border-white text-white font-medium rounded-lg hover:bg-white/10 transition-colors"
                   >
-                    Explore Services
+                    Contact Us
                   </Link>
                 </div>
               </div>
@@ -458,6 +462,13 @@ export default function NewConnections() {
           </div>
         </div>
       </section>
+
+      {/* Quote Request Modal */}
+      <QuoteModal 
+        isOpen={isQuoteModalOpen}
+        onClose={() => setIsQuoteModalOpen(false)}
+        serviceName={quoteService}
+      />
     </main>
   );
 } 

@@ -97,7 +97,7 @@ export default function CommercialPage() {
   return (
     <main className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative py-20 md:py-28 bg-cover bg-center text-white" style={{ 
+      <section className="relative py-14 md:py-20 bg-cover bg-center text-white" style={{ 
         backgroundImage: "linear-gradient(rgba(23, 63, 90, 0.85), rgba(16, 59, 88, 0.75)), url('/images/commercial-hero.jpg')"
       }}>
         <div className="container mx-auto px-4 relative z-10">
@@ -127,13 +127,12 @@ export default function CommercialPage() {
       </section>
 
       {/* Introduction Section */}
-      <section className="py-20 bg-white">
+      <section className="py-14 bg-white">
         <div className="container mx-auto px-4">
           <div className="flex flex-col lg:flex-row gap-12 items-center">
             <div className="lg:w-1/2">
               <div className="max-w-xl">
                 <h2 className="text-3xl font-bold mb-6 text-brand-dark-blue">Commercial Electrical Infrastructure</h2>
-                <div className="h-1 w-16 bg-[#137DC5] mb-8"></div>
                 <p className="text-base md:text-lg text-gray-700 mb-4">
                   Commercial developments require reliable, high-capacity electrical connections to power operations efficiently and support future growth. 
                 </p>
@@ -189,13 +188,12 @@ export default function CommercialPage() {
       </section>
 
       {/* Services Section */}
-      <section id="services" className="py-20 bg-white">
+      <section id="services" className="py-14 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold mb-4 text-brand-dark-blue">
               Our Commercial Services
             </h2>
-            <div className="h-1 w-20 bg-[#137DC5] mx-auto mb-6"></div>
             <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto">
               Tailored electrical connection solutions for commercial developments of all types and sizes.
             </p>
@@ -238,13 +236,12 @@ export default function CommercialPage() {
       </section>
 
       {/* Case Studies Section */}
-      <section className="py-20 bg-[#f5f5f5]">
+      <section className="py-14 bg-[#f5f5f5]">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold mb-4 text-brand-dark-blue">
               Case Studies
             </h2>
-            <div className="h-1 w-20 bg-[#137DC5] mx-auto mb-6"></div>
             <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto">
               Examples of our commercial electrical infrastructure projects across various sectors.
             </p>
@@ -286,117 +283,68 @@ export default function CommercialPage() {
       </section>
 
       {/* Key Benefits Section */}
-      <section className="py-20 bg-white">
+      <section className="py-14 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold mb-4 text-brand-dark-blue">
               Why Choose HV Direct for Commercial Projects
             </h2>
-            <div className="h-1 w-20 bg-[#137DC5] mx-auto mb-6"></div>
             <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto">
               Our comprehensive approach ensures your commercial development has the power it needs, delivered on time and within budget.
             </p>
           </div>
 
-          <div className="relative">
-            <div className="md:absolute md:inset-0 md:left-1/2 md:transform md:-translate-x-1/2 h-96 md:h-auto overflow-hidden z-0 mb-8 md:mb-0">
-              <img 
-                src="/images/commercial-benefits.jpg" 
-                alt="Commercial electrical infrastructure" 
-                className="w-full h-full object-cover rounded-xl md:rounded-none"
-              />
-              <div className="absolute inset-0 bg-gradient-to-r from-white via-white/80 to-transparent"></div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition-shadow border border-gray-100">
+              <div className="inline-flex items-center justify-center h-16 w-16 rounded-full bg-[#137DC5]/10 text-[#137DC5] mb-6">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-semibold mb-3 text-[#1a1a1a]">High Capacity Solutions</h3>
+              <p className="text-gray-600">We design and deliver high-capacity electrical connections to meet the demanding power requirements of modern commercial developments.</p>
             </div>
             
-            <div className="md:grid md:grid-cols-2 gap-8 max-w-5xl mx-auto relative z-10">
-              <div className="space-y-8">
-                <div className="bg-white md:bg-transparent p-6 md:p-0 rounded-xl md:rounded-none shadow-md md:shadow-none">
-                  <div className="flex items-start">
-                    <div className="flex-shrink-0">
-                      <div className="inline-flex items-center justify-center h-12 w-12 rounded-full bg-[#137DC5] text-white">
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                        </svg>
-                      </div>
-                    </div>
-                    <div className="ml-4">
-                      <h3 className="text-xl font-semibold mb-2">High Capacity Solutions</h3>
-                      <p className="text-base md:text-lg text-gray-600">
-                        We design and deliver high-capacity electrical connections to meet the demanding power requirements of modern commercial developments.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="bg-white md:bg-transparent p-6 md:p-0 rounded-xl md:rounded-none shadow-md md:shadow-none">
-                  <div className="flex items-start">
-                    <div className="flex-shrink-0">
-                      <div className="inline-flex items-center justify-center h-12 w-12 rounded-full bg-[#137DC5] text-white">
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                        </svg>
-                      </div>
-                    </div>
-                    <div className="ml-4">
-                      <h3 className="text-xl font-semibold mb-2">Minimised Downtime</h3>
-                      <p className="text-base md:text-lg text-gray-600">
-                        Our efficient installation processes and careful planning minimise disruption to existing operations during upgrades or new connections.
-                      </p>
-                    </div>
-                  </div>
-                </div>
+            <div className="bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition-shadow border border-gray-100">
+              <div className="inline-flex items-center justify-center h-16 w-16 rounded-full bg-[#137DC5]/10 text-[#137DC5] mb-6">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
               </div>
-
-              <div className="space-y-8 mt-8 md:mt-0">
-                <div className="bg-white md:bg-transparent p-6 md:p-0 rounded-xl md:rounded-none shadow-md md:shadow-none">
-                  <div className="flex items-start">
-                    <div className="flex-shrink-0">
-                      <div className="inline-flex items-center justify-center h-12 w-12 rounded-full bg-[#137DC5] text-white">
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                        </svg>
-                      </div>
-                    </div>
-                    <div className="ml-4">
-                      <h3 className="text-xl font-semibold mb-2">Quality Assurance</h3>
-                      <p className="text-base md:text-lg text-gray-600">
-                        All our work is carried out to the highest standards, ensuring long-term reliability and reduced maintenance requirements.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="bg-white md:bg-transparent p-6 md:p-0 rounded-xl md:rounded-none shadow-md md:shadow-none">
-                  <div className="flex items-start">
-                    <div className="flex-shrink-0">
-                      <div className="inline-flex items-center justify-center h-12 w-12 rounded-full bg-[#137DC5] text-white">
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                        </svg>
-                      </div>
-                    </div>
-                    <div className="ml-4">
-                      <h3 className="text-xl font-semibold mb-2">Technical Expertise</h3>
-                      <p className="text-base md:text-lg text-gray-600">
-                        Our team has extensive experience in complex commercial electrical projects, providing expert advice at every stage.
-                      </p>
-                    </div>
-                  </div>
-                </div>
+              <h3 className="text-xl font-semibold mb-3 text-[#1a1a1a]">Minimised Downtime</h3>
+              <p className="text-gray-600">Our efficient installation processes and careful planning minimise disruption to existing operations during upgrades or new connections.</p>
+            </div>
+            
+            <div className="bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition-shadow border border-gray-100">
+              <div className="inline-flex items-center justify-center h-16 w-16 rounded-full bg-[#137DC5]/10 text-[#137DC5] mb-6">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
               </div>
+              <h3 className="text-xl font-semibold mb-3 text-[#1a1a1a]">Quality Assurance</h3>
+              <p className="text-gray-600">All our work is carried out to the highest standards, ensuring long-term reliability and reduced maintenance requirements.</p>
+            </div>
+            
+            <div className="bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition-shadow border border-gray-100">
+              <div className="inline-flex items-center justify-center h-16 w-16 rounded-full bg-[#137DC5]/10 text-[#137DC5] mb-6">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-semibold mb-3 text-[#1a1a1a]">Technical Expertise</h3>
+              <p className="text-gray-600">Our team has extensive experience in complex commercial electrical projects, providing expert advice at every stage.</p>
             </div>
           </div>
         </div>
       </section>
 
       {/* FAQ Section */}
-      <section className="py-20 bg-white">
+      <section className="py-14 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold mb-4 text-brand-dark-blue">
               Frequently Asked Questions
             </h2>
-            <div className="h-1 w-20 bg-[#137DC5] mx-auto mb-6"></div>
             <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto">
               Answers to common questions about commercial electrical connections.
             </p>
@@ -414,7 +362,7 @@ export default function CommercialPage() {
       </section>
 
       {/* Call to Action */}
-      <section className="py-20 bg-gradient-to-r from-[#0f5f96] to-[#2199ea] text-white">
+      <section className="py-14 bg-gradient-to-r from-[#0f5f96] to-[#2199ea] text-white">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold mb-6 text-white">Ready to Power Your Commercial Project?</h2>
           <p className="text-base md:text-xl mb-8 max-w-2xl mx-auto text-white">
