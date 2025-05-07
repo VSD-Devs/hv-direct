@@ -1,9 +1,20 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
+import QuoteModal from "@/app/components/QuoteModal";
 
 export default function SectorsPage() {
+  // State for quote modal
+  const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false);
+  const [quoteService, setQuoteService] = useState("Electrical Connection");
+  
+  // Function to open modal with specific service
+  const openQuoteModal = (serviceName: string) => {
+    setQuoteService(serviceName);
+    setIsQuoteModalOpen(true);
+  };
+  
   // Available sectors
   const sectors = [
     {
@@ -44,14 +55,64 @@ export default function SectorsPage() {
 
   return (
     <main className="min-h-screen">
+      {/* Utility styles for mobile optimization */}
+      <style jsx global>{`
+        .hide-scrollbar::-webkit-scrollbar {
+          display: none;
+        }
+        .hide-scrollbar {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+        }
+        
+        @media (max-width: 768px) {
+          .container {
+            padding-left: 16px;
+            padding-right: 16px;
+          }
+        }
+        
+        @keyframes fadeIn {
+          from { opacity: 0; transform: translateY(10px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .fade-in {
+          animation: fadeIn 0.5s ease-out forwards;
+        }
+        
+        .service-card {
+          transition: all 0.3s ease;
+        }
+        
+        .service-card:hover {
+          transform: translateY(-5px);
+        }
+        
+        .text-gradient {
+          background: linear-gradient(to right, #0f5f96, #2199ea);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+        }
+      `}</style>
+      
       {/* Hero Section */}
-      <section className="relative py-14 md:py-20 bg-cover bg-center text-white" style={{ 
-        backgroundImage: "linear-gradient(rgba(23, 63, 90, 0.85), rgba(16, 59, 88, 0.75)), url('/images/sectors-hero.jpg')"
-      }}>
+      <section className="relative py-14 md:py-20 bg-cover bg-center text-white">
+        {/* Background image with overlay */}
+        <div className="absolute inset-0 w-full h-full">
+          <div 
+            className="absolute inset-0 bg-cover bg-center"
+            style={{
+              backgroundImage: `url('/images/sectors-city.webp')`,
+            }}
+          ></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0f5f96]/80 to-[#137DC5]/80"></div>
+        </div>
+        
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-6 text-white">
-              Electrical Connections by Sector
+              Solutions by Sector
             </h1>
             <p className="text-base md:text-xl mb-8">
               Tailored electrical infrastructure solutions for residential, commercial, and industrial projects across the UK.
@@ -78,6 +139,12 @@ export default function SectorsPage() {
       {/* Sectors Grid Section */}
       <section className="py-14 bg-[#f5f5f5]">
         <div className="container mx-auto px-4">
+          <div className="text-center mb-10">
+            <h2 className="text-3xl font-bold mb-4 text-[#1a1a1a]">Explore by Sector</h2>
+            <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto">
+              Choose your sector to discover tailored electrical infrastructure solutions for your specific industry needs.
+            </p>
+          </div>
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {sectors.map((sector, index) => (
               <Link 
@@ -114,11 +181,11 @@ export default function SectorsPage() {
       </section>
 
       {/* Why Choose HV Direct Section */}
-      <section className="py-14 bg-white">
+      <section className="py-14 bg-[#f5f5f5]">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold mb-4 text-brand-dark-blue">
-              Why Choose HV Direct for Your Sector
+              Why Choose HV Direct for Your Project
             </h2>
             <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto">
               Our sector-specific approach ensures your electrical infrastructure perfectly matches your requirements.
@@ -159,11 +226,11 @@ export default function SectorsPage() {
             <div className="bg-[#f9f9f9] p-8 rounded-xl hover:shadow-md transition-shadow h-full">
               <div className="inline-flex items-center justify-center h-16 w-16 rounded-full bg-[#137DC5]/10 text-[#137DC5] mb-6">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                 </svg>
               </div>
-              <h3 className="text-xl font-semibold mb-4">Future-Proof Solutions</h3>
-              <p className="text-base md:text-lg text-gray-600">We design with future needs in mind, ensuring your electrical infrastructure can grow with your requirements.</p>
+              <h3 className="text-xl font-semibold mb-4">Fast Turnaround</h3>
+              <p className="text-base md:text-lg text-gray-600">We ensure a swift and efficient process to deliver your connections on schedule.</p>
             </div>
           </div>
         </div>
@@ -172,26 +239,33 @@ export default function SectorsPage() {
       {/* Call to Action */}
       <section className="py-14 bg-gradient-to-r from-[#0f5f96] to-[#2199ea] text-white">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-6 text-white">Ready to Discuss Your Project?</h2>
+          <h2 className="text-3xl font-bold mb-6 text-white">Ready to Start Your Project?</h2>
           <p className="text-base md:text-xl mb-8 max-w-2xl mx-auto text-white">
-            Contact our team today to discuss your electrical connection requirements and receive expert advice tailored to your sector.
+            Contact our specialists today to discuss your electrical connection requirements and get a customised quote for your project.
           </p>
           <div className="flex justify-center gap-4 flex-wrap">
-            <Link 
-              href="/contact"
+            <button
+              onClick={() => openQuoteModal("Electrical Connection")}
               className="inline-flex items-center justify-center h-12 rounded-md px-8 text-sm font-medium bg-white text-[#137DC5] hover:bg-white/90 transition-colors shadow-lg"
             >
-              Contact Us
-            </Link>
+              Get a Quote
+            </button>
             <Link 
-              href="/new-connections"
+              href="/contact"
               className="inline-flex items-center justify-center h-12 rounded-md px-8 text-sm font-medium bg-transparent border-2 border-white text-white hover:bg-white/10 transition-colors"
             >
-              Explore Our Services
+              Contact Us
             </Link>
           </div>
         </div>
       </section>
+      
+      {/* Quote Request Modal */}
+      <QuoteModal 
+        isOpen={isQuoteModalOpen}
+        onClose={() => setIsQuoteModalOpen(false)}
+        serviceName={quoteService}
+      />
     </main>
   );
 } 

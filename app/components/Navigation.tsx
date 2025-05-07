@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
 import { Search, Home, Info, Phone, Zap, Building, Building2, Factory, CircleUser, Network } from "lucide-react";
 import {
@@ -40,12 +41,12 @@ export default function Navigation() {
         { name: "Home", href: "/", icon: <Home className="mr-2 h-4 w-4" /> },
         { name: "About HV Direct", href: "/about", icon: <Info className="mr-2 h-4 w-4" /> },
         { name: "Contact Us", href: "/contact", icon: <Phone className="mr-2 h-4 w-4" /> },
+        { name: "FAQ", href: "/faq", icon: <Info className="mr-2 h-4 w-4" /> },
       ],
     },
     {
       heading: "Services",
       items: [
-        { name: "New Connections", href: "/new-connections", icon: <Zap className="mr-2 h-4 w-4" /> },
         { name: "High Rise Residential", href: "/new-connections/high-rise-residential", icon: <Building2 className="mr-2 h-4 w-4" /> },
         { name: "New Build Housing", href: "/new-connections/new-build-housing", icon: <Building className="mr-2 h-4 w-4" /> },
         { name: "EV Charging Networks", href: "/new-connections/ev-charging-networks", icon: <Zap className="mr-2 h-4 w-4" /> },
@@ -78,12 +79,13 @@ export default function Navigation() {
           {/* Logo */}
           <div className="flex items-center mt-2">
             <Link href="/" className="h-12 flex items-center">
-              <img 
+              <Image 
                 src="/images/hv-direct-logo.png" 
                 alt="HV Direct Logo" 
                 width={200} 
                 height={80} 
                 className="h-auto" 
+                priority
               />
             </Link>
           </div>
@@ -186,18 +188,6 @@ export default function Navigation() {
             </li>
             <li className="h-full">
               <Link 
-                href="/new-connections" 
-                className={`flex items-center h-full px-6 font-medium border-b-2 transition-colors ${
-                  isActive("/new-connections") 
-                    ? "text-[#137DC5] border-[#137DC5]" 
-                    : "text-[#1a1a1a] hover:text-[#137DC5] border-transparent hover:border-[#137DC5]"
-                }`}
-              >
-                New Connections
-              </Link>
-            </li>
-            <li className="h-full">
-              <Link 
                 href="/sectors" 
                 className={`flex items-center h-full px-6 font-medium border-b-2 transition-colors ${
                   isActive("/sectors") 
@@ -206,6 +196,18 @@ export default function Navigation() {
                 }`}
               >
                 Sectors
+              </Link>
+            </li>
+            <li className="h-full">
+              <Link 
+                href="/faq" 
+                className={`flex items-center h-full px-6 font-medium border-b-2 transition-colors ${
+                  isActive("/faq") 
+                    ? "text-[#137DC5] border-[#137DC5]" 
+                    : "text-[#1a1a1a] hover:text-[#137DC5] border-transparent hover:border-[#137DC5]"
+                }`}
+              >
+                FAQ
               </Link>
             </li>
             <li className="h-full">
@@ -248,20 +250,20 @@ export default function Navigation() {
             </li>
             <li>
               <Link 
-                href="/new-connections" 
-                className={`block py-2 font-medium ${isActive("/new-connections") ? "text-[#137DC5]" : "text-[#1a1a1a] hover:text-[#137DC5]"}`}
-                onClick={() => setIsMenuOpen(false)}
-              >
-                New Connections
-              </Link>
-            </li>
-            <li>
-              <Link 
                 href="/sectors" 
                 className={`block py-2 font-medium ${isActive("/sectors") ? "text-[#137DC5]" : "text-[#1a1a1a] hover:text-[#137DC5]"}`}
                 onClick={() => setIsMenuOpen(false)}
               >
                 Sectors
+              </Link>
+            </li>
+            <li>
+              <Link 
+                href="/faq" 
+                className={`block py-2 font-medium ${isActive("/faq") ? "text-[#137DC5]" : "text-[#1a1a1a] hover:text-[#137DC5]"}`}
+                onClick={() => setIsMenuOpen(false)}
+              >
+                FAQ
               </Link>
             </li>
             <li>

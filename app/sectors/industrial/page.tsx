@@ -1,10 +1,20 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
+import QuoteModal from "@/app/components/QuoteModal";
 
 export default function IndustrialPage() {
-  // Key solutions for industrial connections
+  const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false);
+  const [quoteService, setQuoteService] = useState("Industrial Electrical Connection");
+  
+  // Function to open modal with specific service
+  const openQuoteModal = (serviceName: string) => {
+    setQuoteService(serviceName);
+    setIsQuoteModalOpen(true);
+  };
+
+  // Core industrial solutions
   const solutions = [
     {
       title: "High Voltage Installations",
@@ -13,7 +23,8 @@ export default function IndustrialPage() {
         <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
         </svg>
-      )
+      ),
+      link: "#substation-installation"
     },
     {
       title: "Heavy Machinery Power",
@@ -26,14 +37,14 @@ export default function IndustrialPage() {
       )
     },
     {
-      title: "Energy Management",
-      description: "Intelligent energy distribution and monitoring systems to optimise industrial power consumption.",
+      title: "Diversions & Reinforcements",
+      description: "Management of existing electrical infrastructure that needs to be modified or reinforced to accommodate industrial demands.",
       icon: (
         <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z" />
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z" />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
         </svg>
-      )
+      ),
+      link: "#diversions-reinforcements"
     },
     {
       title: "Capacity Upgrades",
@@ -43,40 +54,6 @@ export default function IndustrialPage() {
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
         </svg>
       )
-    }
-  ];
-
-  // Industrial sectors served
-  const sectors = [
-    {
-      name: "Manufacturing",
-      description: "Electrical infrastructure for manufacturing facilities of all sizes, from light assembly to heavy industry.",
-      icon: "/images/manufacturing-icon.svg"
-    },
-    {
-      name: "Warehousing & Logistics",
-      description: "Power solutions for automated warehouses, distribution centres, and logistics hubs.",
-      icon: "/images/warehouse-icon.svg"
-    },
-    {
-      name: "Food Production",
-      description: "Specialized electrical connections for food processing facilities with compliance to industry standards.",
-      icon: "/images/food-icon.svg"
-    },
-    {
-      name: "Data Centres",
-      description: "Critical power infrastructure for data centres requiring high reliability and redundancy.",
-      icon: "/images/data-icon.svg"
-    },
-    {
-      name: "Pharmaceuticals",
-      description: "Electrical systems for pharmaceutical manufacturing with focus on compliance and reliability.",
-      icon: "/images/pharma-icon.svg"
-    },
-    {
-      name: "Renewable Energy",
-      description: "Connection solutions for renewable energy production facilities and grid integration.",
-      icon: "/images/renewable-icon.svg"
     }
   ];
 
@@ -95,12 +72,12 @@ export default function IndustrialPage() {
               Robust, reliable electrical infrastructure designed for the demanding requirements of industrial operations.
             </p>
             <div className="flex flex-wrap gap-4">
-              <Link 
-                href="/contact"
+              <button 
+                onClick={() => openQuoteModal("Industrial Electrical Connection")}
                 className="inline-flex items-center justify-center h-12 rounded-md px-8 text-sm font-medium bg-white text-[#137DC5] hover:bg-white/90 transition-colors shadow-lg"
               >
                 Discuss Your Requirements
-              </Link>
+              </button>
               <Link 
                 href="#solutions"
                 className="inline-flex items-center justify-center h-12 rounded-md px-8 text-sm font-medium bg-transparent border-2 border-white text-white hover:bg-white/10 transition-colors"
@@ -112,8 +89,8 @@ export default function IndustrialPage() {
         </div>
       </section>
 
-      {/* Introduction Section */}
-      <section className="py-14 bg-white">
+      {/* Overview Section */}
+      <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="flex flex-col lg:flex-row gap-12 items-center">
             <div className="lg:w-1/2">
@@ -128,17 +105,17 @@ export default function IndustrialPage() {
             </div>
             <div className="lg:w-1/2">
               <div className="max-w-xl">
-                <h2 className="text-3xl font-bold mb-6 text-brand-dark-blue">Powering Industrial Excellence</h2>
+                <h2 className="text-3xl font-bold mb-6 text-brand-dark-blue">How We Work</h2>
                 <p className="text-base md:text-lg text-gray-700 mb-4">
-                  Industrial facilities demand robust, reliable electrical infrastructure that can handle high power loads and ensure continuous operations. 
+                  At HV Direct, we provide straightforward and effective electrical solutions for industrial facilities with a focus on reliability and performance.
                 </p>
                 <p className="text-base md:text-lg text-gray-700 mb-4">
-                  At HV Direct, we specialise in the design and delivery of electrical connections that meet the specific demands of industrial clients across manufacturing, logistics, food production, and more.
+                  Our approach is centered on understanding your industrial power requirements and delivering robust infrastructure that can handle high loads and ensure operational continuity.
                 </p>
                 <p className="text-base md:text-lg text-gray-700 mb-6">
-                  Our team understands the critical nature of industrial power supplies, providing solutions that minimise downtime, ensure regulatory compliance, and support your operational goals.
+                  From substations to energy management systems, we deliver complete electrical solutions that support your industrial operations and future growth.
                 </p>
-                <ul className="space-y-3">
+                <ul className="space-y-3 mb-8">
                   <li className="flex items-start">
                     <div className="flex-shrink-0 h-6 w-6 text-[#137DC5]">
                       <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -153,25 +130,24 @@ export default function IndustrialPage() {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                       </svg>
                     </div>
-                    <span className="ml-3 text-base md:text-lg text-gray-700">Substation and HV infrastructure</span>
-                  </li>
-                  <li className="flex items-start">
-                    <div className="flex-shrink-0 h-6 w-6 text-[#137DC5]">
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                      </svg>
-                    </div>
-                    <span className="ml-3 text-base md:text-lg text-gray-700">Backup power and resilience planning</span>
-                  </li>
-                  <li className="flex items-start">
-                    <div className="flex-shrink-0 h-6 w-6 text-[#137DC5]">
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                      </svg>
-                    </div>
                     <span className="ml-3 text-base md:text-lg text-gray-700">End-to-end project management</span>
                   </li>
                 </ul>
+                
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <Link 
+                    href="/contact"
+                    className="inline-flex items-center justify-center h-12 rounded-md px-8 text-sm font-medium bg-[#137DC5] text-white hover:bg-[#0f5f96] transition-colors shadow-md"
+                  >
+                    Contact Us
+                  </Link>
+                  <Link 
+                    href="/faq"
+                    className="inline-flex items-center justify-center h-12 rounded-md px-8 text-sm font-medium bg-white border border-[#137DC5] text-[#137DC5] hover:bg-[#137DC5]/5 transition-colors"
+                  >
+                    View FAQs
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
@@ -179,9 +155,9 @@ export default function IndustrialPage() {
       </section>
 
       {/* Solutions Section */}
-      <section id="solutions" className="py-14 bg-[#f5f5f5]">
+      <section id="solutions" className="py-16 bg-[#f5f5f5]">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
+          <div className="text-center mb-12">
             <h2 className="text-3xl font-bold mb-4 text-brand-dark-blue">
               Our Industrial Solutions
             </h2>
@@ -190,252 +166,217 @@ export default function IndustrialPage() {
             </p>
           </div>
 
-          {solutions.map((solution, index) => (
-            <div 
-              key={index}
-              className={`flex flex-col md:flex-row items-center gap-12 py-12 ${index !== 0 ? 'border-t border-gray-200' : ''}`}
-            >
-              <div className={`md:w-1/2 ${index % 2 !== 0 ? 'md:order-last' : ''}`}>
-                <div className="relative h-64 md:h-80 rounded-xl overflow-hidden shadow-md">
-                  <img
-                    src={`/images/industrial-solution-${index + 1}.jpg`}
-                    alt={solution.title}
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0f5f96]/30 to-transparent"></div>
-                </div>
-              </div>
-              <div className="md:w-1/2 text-center md:text-left mt-8 md:mt-0">
-                <div className="inline-flex items-center justify-center h-16 w-16 rounded-full bg-[#137DC5]/10 text-[#137DC5] mb-4">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {solutions.map((solution, index) => (
+              <div key={index} className="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow border border-gray-100">
+                <div className="inline-flex items-center justify-center h-14 w-14 rounded-full bg-[#137DC5]/10 text-[#137DC5] mb-4">
                   {solution.icon}
                 </div>
-                <h3 className="text-2xl font-semibold mb-4">{solution.title}</h3>
-                <p className="text-base md:text-lg text-gray-600 mb-6">{solution.description}</p>
-                <ul className="space-y-3">
-                  <li className="flex items-start">
-                    <div className="flex-shrink-0 h-6 w-6 text-[#137DC5]">
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                      </svg>
-                    </div>
-                    <span className="ml-3 text-base md:text-lg text-gray-700">Design and installation</span>
-                  </li>
-                  <li className="flex items-start">
-                    <div className="flex-shrink-0 h-6 w-6 text-[#137DC5]">
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                      </svg>
-                    </div>
-                    <span className="ml-3 text-base md:text-lg text-gray-700">Industry-compliant systems</span>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Industries Served Section */}
-      <section className="py-14 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold mb-4 text-brand-dark-blue">
-              Industries We Serve
-            </h2>
-            <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto">
-              Our expertise spans across multiple industrial sectors, providing tailored electrical solutions for each unique requirement.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {sectors.map((sector, index) => (
-              <div 
-                key={index} 
-                className="group relative overflow-hidden rounded-xl shadow-md h-[350px] cursor-pointer"
-              >
-                <div className="absolute inset-0">
-                  <img
-                    src={`/images/industrial-sector-${index + 1}.jpg`}
-                    alt={sector.name}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0f5f96]/90 via-[#0f5f96]/60 to-transparent"></div>
-                </div>
-                <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
-                  <div className="w-12 h-12 mb-4 flex items-center justify-center rounded-full bg-white/20 backdrop-blur-sm">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+                <h3 className="text-xl font-semibold mb-3 text-[#1a1a1a]">{solution.title}</h3>
+                <p className="text-gray-600 mb-4">{solution.description}</p>
+                {solution.link && (
+                  <Link 
+                    href={solution.link}
+                    className="inline-flex items-center text-[#137DC5] font-medium hover:text-[#0f5f96] transition-colors"
+                  >
+                    Learn more
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                     </svg>
-                  </div>
-                  <h3 className="text-2xl font-semibold mb-3">{sector.name}</h3>
-                  <p className="text-base md:text-lg text-white/80">{sector.description}</p>
-                </div>
+                  </Link>
+                )}
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Process Section */}
-      <section className="py-14 bg-[#f5f5f5]">
+      {/* Substation Installation Section */}
+      <section id="substation-installation" className="py-16 bg-white">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold mb-4 text-brand-dark-blue">
-              Our Industrial Connection Process
-            </h2>
-            <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto">
-              A streamlined approach to ensure your industrial electrical project is delivered efficiently and to the highest standards.
-            </p>
-          </div>
-
-          <div className="max-w-5xl mx-auto">
-            <div className="md:flex md:space-x-8 relative">
-              <div className="hidden md:block absolute left-1/2 top-[60px] h-[70%] w-1 bg-[#137DC5]/20 transform -translate-x-1/2"></div>
-
-              <div className="md:w-1/2 mb-12 md:mb-0 relative">
-                <div className="bg-white rounded-xl shadow-md p-6 md:p-8 h-full relative z-10">
-                  <div className="absolute -top-4 -right-4 h-12 w-12 bg-[#137DC5] rounded-full flex items-center justify-center text-white font-bold">1</div>
-                  <div className="flex items-center mb-6">
-                    <img src="/images/process-1.jpg" alt="Assessment & Planning" className="w-full h-48 object-cover rounded-lg mb-4" />
-                  </div>
-                  <h3 className="text-xl font-semibold mb-3">Assessment & Planning</h3>
-                  <p className="text-base text-gray-600">We evaluate your industrial facility's power requirements and develop a detailed implementation plan.</p>
-                </div>
-              </div>
-              
-              <div className="md:w-1/2 relative">
-                <div className="md:mt-32 bg-white rounded-xl shadow-md p-6 md:p-8 h-full relative z-10">
-                  <div className="absolute -top-4 -left-4 h-12 w-12 bg-[#137DC5] rounded-full flex items-center justify-center text-white font-bold">2</div>
-                  <div className="flex items-center mb-6">
-                    <img src="/images/process-2.jpg" alt="Design & Engineering" className="w-full h-48 object-cover rounded-lg mb-4" />
-                  </div>
-                  <h3 className="text-xl font-semibold mb-3">Design & Engineering</h3>
-                  <p className="text-base text-gray-600">Our engineers create a comprehensive electrical infrastructure design tailored to your specific requirements.</p>
-                </div>
-              </div>
+          <div className="flex flex-col lg:flex-row gap-12 items-center">
+            <div className="lg:w-1/2">
+              <img 
+                src="/images/substation.jpg" 
+                alt="Substation Installation" 
+                className="w-full h-auto rounded-lg shadow-lg"
+              />
             </div>
-
-            <div className="mt-16 bg-white rounded-xl shadow-md p-6 md:p-8 relative z-10">
-              <div className="absolute -top-4 -left-4 h-12 w-12 bg-[#137DC5] rounded-full flex items-center justify-center text-white font-bold">3</div>
-              <div className="md:flex md:space-x-8 items-center">
-                <div className="md:w-1/2 mb-6 md:mb-0">
-                  <img src="/images/process-3.jpg" alt="Implementation" className="w-full h-64 object-cover rounded-lg" />
-                </div>
-                <div className="md:w-1/2">
-                  <h3 className="text-xl font-semibold mb-3">Implementation</h3>
-                  <p className="text-base text-gray-600 mb-4">Our skilled team implements the electrical infrastructure with minimal disruption to ongoing operations.</p>
-                  <ul className="space-y-3">
-                    <li className="flex items-start">
-                      <div className="flex-shrink-0 h-6 w-6 text-[#137DC5]">
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                        </svg>
-                      </div>
-                      <span className="ml-3 text-base text-gray-700">Expert installation teams</span>
-                    </li>
-                    <li className="flex items-start">
-                      <div className="flex-shrink-0 h-6 w-6 text-[#137DC5]">
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                        </svg>
-                      </div>
-                      <span className="ml-3 text-base text-gray-700">Scheduled around your operations</span>
-                    </li>
-                    <li className="flex items-start">
-                      <div className="flex-shrink-0 h-6 w-6 text-[#137DC5]">
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                        </svg>
-                      </div>
-                      <span className="ml-3 text-base text-gray-700">Quality-assured installation</span>
-                    </li>
-                  </ul>
-                </div>
-              </div>
+            <div className="lg:w-1/2">
+              <h2 className="text-3xl font-bold mb-4 text-[#1a1a1a]">
+                Substation Installation
+              </h2>
+              <p className="text-gray-600 mb-6">
+                HV Direct designs and constructs high-voltage substations (up to 11kV), ensuring they meet all regulatory and safety standards for optimal performance in industrial settings.
+              </p>
+              <p className="text-gray-600 mb-6">
+                Our substations are designed to deliver reliable power for high-demand industrial operations, with robust components and future-proof configurations.
+              </p>
+              <ul className="space-y-3 mb-8">
+                <li className="flex items-start">
+                  <div className="h-6 w-6 rounded-full bg-[#137DC5] flex items-center justify-center text-white mt-0.5 flex-shrink-0">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                  </div>
+                  <span className="ml-3 text-gray-600">Complete design and construction of industrial substations</span>
+                </li>
+                <li className="flex items-start">
+                  <div className="h-6 w-6 rounded-full bg-[#137DC5] flex items-center justify-center text-white mt-0.5 flex-shrink-0">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                  </div>
+                  <span className="ml-3 text-gray-600">High-capacity substations for manufacturing and processing facilities</span>
+                </li>
+                <li className="flex items-start">
+                  <div className="h-6 w-6 rounded-full bg-[#137DC5] flex items-center justify-center text-white mt-0.5 flex-shrink-0">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                  </div>
+                  <span className="ml-3 text-gray-600">Full compliance with industry regulations and safety standards</span>
+                </li>
+              </ul>
+              <button 
+                onClick={() => openQuoteModal("Substation Installation")}
+                className="inline-flex items-center justify-center h-12 px-8 rounded-md text-sm font-medium bg-[#137DC5] text-white hover:bg-[#0f5f96] transition-colors"
+              >
+                Request a Quote
+              </button>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Benefits Section */}
-      <section className="py-14 bg-white">
+      {/* Diversions and Reinforcements Section */}
+      <section id="diversions-reinforcements" className="py-16 bg-[#f5f5f5]">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold mb-4 text-brand-dark-blue">
-              Benefits of Working With HV Direct
-            </h2>
-            <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto">
-              Why leading industrial businesses choose us for their electrical connection needs.
-            </p>
-          </div>
+          <div className="flex flex-col lg:flex-row gap-12 items-center">
+            <div className="lg:w-1/2 order-2 lg:order-1">
+              <h2 className="text-3xl font-bold mb-4 text-[#1a1a1a]">
+                Diversions and Reinforcements
+              </h2>
+              <p className="text-gray-600 mb-6">
+                As industrial infrastructure expands and evolves, existing electrical networks often need to be diverted or reinforced. We provide these essential services across both low and high voltage networks.
+              </p>
+              <p className="text-gray-600 mb-6">
+                Our comprehensive approach begins with thorough network analysis and design, followed by efficient project execution with minimal disruption to existing operations.
+              </p>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="text-center">
-              <div className="inline-flex items-center justify-center h-20 w-20 rounded-full bg-[#137DC5]/10 text-[#137DC5] mb-6">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                </svg>
+              <div className="bg-white p-6 rounded-lg shadow-sm mb-8">
+                <h3 className="text-xl font-semibold mb-3 text-[#1a1a1a]">Our Industrial Diversion Services Include:</h3>
+                <ul className="space-y-2">
+                  <li className="flex items-start">
+                    <div className="h-5 w-5 rounded-full bg-[#137DC5] flex items-center justify-center text-white mt-0.5 flex-shrink-0">
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                      </svg>
+                    </div>
+                    <span className="ml-3 text-gray-600">Relocation of HV overhead lines or underground cables</span>
+                  </li>
+                  <li className="flex items-start">
+                    <div className="h-5 w-5 rounded-full bg-[#137DC5] flex items-center justify-center text-white mt-0.5 flex-shrink-0">
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                      </svg>
+                    </div>
+                    <span className="ml-3 text-gray-600">Reinforcement of existing HV networks for increased capacity</span>
+                  </li>
+                  <li className="flex items-start">
+                    <div className="h-5 w-5 rounded-full bg-[#137DC5] flex items-center justify-center text-white mt-0.5 flex-shrink-0">
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                      </svg>
+                    </div>
+                    <span className="ml-3 text-gray-600">Strategic diversions to facilitate major development projects</span>
+                  </li>
+                </ul>
               </div>
-              <h3 className="text-xl font-semibold mb-4">Certified Expertise</h3>
-              <p className="text-base md:text-lg text-gray-600">NERS-accredited team with specialised industrial experience.</p>
+
+              <button 
+                onClick={() => openQuoteModal("Industrial Diversions and Reinforcements")}
+                className="inline-flex items-center justify-center h-12 px-8 rounded-md text-sm font-medium bg-[#137DC5] text-white hover:bg-[#0f5f96] transition-colors"
+              >
+                Request a Quote
+              </button>
             </div>
-            
-            <div className="text-center">
-              <div className="inline-flex items-center justify-center h-20 w-20 rounded-full bg-[#137DC5]/10 text-[#137DC5] mb-6">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-semibold mb-4">Minimal Downtime</h3>
-              <p className="text-base md:text-lg text-gray-600">Implementation strategies designed to minimise operational disruption.</p>
-            </div>
-            
-            <div className="text-center">
-              <div className="inline-flex items-center justify-center h-20 w-20 rounded-full bg-[#137DC5]/10 text-[#137DC5] mb-6">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-semibold mb-4">Single Point of Contact</h3>
-              <p className="text-base md:text-lg text-gray-600">Dedicated project management throughout your entire project.</p>
-            </div>
-            
-            <div className="text-center">
-              <div className="inline-flex items-center justify-center h-20 w-20 rounded-full bg-[#137DC5]/10 text-[#137DC5] mb-6">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-semibold mb-4">Regulatory Compliance</h3>
-              <p className="text-base md:text-lg text-gray-600">All work complies with relevant regulations and industry standards.</p>
+            <div className="lg:w-1/2 order-1 lg:order-2">
+              <img 
+                src="/images/diversions-reinforcement.webp" 
+                alt="Diversions and Reinforcements" 
+                className="w-full h-auto rounded-lg shadow-lg"
+              />
             </div>
           </div>
         </div>
       </section>
 
-      {/* Call to Action */}
-      <section className="py-14 bg-gradient-to-r from-[#0f5f96] to-[#2199ea] text-white">
+      {/* Industries We Serve - Simplified */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold mb-4 text-brand-dark-blue">
+              Industries We Serve
+            </h2>
+            <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto">
+              Our expertise spans across multiple industrial sectors.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-4 max-w-4xl mx-auto">
+            <div className="bg-[#f5f5f5] p-4 rounded-lg text-center">
+              <h3 className="font-semibold text-[#137DC5]">Manufacturing</h3>
+            </div>
+            <div className="bg-[#f5f5f5] p-4 rounded-lg text-center">
+              <h3 className="font-semibold text-[#137DC5]">Warehousing</h3>
+            </div>
+            <div className="bg-[#f5f5f5] p-4 rounded-lg text-center">
+              <h3 className="font-semibold text-[#137DC5]">Food Production</h3>
+            </div>
+            <div className="bg-[#f5f5f5] p-4 rounded-lg text-center">
+              <h3 className="font-semibold text-[#137DC5]">Data Centres</h3>
+            </div>
+            <div className="bg-[#f5f5f5] p-4 rounded-lg text-center">
+              <h3 className="font-semibold text-[#137DC5]">Pharmaceuticals</h3>
+            </div>
+            <div className="bg-[#f5f5f5] p-4 rounded-lg text-center">
+              <h3 className="font-semibold text-[#137DC5]">Renewable Energy</h3>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-16 bg-[#137DC5] text-white">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-6 text-white">Ready to Discuss Your Industrial Power Needs?</h2>
-          <p className="text-base md:text-xl mb-8 max-w-2xl mx-auto text-white">
-            Contact our team today to arrange a consultation and site assessment for your industrial electrical connection requirements.
+          <h2 className="text-3xl font-bold mb-6">Ready to discuss your industrial project?</h2>
+          <p className="text-lg mb-8 max-w-2xl mx-auto">
+            Our team is here to help with your industrial electrical needs. Get in touch today for a free consultation.
           </p>
-          <div className="flex justify-center gap-4 flex-wrap">
+          <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Link 
               href="/contact"
               className="inline-flex items-center justify-center h-12 rounded-md px-8 text-sm font-medium bg-white text-[#137DC5] hover:bg-white/90 transition-colors shadow-lg"
             >
-              Contact Our Industrial Team
+              Contact Our Team
             </Link>
             <Link 
-              href="/new-connections"
+              href="/faq"
               className="inline-flex items-center justify-center h-12 rounded-md px-8 text-sm font-medium bg-transparent border-2 border-white text-white hover:bg-white/10 transition-colors"
             >
-              Explore More Services
+              View Common Questions
             </Link>
           </div>
         </div>
       </section>
+      
+      {/* Quote Request Modal */}
+      <QuoteModal 
+        isOpen={isQuoteModalOpen}
+        onClose={() => setIsQuoteModalOpen(false)}
+        serviceName={quoteService}
+      />
     </main>
   );
 }

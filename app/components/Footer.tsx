@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Footer() {
   return (
@@ -9,16 +10,13 @@ export default function Footer() {
           {/* Logo and Company Info */}
           <div>
             <Link href="/" className="inline-block mb-6">
-              <div className="flex items-center">
-                <div className="w-10 h-10 mr-3 rounded-full border-2 border-[#137DC5] relative">
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M13 10V3L4 14H11V21L20 10H13Z" fill="#137DC5" />
-                    </svg>
-                  </div>
-                </div>
-                <span className="text-xl font-bold">HV Direct</span>
-              </div>
+              <Image 
+                src="/images/white-logo.png" 
+                alt="HV Direct Logo" 
+                width={200} 
+                height={80} 
+                className="h-auto"
+              />
             </Link>
             <p className="text-gray-400 mb-4">
               Providing reliable and efficient electrical connections across the UK for residential, commercial, and industrial projects.
@@ -53,10 +51,13 @@ export default function Footer() {
                 <Link href="/about" className="text-gray-400 hover:text-white transition-colors">About Us</Link>
               </li>
               <li>
-                <Link href="/new-connections" className="text-gray-400 hover:text-white transition-colors">New Connections</Link>
+                <Link href="/sectors#connection-services" className="text-gray-400 hover:text-white transition-colors">Connection Services</Link>
               </li>
               <li>
                 <Link href="/sectors" className="text-gray-400 hover:text-white transition-colors">Sectors</Link>
+              </li>
+              <li>
+                <Link href="/faq" className="text-gray-400 hover:text-white transition-colors">FAQ</Link>
               </li>
               <li>
                 <Link href="/contact" className="text-gray-400 hover:text-white transition-colors">Contact</Link>
@@ -64,24 +65,18 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Services */}
+          {/* Policies */}
           <div>
-            <h3 className="text-lg font-semibold mb-6 text-white">Our Services</h3>
+            <h3 className="text-lg font-semibold mb-6 text-white">Policies</h3>
             <ul className="space-y-3">
               <li>
-                <Link href="/new-connections/high-rise-residential" className="text-gray-400 hover:text-white transition-colors">High-Rise Residential</Link>
+                <Link href="/privacy-policy" className="text-gray-400 hover:text-white transition-colors">Privacy Policy</Link>
               </li>
               <li>
-                <Link href="/new-connections/new-build-housing" className="text-gray-400 hover:text-white transition-colors">New Build Housing</Link>
+                <Link href="/cookies" className="text-gray-400 hover:text-white transition-colors">Cookie Policy</Link>
               </li>
               <li>
-                <Link href="/new-connections/ev-charging-networks" className="text-gray-400 hover:text-white transition-colors">EV Charging Networks</Link>
-              </li>
-              <li>
-                <Link href="/new-connections/substation-installation" className="text-gray-400 hover:text-white transition-colors">Substation Installation</Link>
-              </li>
-              <li>
-                <Link href="/new-connections/low-voltage-diversions" className="text-gray-400 hover:text-white transition-colors">Diversions & Reinforcements</Link>
+                <Link href="/terms-and-conditions" className="text-gray-400 hover:text-white transition-colors">Terms & Conditions</Link>
               </li>
             </ul>
           </div>
@@ -121,7 +116,7 @@ export default function Footer() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                 </div>
-                <span className="ml-3 text-gray-400">Mon-Fri: 8am - 6pm</span>
+                <span className="ml-3 text-gray-400">Mon-Fri: 08:30am - 5pm</span>
               </li>
             </ul>
           </div>
@@ -133,8 +128,8 @@ export default function Footer() {
             <p>&copy; {new Date().getFullYear()} HV Direct. All rights reserved.</p>
             <div className="flex gap-6">
               <Link href="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</Link>
+              <Link href="/cookies" className="hover:text-white transition-colors">Cookie Policy</Link>
               <Link href="/terms-and-conditions" className="hover:text-white transition-colors">Terms & Conditions</Link>
-              <Link href="/cookies" className="hover:text-white transition-colors">Cookies</Link>
             </div>
           </div>
         </div>

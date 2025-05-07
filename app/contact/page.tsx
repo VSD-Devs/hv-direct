@@ -13,9 +13,6 @@ export default function ContactPage() {
     company: "",
     service: "",
     message: "",
-    projectType: "",
-    budget: "",
-    timeframe: "",
   });
   
   const [formStatus, setFormStatus] = useState({
@@ -55,9 +52,6 @@ export default function ContactPage() {
       company: "",
       service: "",
       message: "",
-      projectType: "",
-      budget: "",
-      timeframe: "",
     });
   };
 
@@ -308,6 +302,7 @@ export default function ContactPage() {
                           onChange={handleInputChange}
                           className="w-full p-3 border border-gray-300 rounded-md focus:ring-[#137DC5] focus:border-[#137DC5] outline-none transition"
                           placeholder="Your name"
+                          title=""
                         />
                       </div>
                       <div>
@@ -321,6 +316,7 @@ export default function ContactPage() {
                           onChange={handleInputChange}
                           className="w-full p-3 border border-gray-300 rounded-md focus:ring-[#137DC5] focus:border-[#137DC5] outline-none transition"
                           placeholder="you@example.com"
+                          title=""
                         />
                       </div>
                     </div>
@@ -336,6 +332,7 @@ export default function ContactPage() {
                           onChange={handleInputChange}
                           className="w-full p-3 border border-gray-300 rounded-md focus:ring-[#137DC5] focus:border-[#137DC5] outline-none transition"
                           placeholder="Your phone number"
+                          title=""
                         />
                       </div>
                       <div>
@@ -348,11 +345,12 @@ export default function ContactPage() {
                           onChange={handleInputChange}
                           className="w-full p-3 border border-gray-300 rounded-md focus:ring-[#137DC5] focus:border-[#137DC5] outline-none transition"
                           placeholder="Your company"
+                          title=""
                         />
                       </div>
                     </div>
                     
-                      <div className="grid md:grid-cols-2 gap-6">
+                    <div className="grid md:grid-cols-2 gap-6">
                     <div>
                       <label htmlFor="service" className="block mb-2 text-sm font-medium text-gray-700">Service of Interest*</label>
                       <select
@@ -364,72 +362,17 @@ export default function ContactPage() {
                         className="w-full p-3 border border-gray-300 rounded-md focus:ring-[#137DC5] focus:border-[#137DC5] outline-none transition"
                       >
                         <option value="">Please select a service</option>
-                        <option value="Low Voltage Connections">Low Voltage Connections</option>
-                        <option value="High Voltage Connections">High Voltage Connections</option>
                         <option value="Residential Connections">Residential Connections</option>
                         <option value="Commercial Connections">Commercial Connections</option>
+                        <option value="Industrial Connections">Industrial Connections</option>
                         <option value="EV Charging Infrastructure">EV Charging Infrastructure</option>
                         <option value="Diversions & Reinforcements">Diversions & Reinforcements</option>
+                        <option value="Consultancy">Consultancy</option>
                         <option value="Other">Other</option>
                       </select>
-                        </div>
-                        <div>
-                          <label htmlFor="projectType" className="block mb-2 text-sm font-medium text-gray-700">Project Type</label>
-                          <select
-                            id="projectType"
-                            name="projectType"
-                            value={formData.projectType}
-                            onChange={handleInputChange}
-                            className="w-full p-3 border border-gray-300 rounded-md focus:ring-[#137DC5] focus:border-[#137DC5] outline-none transition"
-                          >
-                            <option value="">Please select project type</option>
-                            <option value="New Build">New Build</option>
-                            <option value="Renovation">Renovation</option>
-                            <option value="Expansion">Expansion</option>
-                            <option value="Infrastructure">Infrastructure</option>
-                            <option value="Maintenance">Maintenance</option>
-                            <option value="Other">Other</option>
-                          </select>
-                        </div>
-                      </div>
-                      
-                      <div className="grid md:grid-cols-2 gap-6">
-                        <div>
-                          <label htmlFor="budget" className="block mb-2 text-sm font-medium text-gray-700">Estimated Budget</label>
-                          <select
-                            id="budget"
-                            name="budget"
-                            value={formData.budget}
-                            onChange={handleInputChange}
-                            className="w-full p-3 border border-gray-300 rounded-md focus:ring-[#137DC5] focus:border-[#137DC5] outline-none transition"
-                          >
-                            <option value="">Please select budget range</option>
-                            <option value="Under £10,000">Under £10,000</option>
-                            <option value="£10,000 - £50,000">£10,000 - £50,000</option>
-                            <option value="£50,000 - £100,000">£50,000 - £100,000</option>
-                            <option value="£100,000 - £500,000">£100,000 - £500,000</option>
-                            <option value="Over £500,000">Over £500,000</option>
-                            <option value="Not sure yet">Not sure yet</option>
-                          </select>
-                        </div>
-                        <div>
-                          <label htmlFor="timeframe" className="block mb-2 text-sm font-medium text-gray-700">Project Timeframe</label>
-                          <select
-                            id="timeframe"
-                            name="timeframe"
-                            value={formData.timeframe}
-                            onChange={handleInputChange}
-                            className="w-full p-3 border border-gray-300 rounded-md focus:ring-[#137DC5] focus:border-[#137DC5] outline-none transition"
-                          >
-                            <option value="">Please select timeframe</option>
-                            <option value="Immediate (within 1 month)">Immediate (within 1 month)</option>
-                            <option value="Short term (1-3 months)">Short term (1-3 months)</option>
-                            <option value="Medium term (3-6 months)">Medium term (3-6 months)</option>
-                            <option value="Long term (6+ months)">Long term (6+ months)</option>
-                            <option value="Planning phase only">Planning phase only</option>
-                          </select>
-                        </div>
                     </div>
+                    <div className="md:col-span-1"></div>
+                      </div>
                     
                     <div>
                       <label htmlFor="message" className="block mb-2 text-sm font-medium text-gray-700">Your Message*</label>
@@ -442,6 +385,7 @@ export default function ContactPage() {
                         onChange={handleInputChange}
                         className="w-full p-3 border border-gray-300 rounded-md focus:ring-[#137DC5] focus:border-[#137DC5] outline-none transition"
                         placeholder="Please provide details about your project or requirements..."
+                        title=""
                       ></textarea>
                     </div>
 
@@ -513,7 +457,7 @@ export default function ContactPage() {
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-3 text-white/80" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                   </svg>
-                  <span>Response within 24 hours</span>
+                  <span>Response within 48 hours</span>
                 </div>
               </div>
               

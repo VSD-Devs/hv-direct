@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useCallback, useRef } from "react";
 import useEmblaCarousel from 'embla-carousel-react';
 import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "@/components/ui/carousel";
+import Link from "next/link";
 
 export default function Home() {
   const [formStep, setFormStep] = useState(1);
@@ -210,12 +211,15 @@ export default function Home() {
                 HV Direct is an Independent Connection Provider (ICP) specialising in delivering electrical connections to residential, commercial and industrial and EV Charging networks.
             </p>
             <div className="flex gap-4">
-                <a 
-                  href="/services"
-                  className="inline-flex items-center justify-center h-12 rounded-md px-8 text-sm font-medium bg-white text-[#0f5f96] hover:bg-white/90 shadow-md transition-all border-2 border-white"
+                <Link 
+                  href="/sectors#connection-services"
+                  className="bg-white/90 hover:bg-white text-[#137DC5] font-medium py-3 px-6 rounded-lg shadow-md transition-colors flex items-center w-fit mx-auto md:mx-0"
                 >
-                  Our Services
-                </a>
+                  Explore Our Services
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                  </svg>
+                </Link>
                 <a 
                   href="/about"
                   className="inline-flex items-center justify-center h-12 rounded-md px-8 text-sm font-medium bg-white/20 hover:bg-white/30 text-white border-2 border-white shadow-md transition-all backdrop-blur-sm"
@@ -572,7 +576,7 @@ export default function Home() {
                   From new build housing to high-rise developments, we deliver reliable and efficient electrical connections for all types of residential projects.
                 </p>
                 <a 
-                  href="/new-connections/new-build-housing" 
+                  href="/sectors#connection-services"
                   className="inline-flex items-center text-[#137DC5] font-medium hover:text-[#0f5f96] transition-colors"
                 >
                   Learn More
@@ -602,7 +606,7 @@ export default function Home() {
                   We provide tailored electrical infrastructure for office buildings, retail parks, and business premises, ensuring minimal disruption to your operations.
                 </p>
                 <a 
-                  href="/new-connections" 
+                  href="/sectors#connection-services"
                   className="inline-flex items-center text-[#137DC5] font-medium hover:text-[#0f5f96] transition-colors"
                 >
                   Learn More
@@ -632,7 +636,7 @@ export default function Home() {
                   From manufacturing facilities to warehouses, we design and implement robust electrical systems that power your industrial operations.
                 </p>
                 <a 
-                  href="/new-connections" 
+                  href="/sectors#connection-services"
                   className="inline-flex items-center text-[#137DC5] font-medium hover:text-[#0f5f96] transition-colors"
                 >
                   Learn More
@@ -649,7 +653,7 @@ export default function Home() {
               href="/about" 
               className="inline-flex items-center justify-center px-6 py-3 bg-[#0f5f96] text-white font-medium rounded-md hover:bg-[#094879] transition-colors"
             >
-              Learn More About Our Approach
+              Learn More About Us
               <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
               </svg>
@@ -741,7 +745,7 @@ export default function Home() {
                         HV Direct designs and constructs electrical infrastructure for high-rise residential buildings, ensuring reliable power distribution throughout the development.
                       </p>
                       <a 
-                        href="/new-connections/high-rise-residential" 
+                        href="/sectors#connection-services"
                         className="inline-flex items-center text-[#137DC5] font-medium hover:text-[#0f5f96] transition-colors"
                       >
                         Learn More
@@ -775,7 +779,7 @@ export default function Home() {
                         The company provides electrical connections for new housing developments, from design to construction, ensuring efficient and cost-effective solutions.
                       </p>
                       <a 
-                        href="/new-connections/new-build-housing" 
+                        href="/sectors#connection-services"
                         className="inline-flex items-center text-[#137DC5] font-medium hover:text-[#0f5f96] transition-colors"
                       >
                         Learn More
@@ -812,7 +816,7 @@ export default function Home() {
                         HV Direct designs and installs EV charging infrastructure for residential settings to large-scale commercial fleets and transport hubs.
                       </p>
                       <a 
-                        href="/new-connections/ev-charging-networks" 
+                        href="/sectors#connection-services"
                         className="inline-flex items-center text-[#137DC5] font-medium hover:text-[#0f5f96] transition-colors"
                       >
                         Learn More
@@ -849,7 +853,7 @@ export default function Home() {
                         The company handles diversions and reinforcements at both low and high voltage, ensuring electrical infrastructure can accommodate new developments.
                       </p>
                       <a 
-                        href="/new-connections/diversions" 
+                        href="/sectors#connection-services"
                         className="inline-flex items-center text-[#137DC5] font-medium hover:text-[#0f5f96] transition-colors"
                       >
                         Learn More
@@ -883,7 +887,7 @@ export default function Home() {
                         HV Direct designs and constructs high-voltage substations (up to 11kV), ensuring they meet all regulatory and safety standards for optimal performance.
                       </p>
                       <a 
-                        href="/new-connections/substation-installation" 
+                        href="/sectors#connection-services"
                         className="inline-flex items-center text-[#137DC5] font-medium hover:text-[#0f5f96] transition-colors"
                       >
                         Learn More
@@ -904,12 +908,12 @@ export default function Home() {
           </div>
 
           <div className="text-center mt-8">
-            <a 
-              href="/new-connections"
-              className="inline-flex items-center justify-center px-6 py-3 bg-[#137DC5] text-white font-medium rounded-md hover:bg-[#0f5f96] transition-colors"
+            <Link
+              href="/sectors#connection-services"
+              className="inline-flex items-center justify-center h-12 px-6 bg-[#137DC5] text-white hover:bg-[#0f5f96] rounded-md transition-colors"
             >
               View All Services
-            </a>
+            </Link>
           </div>
         </div>
       </section>
@@ -936,7 +940,7 @@ export default function Home() {
             <div className="lg:w-1/2">
               <div className="relative h-[500px] rounded-lg overflow-hidden shadow-xl">
                 <img
-                  src="/images/about-hv.png"
+                  src="/images/about-hv(2).png"
                   alt="HV Direct engineers working on site"
                   className="w-full h-full object-cover"
                 />
