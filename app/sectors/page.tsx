@@ -50,6 +50,17 @@ export default function SectorsPage() {
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
         </svg>
       )
+    },
+    {
+      title: "EV Charging",
+      description: "Future-proof electric vehicle charging infrastructure for commercial, residential, and public applications.",
+      image: "/images/ev-charging.jpeg",
+      link: "/sectors/ev-charging",
+      icon: (
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+        </svg>
+      )
     }
   ];
 
@@ -145,7 +156,7 @@ export default function SectorsPage() {
               Choose your sector to discover tailored electrical infrastructure solutions for your specific industry needs.
             </p>
           </div>
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {sectors.map((sector, index) => (
               <Link 
                 href={sector.link}
@@ -153,19 +164,19 @@ export default function SectorsPage() {
                 className="group"
               >
                 <div className="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow h-full">
-                  <div className="h-64 overflow-hidden">
+                  <div className="h-48 overflow-hidden">
                     <img
                       src={sector.image}
                       alt={`${sector.title} electrical connections`}
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                     />
                   </div>
-                  <div className="p-8">
-                    <div className="inline-flex items-center justify-center h-16 w-16 rounded-full bg-[#137DC5]/10 text-[#137DC5] mb-6">
+                  <div className="p-6">
+                    <div className="inline-flex items-center justify-center h-12 w-12 rounded-full bg-[#137DC5]/10 text-[#137DC5] mb-4">
                       {sector.icon}
                     </div>
-                    <h3 className="text-2xl font-semibold mb-4">{sector.title} Connections</h3>
-                    <p className="text-base md:text-lg text-gray-600 mb-6">{sector.description}</p>
+                    <h3 className="text-xl font-semibold mb-3">{sector.title} Connections</h3>
+                    <p className="text-base text-gray-600 mb-4">{sector.description}</p>
                     <span className="text-[#137DC5] font-medium flex items-center">
                       Explore {sector.title} Solutions
                       <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-1" viewBox="0 0 20 20" fill="currentColor">

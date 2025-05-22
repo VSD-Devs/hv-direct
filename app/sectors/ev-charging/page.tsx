@@ -4,9 +4,9 @@ import React, { useState } from "react";
 import Link from "next/link";
 import QuoteModal from "@/app/components/QuoteModal";
 
-export default function ResidentialPage() {
+export default function EVChargingPage() {
   const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false);
-  const [quoteService, setQuoteService] = useState("Residential Electrical Connection");
+  const [quoteService, setQuoteService] = useState("EV Charging Infrastructure");
   
   // Function to open modal with specific service
   const openQuoteModal = (serviceName: string) => {
@@ -14,45 +14,47 @@ export default function ResidentialPage() {
     setIsQuoteModalOpen(true);
   };
 
-  // Core residential services overview
+  // Core EV Charging services
   const services = [
     {
-      title: "New Build Housing",
-      description: "Complete electrical infrastructure for housing developments, from single properties to large estates.",
+      title: "Commercial Charging Hubs",
+      description: "End-to-end installation of rapid and ultra-rapid charging facilities for public use and commercial fleet operations.",
       icon: (
         <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
         </svg>
       ),
-      link: "#new-build-housing"
+      link: "#commercial-charging"
     },
     {
-      title: "High-Rise Residential",
-      description: "Specialised electrical solutions for apartment buildings and high-rise residential developments.",
+      title: "Workplace Charging",
+      description: "Customised EV charging solutions for employee parking areas with smart load management.",
       icon: (
         <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
         </svg>
       ),
-      link: "#high-rise-residential"
+      link: "#workplace-charging"
     },
     {
-      title: "EV Charging Infrastructure",
-      description: "Future-proof residential EV charging solutions, from single point installations to community charging hubs.",
+      title: "Residential Charging",
+      description: "EV charging infrastructure for housing developments, apartment buildings and community schemes.",
       icon: (
         <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
         </svg>
-      )
+      ),
+      link: "#residential-charging"
     },
     {
-      title: "Electrical Upgrades",
-      description: "Upgrade existing residential electrical infrastructure to meet modern demands and regulations.",
+      title: "Grid Connections & Upgrades",
+      description: "Power infrastructure upgrades to facilitate high-capacity EV charging installations.",
       icon: (
         <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
         </svg>
-      )
+      ),
+      link: "#grid-connections"
     }
   ];
 
@@ -60,20 +62,20 @@ export default function ResidentialPage() {
     <main className="min-h-screen">
       {/* Hero Section */}
       <section className="relative py-20 md:py-28 bg-cover bg-center text-white" style={{ 
-        backgroundImage: "linear-gradient(rgba(23, 63, 90, 0.85), rgba(16, 59, 88, 0.75)), url('/images/residential-new-connection.png')",
+        backgroundImage: "linear-gradient(rgba(23, 63, 90, 0.85), rgba(16, 59, 88, 0.75)), url('/images/ev-charging.jpeg')",
         backgroundPosition: "center top"
       }}>
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-3xl">
             <h1 className="text-4xl md:text-5xl font-bold mb-6 text-white">
-              Residential Electrical Connections
+              EV Charging Infrastructure
             </h1>
             <p className="text-base md:text-xl mb-8">
-              We provide complete electrical infrastructure solutions for residential developments of all sizes, from single homes to large housing estates.
+              Future-proof electric vehicle charging solutions for businesses, residential developments, and public spaces.
             </p>
             <div className="flex flex-wrap gap-4">
               <button 
-                onClick={() => openQuoteModal("Residential Electrical Connection")}
+                onClick={() => openQuoteModal("EV Charging Infrastructure")}
                 className="inline-flex items-center justify-center h-12 rounded-md px-8 text-sm font-medium bg-white text-[#137DC5] hover:bg-white/90 transition-colors shadow-lg"
               >
                 Request a Quote
@@ -97,16 +99,23 @@ export default function ResidentialPage() {
               <div className="max-w-xl">
                 <h2 className="text-3xl font-bold mb-6 text-brand-dark-blue">How We Work</h2>
                 <p className="text-base md:text-lg text-gray-700 mb-4">
-                  At HV Direct, we provide straightforward residential electrical connection services with a focus on reliability and customer satisfaction.
+                  At HV Direct, we specialise in delivering comprehensive EV charging infrastructure solutions tailored to your specific requirements.
                 </p>
                 <p className="text-base md:text-lg text-gray-700 mb-4">
-                  Our approach is simple: we deliver high-quality electrical infrastructure for residential developments on time and within budget.
+                  As the UK transitions towards electric vehicles, reliable charging infrastructure is essential. We provide end-to-end EV charging solutions for commercial, residential and public sector applications.
                 </p>
                 <p className="text-base md:text-lg text-gray-700 mb-6">
-                  From initial consultation to final connection, we handle all aspects of your project, including design, DNO applications, and installation.
+                  From initial feasibility studies to final commissioning, we handle all aspects of your EV charging project, including DNO applications, civil works, and electrical connections.
                 </p>
                 
-                <div className="mt-8 flex flex-col sm:flex-row gap-4">
+                <div className="flex flex-wrap gap-3 mb-8">
+                  <span className="inline-block px-3 py-1 bg-[#137DC5]/10 text-[#137DC5] rounded-md text-sm font-medium">Commercial Fleets</span>
+                  <span className="inline-block px-3 py-1 bg-[#137DC5]/10 text-[#137DC5] rounded-md text-sm font-medium">Workplace Charging</span>
+                  <span className="inline-block px-3 py-1 bg-[#137DC5]/10 text-[#137DC5] rounded-md text-sm font-medium">Residential</span>
+                  <span className="inline-block px-3 py-1 bg-[#137DC5]/10 text-[#137DC5] rounded-md text-sm font-medium">Public Charging</span>
+                </div>
+                
+                <div className="flex flex-col sm:flex-row gap-4">
                   <Link 
                     href="/contact"
                     className="inline-flex items-center justify-center h-12 rounded-md px-8 text-sm font-medium bg-[#137DC5] text-white hover:bg-[#0f5f96] transition-colors shadow-md"
@@ -125,8 +134,8 @@ export default function ResidentialPage() {
             <div className="lg:w-1/2">
               <div className="rounded-xl overflow-hidden shadow-xl">
                 <img
-                  src="/images/commercial-buildings.jpg"
-                  alt="How We Work"
+                  src="/images/ev-charging.jpeg"
+                  alt="EV Charging Infrastructure"
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -140,10 +149,10 @@ export default function ResidentialPage() {
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold mb-4 text-brand-dark-blue">
-              Our Residential Services
+              Our EV Charging Services
             </h2>
             <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto">
-              Comprehensive electrical infrastructure solutions tailored to residential developments.
+              Comprehensive electric vehicle charging solutions for all applications.
             </p>
           </div>
 
@@ -172,27 +181,26 @@ export default function ResidentialPage() {
         </div>
       </section>
 
-      {/* New Build Housing Section */}
-      <section id="new-build-housing" className="py-16 bg-white">
+      {/* Commercial Charging Section */}
+      <section id="commercial-charging" className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="flex flex-col lg:flex-row gap-12 items-center">
             <div className="lg:w-1/2">
               <img 
-                src="/images/new-builds.jpg" 
-                alt="New Build Housing Development" 
+                src="/images/ev-charging.jpeg" 
+                alt="Commercial EV Charging Hub" 
                 className="w-full h-auto rounded-lg shadow-lg"
               />
             </div>
             <div className="lg:w-1/2">
               <h2 className="text-3xl font-bold mb-4 text-[#1a1a1a]">
-                New Build Housing Connections
+                Commercial Charging Solutions
               </h2>
               <p className="text-gray-600 mb-6">
-                We specialise in designing, installing and connecting electrical infrastructure for new housing developments throughout the UK. From small plots to major residential schemes, we deliver reliable power solutions that meet the needs of modern homes.
+                We design and install high-capacity EV charging hubs for commercial operations, public charging networks, and fleet depots.
               </p>
-              <p className="text-gray-600 mb-6">
-                Our team works closely with developers, architects and contractors to ensure seamless coordination with your build programme and minimal disruption to your project timeline.
-              </p>
+              
+              <h3 className="text-xl font-semibold mb-3 text-[#1a1a1a]">Our Commercial EV Charging Services Include:</h3>
               <ul className="space-y-3 mb-8">
                 <li className="flex items-start">
                   <div className="h-6 w-6 rounded-full bg-[#137DC5] flex items-center justify-center text-white mt-0.5 flex-shrink-0">
@@ -200,7 +208,7 @@ export default function ResidentialPage() {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
                   </div>
-                  <span className="ml-3 text-gray-600">Complete solution from design to energisation</span>
+                  <span className="ml-3 text-gray-600">Workplace charging facilities for employee vehicles</span>
                 </li>
                 <li className="flex items-start">
                   <div className="h-6 w-6 rounded-full bg-[#137DC5] flex items-center justify-center text-white mt-0.5 flex-shrink-0">
@@ -208,7 +216,7 @@ export default function ResidentialPage() {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
                   </div>
-                  <span className="ml-3 text-gray-600">Designed to accommodate EV charging and renewable energy systems</span>
+                  <span className="ml-3 text-gray-600">Public charging installations for retail and leisure venues</span>
                 </li>
                 <li className="flex items-start">
                   <div className="h-6 w-6 rounded-full bg-[#137DC5] flex items-center justify-center text-white mt-0.5 flex-shrink-0">
@@ -216,73 +224,31 @@ export default function ResidentialPage() {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
                   </div>
-                  <span className="ml-3 text-gray-600">Coordination with other utility providers to minimise disruption</span>
+                  <span className="ml-3 text-gray-600">Commercial rapid charging hubs for public use</span>
+                </li>
+                <li className="flex items-start">
+                  <div className="h-6 w-6 rounded-full bg-[#137DC5] flex items-center justify-center text-white mt-0.5 flex-shrink-0">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                  </div>
+                  <span className="ml-3 text-gray-600">Fleet depot charging infrastructure for businesses</span>
+                </li>
+                <li className="flex items-start">
+                  <div className="h-6 w-6 rounded-full bg-[#137DC5] flex items-center justify-center text-white mt-0.5 flex-shrink-0">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                  </div>
+                  <span className="ml-3 text-gray-600">Smart charging systems with load management</span>
                 </li>
               </ul>
               <button 
-                onClick={() => openQuoteModal("New Build Housing Connection")}
+                onClick={() => openQuoteModal("Commercial EV Charging")}
                 className="inline-flex items-center justify-center h-12 px-8 rounded-md text-sm font-medium bg-[#137DC5] text-white hover:bg-[#0f5f96] transition-colors"
               >
                 Request a Quote
               </button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* High Rise Residential Section */}
-      <section id="high-rise-residential" className="py-16 bg-[#f5f5f5]">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-col lg:flex-row gap-12 items-center">
-            <div className="lg:w-1/2 order-2 lg:order-1">
-              <h2 className="text-3xl font-bold mb-4 text-[#1a1a1a]">
-                High-Rise Residential Connections
-              </h2>
-              <p className="text-gray-600 mb-6">
-                HV Direct specialises in designing, installing and maintaining high-quality electrical connections for high-rise residential buildings across the UK. 
-              </p>
-              <p className="text-gray-600 mb-6">
-                Our tailored solutions ensure that residents have constant, reliable power whilst property managers benefit from infrastructure that's built to last with minimal ongoing maintenance.
-              </p>
-              <ul className="space-y-3 mb-8">
-                <li className="flex items-start">
-                  <div className="h-6 w-6 rounded-full bg-[#137DC5] flex items-center justify-center text-white mt-0.5 flex-shrink-0">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                  </div>
-                  <span className="ml-3 text-gray-600">Purpose-built solutions for buildings of 5+ storeys</span>
-                </li>
-                <li className="flex items-start">
-                  <div className="h-6 w-6 rounded-full bg-[#137DC5] flex items-center justify-center text-white mt-0.5 flex-shrink-0">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                  </div>
-                  <span className="ml-3 text-gray-600">Fully compliant with UK building regulations and electrical standards</span>
-                </li>
-                <li className="flex items-start">
-                  <div className="h-6 w-6 rounded-full bg-[#137DC5] flex items-center justify-center text-white mt-0.5 flex-shrink-0">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                  </div>
-                  <span className="ml-3 text-gray-600">Future-proofed design that accommodates EV charging and renewable integration</span>
-                </li>
-              </ul>
-              <button 
-                onClick={() => openQuoteModal("High-Rise Residential Connection")}
-                className="inline-flex items-center justify-center h-12 px-8 rounded-md text-sm font-medium bg-[#137DC5] text-white hover:bg-[#0f5f96] transition-colors"
-              >
-                Request a Quote
-              </button>
-            </div>
-            <div className="lg:w-1/2 order-1 lg:order-2">
-              <img 
-                src="/images/high-rise-residential.jpg" 
-                alt="High Rise Residential Building" 
-                className="w-full h-auto rounded-lg shadow-lg"
-              />
             </div>
           </div>
         </div>
@@ -291,9 +257,9 @@ export default function ResidentialPage() {
       {/* CTA Section */}
       <section className="py-16 bg-[#137DC5] text-white">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-6 text-white">Ready to discuss your residential project?</h2>
+          <h2 className="text-3xl font-bold mb-6 text-white">Ready to discuss your EV charging project?</h2>
           <p className="text-lg mb-8 max-w-2xl mx-auto">
-            Our team is here to help with your electrical connection needs. Get in touch today for a free consultation.
+            Our team is ready to help with your EV charging infrastructure needs. Get in touch today for a consultation.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Link 

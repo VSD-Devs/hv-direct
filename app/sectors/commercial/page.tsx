@@ -23,17 +23,8 @@ export default function CommercialPage() {
         <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
         </svg>
-      )
-    },
-    {
-      title: "EV Charging Networks",
-      description: "Commercial EV charging infrastructure for employee parking, customer use, or dedicated charging hubs.",
-      icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-        </svg>
       ),
-      link: "#ev-charging"
+      link: "#retail-office"
     },
     {
       title: "Substation Installation",
@@ -42,7 +33,8 @@ export default function CommercialPage() {
         <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
         </svg>
-      )
+      ),
+      link: "#substation"
     },
     {
       title: "Load Assessments & Upgrades",
@@ -52,15 +44,17 @@ export default function CommercialPage() {
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z" />
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z" />
         </svg>
-      )
+      ),
+      link: "#upgrades"
     }
   ];
 
   return (
     <main className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative py-14 md:py-20 bg-cover bg-center text-white" style={{ 
-        backgroundImage: "linear-gradient(rgba(23, 63, 90, 0.85), rgba(16, 59, 88, 0.75)), url('/images/commercial-hero.jpg')"
+      <section className="relative py-20 md:py-28 bg-cover bg-center text-white" style={{ 
+        backgroundImage: "linear-gradient(rgba(23, 63, 90, 0.85), rgba(16, 59, 88, 0.75)), url('/images/commercial-hotel.jpg')",
+        backgroundPosition: "center top"
       }}>
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-3xl">
@@ -129,35 +123,12 @@ export default function CommercialPage() {
               </div>
             </div>
             <div className="lg:w-1/2">
-              <div className="grid grid-cols-2 gap-4">
-                <div className="aspect-square rounded-xl overflow-hidden">
-                  <img
-                    src="/images/commercial-1.jpg"
-                    alt="Commercial electrical installation"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div className="aspect-square rounded-xl overflow-hidden">
-                  <img
-                    src="/images/commercial-2.jpg"
-                    alt="Retail park electrical infrastructure"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div className="aspect-square rounded-xl overflow-hidden">
-                  <img
-                    src="/images/commercial-3.jpg"
-                    alt="Office building electrical systems"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div className="aspect-square rounded-xl overflow-hidden">
-                  <img
-                    src="/images/commercial-4.jpg"
-                    alt="Commercial substation installation"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
+              <div className="rounded-xl overflow-hidden shadow-xl">
+                <img
+                  src="/images/commercial-buildings.jpg"
+                  alt="How We Work"
+                  className="w-full h-full object-cover"
+                />
               </div>
             </div>
           </div>
@@ -201,83 +172,10 @@ export default function CommercialPage() {
         </div>
       </section>
 
-      {/* EV Charging Networks Section */}
-      <section id="ev-charging" className="py-16 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-col lg:flex-row gap-12 items-center">
-            <div className="lg:w-1/2">
-              <img 
-                src="/images/ev-charging.jpeg" 
-                alt="EV Charging Installation" 
-                className="w-full h-auto rounded-lg shadow-lg"
-              />
-            </div>
-            <div className="lg:w-1/2">
-              <h2 className="text-3xl font-bold mb-4 text-[#1a1a1a]">
-                EV Charging Network Solutions
-              </h2>
-              <p className="text-gray-600 mb-6">
-                As the UK transitions towards electric vehicles, reliable charging infrastructure is essential for businesses. We provide end-to-end EV charging solutions tailored to commercial requirements.
-              </p>
-              
-              <h3 className="text-xl font-semibold mb-3 text-[#1a1a1a]">Our Commercial EV Charging Services Include:</h3>
-              <ul className="space-y-3 mb-8">
-                <li className="flex items-start">
-                  <div className="h-6 w-6 rounded-full bg-[#137DC5] flex items-center justify-center text-white mt-0.5 flex-shrink-0">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                  </div>
-                  <span className="ml-3 text-gray-600">Workplace charging facilities for employee vehicles</span>
-                </li>
-                <li className="flex items-start">
-                  <div className="h-6 w-6 rounded-full bg-[#137DC5] flex items-center justify-center text-white mt-0.5 flex-shrink-0">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                  </div>
-                  <span className="ml-3 text-gray-600">Public charging installations for retail and leisure venues</span>
-                </li>
-                <li className="flex items-start">
-                  <div className="h-6 w-6 rounded-full bg-[#137DC5] flex items-center justify-center text-white mt-0.5 flex-shrink-0">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                  </div>
-                  <span className="ml-3 text-gray-600">Commercial rapid charging hubs for public use</span>
-                </li>
-                <li className="flex items-start">
-                  <div className="h-6 w-6 rounded-full bg-[#137DC5] flex items-center justify-center text-white mt-0.5 flex-shrink-0">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                  </div>
-                  <span className="ml-3 text-gray-600">Fleet depot charging infrastructure for businesses</span>
-                </li>
-                <li className="flex items-start">
-                  <div className="h-6 w-6 rounded-full bg-[#137DC5] flex items-center justify-center text-white mt-0.5 flex-shrink-0">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                  </div>
-                  <span className="ml-3 text-gray-600">Smart charging systems with load management</span>
-                </li>
-              </ul>
-              <button 
-                onClick={() => openQuoteModal("Commercial EV Charging")}
-                className="inline-flex items-center justify-center h-12 px-8 rounded-md text-sm font-medium bg-[#137DC5] text-white hover:bg-[#0f5f96] transition-colors"
-              >
-                Request a Quote
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* CTA Section */}
       <section className="py-16 bg-[#137DC5] text-white">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-6">Ready to discuss your commercial project?</h2>
+          <h2 className="text-3xl font-bold mb-6 text-white">Ready to discuss your commercial project?</h2>
           <p className="text-lg mb-8 max-w-2xl mx-auto">
             Our team is ready to help with your commercial electrical connection needs. Get in touch today for a consultation.
           </p>

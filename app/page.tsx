@@ -745,7 +745,7 @@ export default function Home() {
                         HV Direct designs and constructs electrical infrastructure for high-rise residential buildings, ensuring reliable power distribution throughout the development.
                       </p>
                       <a 
-                        href="/sectors#connection-services"
+                        href="/sectors/residential#high-rise-residential"
                         className="inline-flex items-center text-[#137DC5] font-medium hover:text-[#0f5f96] transition-colors"
                       >
                         Learn More
@@ -779,7 +779,7 @@ export default function Home() {
                         The company provides electrical connections for new housing developments, from design to construction, ensuring efficient and cost-effective solutions.
                       </p>
                       <a 
-                        href="/sectors#connection-services"
+                        href="/sectors/residential#new-build-housing"
                         className="inline-flex items-center text-[#137DC5] font-medium hover:text-[#0f5f96] transition-colors"
                       >
                         Learn More
@@ -816,7 +816,7 @@ export default function Home() {
                         HV Direct designs and installs EV charging infrastructure for residential settings to large-scale commercial fleets and transport hubs.
                       </p>
                       <a 
-                        href="/sectors#connection-services"
+                        href="/sectors/ev-charging"
                         className="inline-flex items-center text-[#137DC5] font-medium hover:text-[#0f5f96] transition-colors"
                       >
                         Learn More
@@ -853,7 +853,7 @@ export default function Home() {
                         The company handles diversions and reinforcements at both low and high voltage, ensuring electrical infrastructure can accommodate new developments.
                       </p>
                       <a 
-                        href="/sectors#connection-services"
+                        href="/sectors/infrastructure"
                         className="inline-flex items-center text-[#137DC5] font-medium hover:text-[#0f5f96] transition-colors"
                       >
                         Learn More
